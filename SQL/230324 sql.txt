@@ -1,0 +1,306 @@
+Connected to:
+Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+COURSE                         TABLE
+STUDENT                        TABLE
+DOCTOR                         TABLE
+PATIENT                        TABLE
+PEOPLE                         TABLE
+VACCINE                        TABLE
+CUSTOMER                       TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+PROD                           TABLE
+CRICKET                        TABLE
+PLAYER                         TABLE
+AMIN                           TABLE
+
+15 rows selected.
+
+SQL> desc amin;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(10)
+ NAME                                               VARCHAR2(10)
+ AGE                                                NUMBER(10)
+
+SQL> desc course;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CID                                       NOT NULL NUMBER(5)
+ CNAME                                     NOT NULL VARCHAR2(10)
+ FEES                                               NUMBER(10)
+ TNAME                                              VARCHAR2(10)
+
+SQL> insert into course values(&cid,'&cname',&fees,'&tname');
+Enter value for cid: 1
+Enter value for cname: sql
+Enter value for fees: 100
+Enter value for tname: aa
+old   1: insert into course values(&cid,'&cname',&fees,'&tname')
+new   1: insert into course values(1,'sql',100,'aa')
+
+1 row created.
+
+SQL> /
+Enter value for cid: 2
+Enter value for cname: python
+Enter value for fees: 200
+Enter value for tname: bb
+old   1: insert into course values(&cid,'&cname',&fees,'&tname')
+new   1: insert into course values(2,'python',200,'bb')
+
+1 row created.
+
+SQL> /
+Enter value for cid: 3
+Enter value for cname: html
+Enter value for fees: 300
+Enter value for tname: cc
+old   1: insert into course values(&cid,'&cname',&fees,'&tname')
+new   1: insert into course values(3,'html',300,'cc')
+
+1 row created.
+
+SQL> /
+Enter value for cid: 4
+Enter value for cname: django
+Enter value for fees: 400
+Enter value for tname: dd
+old   1: insert into course values(&cid,'&cname',&fees,'&tname')
+new   1: insert into course values(4,'django',400,'dd')
+
+1 row created.
+
+SQL> select * from course;
+
+       CID CNAME            FEES TNAME
+---------- ---------- ---------- ----------
+         1 sql               100 aa
+         2 python            200 bb
+         3 html              300 cc
+         4 django            400 dd
+
+SQL> insert into values(
+  2  
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER(5)
+ SNAME                                              VARCHAR2(20)
+ CID                                                NUMBER(5)
+ MARKS                                              NUMBER(10)
+
+SQL> insert into student values(&sid,'&sname',&cid,&marks);
+Enter value for sid: 1
+Enter value for sname: Amin
+Enter value for cid: 1
+Enter value for marks: 67
+old   1: insert into student values(&sid,'&sname',&cid,&marks)
+new   1: insert into student values(1,'Amin',1,67)
+
+1 row created.
+
+SQL> 
+SQL> /
+Enter value for sid: 2
+Enter value for sname: Jhon
+Enter value for cid: 1
+Enter value for marks: 78
+old   1: insert into student values(&sid,'&sname',&cid,&marks)
+new   1: insert into student values(2,'Jhon',1,78)
+
+1 row created.
+
+SQL> /
+Enter value for sid: 3
+Enter value for sname: Kate
+Enter value for cid: 3
+Enter value for marks: 89
+old   1: insert into student values(&sid,'&sname',&cid,&marks)
+new   1: insert into student values(3,'Kate',3,89)
+
+1 row created.
+
+SQL> /
+Enter value for sid: 4
+Enter value for sname: Slat
+Enter value for cid: 5
+Enter value for marks: 90
+old   1: insert into student values(&sid,'&sname',&cid,&marks)
+new   1: insert into student values(4,'Slat',5,90)
+insert into student values(4,'Slat',5,90)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SCOTT.SYS_C005426) violated - parent key not
+found
+
+
+SQL> /
+Enter value for sid: 4
+Enter value for sname: Salt
+Enter value for cid: 4
+Enter value for marks: 90
+old   1: insert into student values(&sid,'&sname',&cid,&marks)
+new   1: insert into student values(4,'Salt',4,90)
+
+1 row created.
+
+SQL> select * from student;
+
+       SID SNAME                       CID      MARKS
+---------- -------------------- ---------- ----------
+         1 Amin                          1         67
+         2 Jhon                          1         78
+         3 Kate                          3         89
+         4 Salt                          4         90
+
+SQL> 
+SQL> create table login(email varchar(20),
+  2  pn number(10) not null,
+  3  pass
+  4  
+SQL>  create table login(email varchar(20),
+  2  pn number(10),
+  3  password varchar(20) not null);
+
+Table created.
+
+SQL> drop table login;
+
+Table dropped.
+
+SQL>   create table login(email varchar(20),
+  2   pn number(10),
+  3   password varchar(20) not null
+  4  
+SQL> 
+SQL>   create table login(email varchar(20),
+  2   pn number(10),
+  3   password varchar(20) not null,
+  4  primary key(email,pn));
+
+Table created.
+
+SQL> desc login
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMAIL                                     NOT NULL VARCHAR2(20)
+ PN                                        NOT NULL NUMBER(10)
+ PASSWORD                                  NOT NULL VARCHAR2(20)
+
+SQL> insert into login values('&email',&pn,'&password');
+Enter value for email: a@a.com
+Enter value for pn: 234556
+Enter value for password: djoi
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('a@a.com',234556,'djoi')
+
+1 row created.
+
+SQL> /
+Enter value for email: a@a.com
+Enter value for pn: 232434
+Enter value for password: dferf
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('a@a.com',232434,'dferf')
+
+1 row created.
+
+SQL> /
+Enter value for email: a@a.com
+Enter value for pn: 234556
+Enter value for password: dsd
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('a@a.com',234556,'dsd')
+insert into login values('a@a.com',234556,'dsd')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SCOTT.SYS_C005459) violated
+
+
+SQL> /
+Enter value for email: a@a.com
+Enter value for pn: 234557
+Enter value for password: dkjffbwfb
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('a@a.com',234557,'dkjffbwfb')
+
+1 row created.
+
+SQL> /
+Enter value for email: select * from login;
+Enter value for pn: 
+Enter value for password: 
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('select * from login;',,'')
+insert into login values('select * from login;',,'')
+                                                *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> 
+SQL> select * from login;
+
+EMAIL                        PN PASSWORD
+-------------------- ---------- --------------------
+a@a.com                  234556 djoi
+a@a.com                  232434 dferf
+a@a.com                  234557 dkjffbwfb
+
+SQL> insert into login values('&email',&pn,'&password');
+Enter value for email: b@b.com
+Enter value for pn: 142536
+Enter value for password: luihuih
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('b@b.com',142536,'luihuih')
+
+1 row created.
+
+SQL> /
+Enter value for email: b@b.com
+Enter value for pn: 142536
+Enter value for password: huh
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('b@b.com',142536,'huh')
+insert into login values('b@b.com',142536,'huh')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SCOTT.SYS_C005459) violated
+
+
+SQL> /
+Enter value for email: c@c.com
+Enter value for pn: 142536
+Enter value for password: guyg
+old   1: insert into login values('&email',&pn,'&password')
+new   1: insert into login values('c@c.com',142536,'guyg')
+
+1 row created.
+
+SQL> select * from login;
+
+EMAIL                        PN PASSWORD
+-------------------- ---------- --------------------
+a@a.com                  234556 djoi
+a@a.com                  232434 dferf
+a@a.com                  234557 dkjffbwfb
+b@b.com                  142536 luihuih
+c@c.com                  142536 guyg
+
+SQL> commit;
+
+Commit complete.
+
+SQL> 

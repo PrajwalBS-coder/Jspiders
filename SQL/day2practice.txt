@@ -1,0 +1,420 @@
+SQL> select 3*(5/0) from dual;
+select 3*(5/0) from dual
+           *
+ERROR at line 1:
+ORA-01476: divisor is equal to zero 
+
+
+SQL> select 3*(5/2) from dual;
+
+   3*(5/2)                                                                      
+----------                                                                      
+       7.5                                                                      
+
+SQL> desc dept;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select sysdate from dual;
+
+SYSDATE                                                                         
+---------                                                                       
+15-MAR-24                                                                       
+
+SQL> select ename || sal from emp;
+
+ENAME||SAL                                                                      
+--------------------------------------------------                              
+SMITH800                                                                        
+ALLEN1600                                                                       
+WARD1250                                                                        
+JONES2975                                                                       
+MARTIN1250                                                                      
+BLAKE2850                                                                       
+CLARK2450                                                                       
+SCOTT3000                                                                       
+KING5000                                                                        
+TURNER1500                                                                      
+ADAMS1100                                                                       
+
+ENAME||SAL                                                                      
+--------------------------------------------------                              
+JAMES950                                                                        
+FORD3000                                                                        
+MILLER1300                                                                      
+
+14 rows selected.
+
+SQL> select 'SQL'||'PLUS' from dual;
+
+'SQL'||                                                                         
+-------                                                                         
+SQLPLUS                                                                         
+
+SQL> select ename ||'Working as'|| job ||'in dept'|| deptno from emp;
+
+ENAME||'WORKINGAS'||JOB||'INDEPT'||DEPTNO                                       
+----------------------------------------------------------------------------    
+SMITHWorking asCLERKin dept20                                                   
+ALLENWorking asSALESMANin dept30                                                
+WARDWorking asSALESMANin dept30                                                 
+JONESWorking asMANAGERin dept20                                                 
+MARTINWorking asSALESMANin dept30                                               
+BLAKEWorking asMANAGERin dept30                                                 
+CLARKWorking asMANAGERin dept10                                                 
+SCOTTWorking asANALYSTin dept20                                                 
+KINGWorking asPRESIDENTin dept10                                                
+TURNERWorking asSALESMANin dept30                                               
+ADAMSWorking asCLERKin dept20                                                   
+
+ENAME||'WORKINGAS'||JOB||'INDEPT'||DEPTNO                                       
+----------------------------------------------------------------------------    
+JAMESWorking asCLERKin dept30                                                   
+FORDWorking asANALYSTin dept20                                                  
+MILLERWorking asCLERKin dept10                                                  
+
+14 rows selected.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select ename ||' is a'|| job || 'and earning' || sal || 'and joined'|| hiredate from emp;
+
+ENAME||'ISA'||JOB||'ANDEARNING'||SAL||'ANDJOINED'||HIREDATE                     
+--------------------------------------------------------------------------------
+SMITH is aCLERKand earning800and joined17-DEC-80                                
+ALLEN is aSALESMANand earning1600and joined20-FEB-81                            
+WARD is aSALESMANand earning1250and joined22-FEB-81                             
+JONES is aMANAGERand earning2975and joined02-APR-81                             
+MARTIN is aSALESMANand earning1250and joined28-SEP-81                           
+BLAKE is aMANAGERand earning2850and joined01-MAY-81                             
+CLARK is aMANAGERand earning2450and joined09-JUN-81                             
+SCOTT is aANALYSTand earning3000and joined19-APR-87                             
+KING is aPRESIDENTand earning5000and joined17-NOV-81                            
+TURNER is aSALESMANand earning1500and joined08-SEP-81                           
+ADAMS is aCLERKand earning1100and joined23-MAY-87                               
+
+ENAME||'ISA'||JOB||'ANDEARNING'||SAL||'ANDJOINED'||HIREDATE                     
+--------------------------------------------------------------------------------
+JAMES is aCLERKand earning950and joined03-DEC-81                                
+FORD is aANALYSTand earning3000and joined03-DEC-81                              
+MILLER is aCLERKand earning1300and joined23-JAN-82                              
+
+14 rows selected.
+
+SQL> select ename ||'ia an employee who is having a '||empno|| 'and earning' ||comm from emp;
+
+ENAME||'IAANEMPLOYEEWHOISHAVINGA'||EMPNO||'ANDEARNING'||COMM                    
+--------------------------------------------------------------------------------
+SMITHia an employee who is having a 7369and earning                             
+ALLENia an employee who is having a 7499and earning300                          
+WARDia an employee who is having a 7521and earning500                           
+JONESia an employee who is having a 7566and earning                             
+MARTINia an employee who is having a 7654and earning1400                        
+BLAKEia an employee who is having a 7698and earning                             
+CLARKia an employee who is having a 7782and earning                             
+SCOTTia an employee who is having a 7788and earning                             
+KINGia an employee who is having a 7839and earning                              
+TURNERia an employee who is having a 7844and earning0                           
+ADAMSia an employee who is having a 7876and earning                             
+
+ENAME||'IAANEMPLOYEEWHOISHAVINGA'||EMPNO||'ANDEARNING'||COMM                    
+--------------------------------------------------------------------------------
+JAMESia an employee who is having a 7900and earning                             
+FORDia an employee who is having a 7902and earning                              
+MILLERia an employee who is having a 7934and earning                            
+
+14 rows selected.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select ename ||'ia an employee who is having a '||empno|| 'and earning' ||comm where job=salesman from emp;
+select ename ||'ia an employee who is having a '||empno|| 'and earning' ||comm where job=salesman from emp
+                                                                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select ename ||'ia an employee who is having a '||empno|| 'and earning' ||comm where job='salesman' from emp;
+select ename ||'ia an employee who is having a '||empno|| 'and earning' ||comm where job='salesman' from emp
+                                                                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select ename ||'ia an employee who is having a '||empno|| 'and earning' ||comm from emp where job='salesman';
+
+no rows selected
+
+SQL> set pages 100 lines 140;
+SQL> select * from emp where sal>2000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+
+6 rows selected.
+
+SQL> select ename from emp where sal=3000;
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+SCOTT                                                                                                                                       
+FORD                                                                                                                                        
+
+SQL> select * from emp where job!='SALESMAN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                       
+
+10 rows selected.
+
+SQL> select sal*12 from emp where sal>=5000;
+
+    SAL*12                                                                                                                                  
+----------                                                                                                                                  
+     60000                                                                                                                                  
+
+SQL> select select 'Jhon' From dept;
+select select 'Jhon' From dept
+       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select 'Jhon' From dept;
+
+'JHO                                                                                                                                        
+----                                                                                                                                        
+Jhon                                                                                                                                        
+Jhon                                                                                                                                        
+Jhon                                                                                                                                        
+Jhon                                                                                                                                        
+
+SQL> select * from dual;
+
+D                                                                                                                                           
+-                                                                                                                                           
+X                                                                                                                                           
+
+SQL> select 1-9 from dual;
+
+       1-9                                                                                                                                  
+----------                                                                                                                                  
+        -8                                                                                                                                  
+
+SQL> select 44||99 form dual;
+select 44||99 form dual
+                   *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select 44||99 from dual;
+
+44||                                                                                                                                        
+----                                                                                                                                        
+4499                                                                                                                                        
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                       
+
+14 rows selected.
+
+SQL> select job from emp where deptno=20;
+
+JOB                                                                                                                                         
+---------                                                                                                                                   
+CLERK                                                                                                                                       
+MANAGER                                                                                                                                     
+ANALYST                                                                                                                                     
+CLERK                                                                                                                                       
+ANALYST                                                                                                                                     
+
+SQL> select sal form emp asc;
+select sal form emp asc
+                *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select sal form emp where sal=2000;
+ select sal form emp where sal=2000
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select sal from emp asc;
+select sal from emp asc
+                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select sal from emp where sal=2000;
+
+no rows selected
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC                                                                                                               
+---------- -------------- -------------                                                                                                     
+        10 ACCOUNTING     NEW YORK                                                                                                          
+        20 RESEARCH       DALLAS                                                                                                            
+        30 SALES          CHICAGO                                                                                                           
+        40 OPERATIONS     BOSTON                                                                                                            
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                       
+
+14 rows selected.
+
+SQL> select distinct job from emp;
+
+JOB                                                                                                                                         
+---------                                                                                                                                   
+CLERK                                                                                                                                       
+SALESMAN                                                                                                                                    
+PRESIDENT                                                                                                                                   
+MANAGER                                                                                                                                     
+ANALYST                                                                                                                                     
+
+SQL> select ename from where sal<=500;
+select ename from where sal<=500
+                  *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> select ename from emp where sal<=5000;
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select ename from emp where sal<=5000 orederby asc;
+select ename from emp where sal<=5000 orederby asc
+                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select ename from emp where sal<=5000 oreder by asc;
+select ename from emp where sal<=5000 oreder by asc
+                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select ename from emp where sal<=5000 order by asc;
+select ename from emp where sal<=5000 order by asc
+                                               *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select ename from emp where sal<=5000 order by asec;
+select ename from emp where sal<=5000 order by asec
+                                               *
+ERROR at line 1:
+ORA-00904: "ASEC": invalid identifier 
+
+
+SQL> spool off

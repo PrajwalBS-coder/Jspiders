@@ -1,0 +1,181 @@
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+COURSE                         TABLE                                            
+STUDENT                        TABLE                                            
+DOCTOR                         TABLE                                            
+PATIENT                        TABLE                                            
+PEOPLE                         TABLE                                            
+VACCINE                        TABLE                                            
+CUSTOMER                       TABLE                                            
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+PROD                           TABLE                                            
+
+12 rows selected.
+
+SQL> select * from bonus;
+
+no rows selected
+
+SQL> select * from salgrade;
+
+     GRADE      LOSAL      HISAL                                                
+---------- ---------- ----------                                                
+         1        700       1200                                                
+         2       1201       1400                                                
+         3       1401       2000                                                
+         4       2001       3000                                                
+         5       3001       9999                                                
+
+SQL> create table player (pno number(10) primary key,
+  2  pname varchar(10) not null,
+  3  age number(10) ,
+  4  sal number(10),
+  5  
+SQL> 
+SQL> create table cricket(pno number(10) primary key,
+  2  format varchar(10));
+
+Table created.
+
+SQL> create table player (pno number(10) primary key,
+  2  pname varchar(10) not null,
+  3  age number(10) ,
+  4  
+SQL> create table player (sno number(10) primary key,
+  2  pname varchar(10) not null,
+  3  age number(10) ,
+  4  pn references cricket(pno));
+
+Table created.
+
+SQL> alter tabel player drop pn;
+alter tabel player drop pn
+      *
+ERROR at line 1:
+ORA-00940: invalid ALTER command 
+
+
+SQL> alter table player drop pn;
+alter table player drop pn
+                        *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> alter table player drop column pn;
+
+Table altered.
+
+SQL> desc cricket;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PNO                                       NOT NULL NUMBER(10)
+ FORMAT                                             VARCHAR2(10)
+
+SQL> alter table palyer add column pn references cricket(pno);
+alter table palyer add column pn references cricket(pno)
+                       *
+ERROR at line 1:
+ORA-00904: : invalid identifier 
+
+
+SQL> alter table palyer add
+  2  pn references cricket(pno);
+alter table palyer add
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> alter table palyer add
+  2  pn number(10) references cricket(pno);
+alter table palyer add
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> alter table player
+  2  add pn references cricket(pno);
+
+Table altered.
+
+SQL> alter table cricket drop column pno;
+alter table cricket drop column pno
+                                *
+ERROR at line 1:
+ORA-12992: cannot drop parent key column 
+
+
+SQL> desc player;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO                                       NOT NULL NUMBER(10)
+ PNAME                                     NOT NULL VARCHAR2(10)
+ AGE                                                NUMBER(10)
+ PN                                                 NUMBER(10)
+
+SQL> alter table player rename pname to player_name;
+alter table player rename pname to player_name
+                          *
+ERROR at line 1:
+ORA-14155: missing PARTITION or SUBPARTITION keyword 
+
+
+SQL> alter table player rename column pname to player_name;
+
+Table altered.
+
+SQL> desc player;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO                                       NOT NULL NUMBER(10)
+ PLAYER_NAME                               NOT NULL VARCHAR2(10)
+ AGE                                                NUMBER(10)
+ PN                                                 NUMBER(10)
+
+SQL> alter table player modify age varchar(10) check (age>18);
+
+Table altered.
+
+SQL> desc player;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SNO                                       NOT NULL NUMBER(10)
+ PLAYER_NAME                               NOT NULL VARCHAR2(10)
+ AGE                                                VARCHAR2(10)
+ PN                                                 NUMBER(10)
+
+SQL> create table amin(id number(10),
+  2  name varchar(10),
+  3  age number(10));
+
+Table created.
+
+SQL> desc amin;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(10)
+ NAME                                               VARCHAR2(10)
+ AGE                                                NUMBER(10)
+
+SQL> alter table amin modify id number(10) primary key;
+
+Table altered.
+
+SQL> desc amin;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(10)
+ NAME                                               VARCHAR2(10)
+ AGE                                                NUMBER(10)
+
+SQL> spool off

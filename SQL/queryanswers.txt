@@ -1,0 +1,526 @@
+SQL> select * from emp where mod(sal,2)=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+13 rows selected.
+
+SQL> select empno,ename,sal from emp where hiredate='feb';
+select empno,ename,sal from emp where hiredate='feb'
+                                               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+
+SQL> select empno,ename,sal from emp where hiredate='dd-feb-yy';
+select empno,ename,sal from emp where hiredate='dd-feb-yy'
+                                               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+
+SQL> select empno,ename,sal from emp where hiredate='FEB';
+select empno,ename,sal from emp where hiredate='FEB'
+                                               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected 
+
+
+SQL> select empno,ename,sal from emp where hiredate=FEB;
+select empno,ename,sal from emp where hiredate=FEB
+                                               *
+ERROR at line 1:
+ORA-00904: "FEB": invalid identifier 
+
+
+SQL> select empno,ename,sal from emp where hiredate=dd-feb-yy
+  2  ;
+select empno,ename,sal from emp where hiredate=dd-feb-yy
+                                                      *
+ERROR at line 1:
+ORA-00904: "YY": invalid identifier 
+
+
+SQL> SELECT * FROM EMP WHERE HIREDATE=DD-FEB-YY;
+SELECT * FROM EMP WHERE HIREDATE=DD-FEB-YY
+                                        *
+ERROR at line 1:
+ORA-00904: "YY": invalid identifier 
+
+
+SQL> SELECT * FROM EMP WHERE HIREDATE=DD-FEB;
+SELECT * FROM EMP WHERE HIREDATE=DD-FEB
+                                    *
+ERROR at line 1:
+ORA-00904: "FEB": invalid identifier 
+
+
+SQL> SELECT * FROM EMP WHERE TO_CHAR(hiredate,'mon')='feb';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from emp where hiredate between 82-87;
+select * from emp where hiredate between 82-87
+                                             *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> select * from emp where hiredate between dd-mon-82 and dd-mon-87;
+select * from emp where hiredate between dd-mon-82 and dd-mon-87
+                                                          *
+ERROR at line 1:
+ORA-00904: "MON": invalid identifier 
+
+
+SQL> select * from emp where hiredate between 01-01-82 and 30-12-87;
+select * from emp where hiredate between 01-01-82 and 30-12-87
+                                 *
+ERROR at line 1:
+ORA-00932: inconsistent datatypes: expected DATE got NUMBER 
+
+
+SQL> select * from emp where hiredate between 01-jan-82 and 30-dec-87;
+select * from emp where hiredate between 01-jan-82 and 30-dec-87
+                                                          *
+ERROR at line 1:
+ORA-00904: "DEC": invalid identifier 
+
+
+SQL> select * from emp where hiredate between 01-JAN-82 AND 30-DEC-87;
+select * from emp where hiredate between 01-JAN-82 AND 30-DEC-87
+                                                          *
+ERROR at line 1:
+ORA-00904: "DEC": invalid identifier 
+
+
+SQL> /
+select * from emp where hiredate between 01-JAN-82 AND 30-DEC-87
+                                                          *
+ERROR at line 1:
+ORA-00904: "DEC": invalid identifier 
+
+
+SQL> select * from emp where hiredate between 01-JAN-82 AND 30-JAN-87;
+select * from emp where hiredate between 01-JAN-82 AND 30-JAN-87
+                                                          *
+ERROR at line 1:
+ORA-00904: "JAN": invalid identifier 
+
+
+SQL> select * from emp where hiredate= 30-JAN-87;
+select * from emp where hiredate= 30-JAN-87
+                                     *
+ERROR at line 1:
+ORA-00904: "JAN": invalid identifier 
+
+
+SQL> select * from emp where hiredate =13-mar-82;
+select * from emp where hiredate =13-mar-82
+                                     *
+ERROR at line 1:
+ORA-00904: "MAR": invalid identifier 
+
+
+SQL> date;
+SP2-0042: unknown command "date" - rest of line ignored.
+SQL> select * from emp where hiredate=15-MAR-24 ;
+select * from emp where hiredate=15-MAR-24 
+                                    *
+ERROR at line 1:
+ORA-00904: "MAR": invalid identifier 
+
+
+SQL> select * from emp where hiredate between' 01-JAN-82' and '30-DEC-87';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+SQL> select * from emp where hiredate between' 01-JAN-82' and '30-DEC-86';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from emp where ename like ['aeiouAEIOU'];
+select * from emp where ename like ['aeiouAEIOU']
+                                   *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select * from emp where ename like %['aeiouAEIOU'];
+select * from emp where ename like %['aeiouAEIOU']
+                                   *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> select * from emp where ename like ['aeiouAEIOU']%;
+select * from emp where ename like ['aeiouAEIOU']%
+                                   *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL>  select * from emp where ename like '[aeiouAEIOU]'%;
+ select * from emp where ename like '[aeiouAEIOU]'%
+                                                  *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> select * from emp where ename like '[aeiouAEIOU]%';
+
+no rows selected
+
+SQL>  select * from emp where ename like '%[aeiouAEIOU]';
+
+no rows selected
+
+SQL> select * from emp where left(enmae ,1) in('a,'e','i','o','u');
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select * from emp where left(enmae ,1) in('a','e','i','o','u');
+select * from emp where left(enmae ,1) in('a','e','i','o','u')
+                        *
+ERROR at line 1:
+ORA-00904: "LEFT": invalid identifier 
+
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select ename from emp where ename like '%[aeiouAEIOU]';
+
+no rows selected
+
+SQL> select ename from emp where ename like '[aeiouAEIOU]%';
+
+no rows selected
+
+SQL> select * from emp where job='SALESMAN' and deptno=30 and ename like '%e' and sal like'%0';
+
+no rows selected
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+COURSE                         TABLE                                                                                                                                                                    
+STUDENT                        TABLE                                                                                                                                                                    
+DOCTOR                         TABLE                                                                                                                                                                    
+PATIENT                        TABLE                                                                                                                                                                    
+PEOPLE                         TABLE                                                                                                                                                                    
+VACCINE                        TABLE                                                                                                                                                                    
+CUSTOMER                       TABLE                                                                                                                                                                    
+PROD                           TABLE                                                                                                                                                                    
+CRICKET                        TABLE                                                                                                                                                                    
+PLAYER                         TABLE                                                                                                                                                                    
+AMIN                           TABLE                                                                                                                                                                    
+BIN$CFYtrPCDQbWOatH1CM8xgQ==$0 TABLE                                                                                                                                                                    
+LOGIN                          TABLE                                                                                                                                                                    
+
+17 rows selected.
+
+SQL> select ename||job as EMpJob from emp;
+
+EMPJOB                                                                                                                                                                                                  
+-------------------                                                                                                                                                                                     
+SMITHCLERK                                                                                                                                                                                              
+ALLENSALESMAN                                                                                                                                                                                           
+WARDSALESMAN                                                                                                                                                                                            
+JONESMANAGER                                                                                                                                                                                            
+MARTINSALESMAN                                                                                                                                                                                          
+BLAKEMANAGER                                                                                                                                                                                            
+CLARKMANAGER                                                                                                                                                                                            
+SCOTTANALYST                                                                                                                                                                                            
+KINGPRESIDENT                                                                                                                                                                                           
+TURNERSALESMAN                                                                                                                                                                                          
+ADAMSCLERK                                                                                                                                                                                              
+JAMESCLERK                                                                                                                                                                                              
+FORDANALYST                                                                                                                                                                                             
+MILLERCLERK                                                                                                                                                                                             
+
+14 rows selected.
+
+SQL> select * form emp where hiredate='01-jan-81' and sal like'____';
+select * form emp where hiredate='01-jan-81' and sal like'____'
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from emp where hiredate='01-jan-81' and sal like'____';
+
+no rows selected
+
+SQL> select * from emp where hiredate='01-jan-81' and sal*12 like'____';
+
+no rows selected
+
+SQL> select sal*12 from emp;
+
+    SAL*12                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      9600                                                                                                                                                                                              
+     19200                                                                                                                                                                                              
+     15000                                                                                                                                                                                              
+     35700                                                                                                                                                                                              
+     15000                                                                                                                                                                                              
+     34200                                                                                                                                                                                              
+     29400                                                                                                                                                                                              
+     36000                                                                                                                                                                                              
+     60000                                                                                                                                                                                              
+     18000                                                                                                                                                                                              
+     13200                                                                                                                                                                                              
+     11400                                                                                                                                                                                              
+     36000                                                                                                                                                                                              
+     15600                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> select sal*12,hiredate from emp;
+
+    SAL*12 HIREDATE                                                                                                                                                                                     
+---------- ---------                                                                                                                                                                                    
+      9600 17-DEC-80                                                                                                                                                                                    
+     19200 20-FEB-81                                                                                                                                                                                    
+     15000 22-FEB-81                                                                                                                                                                                    
+     35700 02-APR-81                                                                                                                                                                                    
+     15000 28-SEP-81                                                                                                                                                                                    
+     34200 01-MAY-81                                                                                                                                                                                    
+     29400 09-JUN-81                                                                                                                                                                                    
+     36000 19-APR-87                                                                                                                                                                                    
+     60000 17-NOV-81                                                                                                                                                                                    
+     18000 08-SEP-81                                                                                                                                                                                    
+     13200 23-MAY-87                                                                                                                                                                                    
+     11400 03-DEC-81                                                                                                                                                                                    
+     36000 03-DEC-81                                                                                                                                                                                    
+     15600 23-JAN-82                                                                                                                                                                                    
+
+14 rows selected.
+
+SQL> select * from emp where and sal*12 like'____';
+select * from emp where and sal*12 like'____'
+                        *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select * from emp where sal*12 like'____';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> select * from emp where hiredate between '1-jan-81' and '31-dec-81' and sal*12 like'____';
+
+no rows selected
+
+SQL> select * from emp where hiredate between '1-jan-81' and '31-dec-81' and sal*12 like'______';
+
+no rows selected
+
+SQL> select * from emp where hiredate between '1-jan-81' and '31-dec-81' and sal*12 like'_____';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+10 rows selected.
+
+SQL> desc dept;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ DEPTNO                                                                                                            NOT NULL NUMBER(2)
+ DNAME                                                                                                                      VARCHAR2(14)
+ LOC                                                                                                                        VARCHAR2(13)
+
+SQL> select dname,loc where dname like '%0%';
+select dname,loc where dname like '%0%'
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select dname,loc from dept where dname like '%O%';
+
+DNAME          LOC                                                                                                                                                                                      
+-------------- -------------                                                                                                                                                                            
+ACCOUNTING     NEW YORK                                                                                                                                                                                 
+OPERATIONS     BOSTON                                                                                                                                                                                   
+
+SQL> select * form emp where ename like '%s' and job in ('ANALYST','CLERK') AND DEPTNO=20;
+select * form emp where ename like '%s' and job in ('ANALYST','CLERK') AND DEPTNO=20
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select * fROM emp where ename like '%s' and job in ('ANALYST','CLERK') AND DEPTNO=20;
+
+no rows selected
+
+SQL> select * fROM emp where ename like '%S' and job in ('ANALYST','CLERK') AND DEPTNO=20;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+
+SQL> select * fROM emp where ename like 'S%' and job in ('ANALYST','CLERK') AND DEPTNO=20;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+
+SQL> SELECT SAL*12 ,HIREDATE FROM EMP WHERE COMM IS NULL AND COMM=0;
+
+no rows selected
+
+SQL> SELECT SAL*12 ,HIREDATE FROM EMP WHERE COMM IS NULL  OR COMM=0;
+
+    SAL*12 HIREDATE                                                                                                                                                                                     
+---------- ---------                                                                                                                                                                                    
+      9600 17-DEC-80                                                                                                                                                                                    
+     35700 02-APR-81                                                                                                                                                                                    
+     34200 01-MAY-81                                                                                                                                                                                    
+     29400 09-JUN-81                                                                                                                                                                                    
+     36000 19-APR-87                                                                                                                                                                                    
+     60000 17-NOV-81                                                                                                                                                                                    
+     18000 08-SEP-81                                                                                                                                                                                    
+     13200 23-MAY-87                                                                                                                                                                                    
+     11400 03-DEC-81                                                                                                                                                                                    
+     36000 03-DEC-81                                                                                                                                                                                    
+     15600 23-JAN-82                                                                                                                                                                                    
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP WHERE SAL*12 LIKE '%2%' AND MGR IS NULL AND ENAME LIKE'%LL';
+
+no rows selected
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> COMMIT
+  2  ;
+
+Commit complete.
+
+SQL> SPOLL OFF
+SP2-0042: unknown command "SPOLL OFF" - rest of line ignored.
+SQL> SPOOL OFF

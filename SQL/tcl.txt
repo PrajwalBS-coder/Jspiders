@@ -1,0 +1,139 @@
+desc jhon
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENO                                                NUMBER(10)
+ ENAME                                              VARCHAR2(10)
+
+SQL> select * from jhon;
+
+no rows selected
+
+SQL> 
+SQL> insert into jhon(10,'a');
+insert into jhon(10,'a')
+                 *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into jhon values(10,'a');
+
+1 row created.
+
+SQL> insert into jhon values(11,'b');
+
+1 row created.
+
+SQL> insert into jhon values(12,'c');
+
+1 row created.
+
+SQL> select * from jhon;
+
+       ENO ENAME                                                                
+---------- ----------                                                           
+        10 a                                                                    
+        11 b                                                                    
+        12 c                                                                    
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from jhon;
+
+no rows selected
+
+SQL> insert into jhon values(10,'a');
+
+1 row created.
+
+SQL> commitl
+SP2-0042: unknown command "commitl" - rest of line ignored.
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into jhon values(11,'b');
+
+1 row created.
+
+SQL> insert into jhon values(12,'c');
+
+1 row created.
+
+SQL> savepoint a;
+
+Savepoint created.
+
+SQL> insert into jhon values(13,'d');
+
+1 row created.
+
+SQL> savepoint b
+  2  ;
+
+Savepoint created.
+
+SQL> insert into jhon values(14,'e');
+
+1 row created.
+
+SQL> select * from jhon;
+
+       ENO ENAME                                                                
+---------- ----------                                                           
+        10 a                                                                    
+        11 b                                                                    
+        12 c                                                                    
+        13 d                                                                    
+        14 e                                                                    
+
+SQL> rollback b;
+rollback b
+         *
+ERROR at line 1:
+ORA-02181: invalid option to ROLLBACK WORK 
+
+
+SQL> rollback to b;
+
+Rollback complete.
+
+SQL> select * from jhon;
+
+       ENO ENAME                                                                
+---------- ----------                                                           
+        10 a                                                                    
+        11 b                                                                    
+        12 c                                                                    
+        13 d                                                                    
+
+SQL> rollback to a;
+
+Rollback complete.
+
+SQL> select * from jhon;
+
+       ENO ENAME                                                                
+---------- ----------                                                           
+        10 a                                                                    
+        11 b                                                                    
+        12 c                                                                    
+
+SQL> rollback;
+
+Rollback complete.
+
+SQL> select * from jhon;
+
+       ENO ENAME                                                                
+---------- ----------                                                           
+        10 a                                                                    
+
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> exit
