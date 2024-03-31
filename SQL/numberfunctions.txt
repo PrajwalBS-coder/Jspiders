@@ -1,0 +1,568 @@
+select mod (10,2) from dual;
+
+ MOD(10,2)                                                                      
+----------                                                                      
+         0                                                                      
+
+SQL> select mod (10,3) from dual;
+
+ MOD(10,3)                                                                      
+----------                                                                      
+         1                                                                      
+
+SQL> select mod (15,4) from dual;
+
+ MOD(15,4)                                                                      
+----------                                                                      
+         3                                                                      
+
+SQL> select mod (-14,4) from dual;
+
+MOD(-14,4)                                                                      
+----------                                                                      
+        -2                                                                      
+
+SQL> select sal,mod(sal,2) from emp;
+
+       SAL MOD(SAL,2)                                                           
+---------- ----------                                                           
+       800          0                                                           
+      1600          0                                                           
+      1250          0                                                           
+      2975          1                                                           
+      1250          0                                                           
+      2850          0                                                           
+      2450          0                                                           
+      3000          0                                                           
+      5000          0                                                           
+      1500          0                                                           
+      1100          0                                                           
+
+       SAL MOD(SAL,2)                                                           
+---------- ----------                                                           
+       950          0                                                           
+      3000          0                                                           
+      1300          0                                                           
+
+14 rows selected.
+
+SQL> set pages 100 lines 200
+SQL> select sal,mod(sal,2) from emp;
+
+       SAL MOD(SAL,2)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+       800          0                                                                                                                                                                                   
+      1600          0                                                                                                                                                                                   
+      1250          0                                                                                                                                                                                   
+      2975          1                                                                                                                                                                                   
+      1250          0                                                                                                                                                                                   
+      2850          0                                                                                                                                                                                   
+      2450          0                                                                                                                                                                                   
+      3000          0                                                                                                                                                                                   
+      5000          0                                                                                                                                                                                   
+      1500          0                                                                                                                                                                                   
+      1100          0                                                                                                                                                                                   
+       950          0                                                                                                                                                                                   
+      3000          0                                                                                                                                                                                   
+      1300          0                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> select sqrt(64) form dual;
+select sqrt(64) form dual
+                     *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select sqrt(64) from dual;
+
+  SQRT(64)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         8                                                                                                                                                                                              
+
+SQL>  select sqrt(88) from dual;
+
+  SQRT(88)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+9.38083152                                                                                                                                                                                              
+
+SQL> select sqrt(98) from dual;
+
+  SQRT(98)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+9.89949494                                                                                                                                                                                              
+
+SQL> select sal,sqrt(sal) from emp;
+
+       SAL  SQRT(SAL)                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+       800 28.2842712                                                                                                                                                                                   
+      1600         40                                                                                                                                                                                   
+      1250 35.3553391                                                                                                                                                                                   
+      2975 54.5435606                                                                                                                                                                                   
+      1250 35.3553391                                                                                                                                                                                   
+      2850 53.3853913                                                                                                                                                                                   
+      2450 49.4974747                                                                                                                                                                                   
+      3000 54.7722558                                                                                                                                                                                   
+      5000 70.7106781                                                                                                                                                                                   
+      1500 38.7298335                                                                                                                                                                                   
+      1100 33.1662479                                                                                                                                                                                   
+       950   30.82207                                                                                                                                                                                   
+      3000 54.7722558                                                                                                                                                                                   
+      1300 36.0555128                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> select sqrt(-4) from dual;
+select sqrt(-4) from dual
+            *
+ERROR at line 1:
+ORA-01428: argument '-4' is out of range 
+
+
+SQL> select power(10,2) from dual;
+
+POWER(10,2)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+        100                                                                                                                                                                                             
+
+SQL> select power(-11,3) from dual;
+
+POWER(-11,3)                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+       -1331                                                                                                                                                                                            
+
+SQL> select abs(10.11010) form dual;
+select abs(10.11010) form dual
+                          *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select abs(10.11010) from dual;
+
+ABS(10.11010)                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+      10.1101                                                                                                                                                                                           
+
+SQL> select abs(-10.11010) from dual;
+
+ABS(-10.11010)                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+       10.1101                                                                                                                                                                                          
+
+SQL> select abs(293.9929 ) from dual;
+
+ABS(293.9929)                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+     293.9929                                                                                                                                                                                           
+
+SQL> select floor(4.1) from dual;
+
+FLOOR(4.1)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> select floor(4.6) from dual;
+
+FLOOR(4.6)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> select floor(4.9) from dual;
+
+FLOOR(4.9)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> select ceil(4.1 ) from dual;
+
+ CEIL(4.1)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> select ceil(4.6) from dual;
+
+ CEIL(4.6)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> select ceil(4.9) from dual;
+
+ CEIL(4.9)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> select round(4.3) from dual;
+
+ROUND(4.3)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> select round(4.5) from dual;
+
+ROUND(4.5)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> select round(-4.3) from dual;
+
+ROUND(-4.3)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         -4                                                                                                                                                                                             
+
+SQL> select round(-4.5) from dual;
+
+ROUND(-4.5)                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+         -5                                                                                                                                                                                             
+
+SQL> select length('Amin') from dual;
+
+LENGTH('AMIN')                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+             4                                                                                                                                                                                          
+
+SQL> select length('Amin oifwo kk') from dual;
+
+LENGTH('AMINOIFWOKK')                                                                                                                                                                                   
+---------------------                                                                                                                                                                                   
+                   13                                                                                                                                                                                   
+
+SQL> select length(12.345) from dual;
+
+LENGTH(12.345)                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+             6                                                                                                                                                                                          
+
+SQL> select ename,length(ename) from emp;
+
+ENAME      LENGTH(ENAME)                                                                                                                                                                                
+---------- -------------                                                                                                                                                                                
+SMITH                  5                                                                                                                                                                                
+ALLEN                  5                                                                                                                                                                                
+WARD                   4                                                                                                                                                                                
+JONES                  5                                                                                                                                                                                
+MARTIN                 6                                                                                                                                                                                
+BLAKE                  5                                                                                                                                                                                
+CLARK                  5                                                                                                                                                                                
+SCOTT                  5                                                                                                                                                                                
+KING                   4                                                                                                                                                                                
+TURNER                 6                                                                                                                                                                                
+ADAMS                  5                                                                                                                                                                                
+JAMES                  5                                                                                                                                                                                
+FORD                   4                                                                                                                                                                                
+MILLER                 6                                                                                                                                                                                
+
+14 rows selected.
+
+SQL> select upper('amin') from dual;
+
+UPPE                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+AMIN                                                                                                                                                                                                    
+
+SQL> select upper('aMiN') from dual;
+
+UPPE                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+AMIN                                                                                                                                                                                                    
+
+SQL> select lower('AMIN') from dual;
+
+LOWE                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+amin                                                                                                                                                                                                    
+
+SQL> select lower('aMiN$%#;') from dual;
+
+LOWER('A                                                                                                                                                                                                
+--------                                                                                                                                                                                                
+amin$%#;                                                                                                                                                                                                
+
+SQL> select trim('   hi  ') from dual;
+
+TR                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+hi                                                                                                                                                                                                      
+
+SQL> select trim('h' from 'hello' ) from dual;
+
+TRIM                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+ello                                                                                                                                                                                                    
+
+SQL> select trim('h' from 'hellohh') from dual;
+
+TRIM                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+ello                                                                                                                                                                                                    
+
+SQL> select trim('h' from 'hellohhhhhh') from dual;
+
+TRIM                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+ello                                                                                                                                                                                                    
+
+SQL> select trim('h' from 'hellohhehheheheheh') from dual;
+
+TRIM('H'FROM'HEL                                                                                                                                                                                        
+----------------                                                                                                                                                                                        
+ellohhehhehehehe                                                                                                                                                                                        
+
+SQL> select replace('sql','q','x') from dual;
+
+REP                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+sxl                                                                                                                                                                                                     
+
+SQL> select replace('sql','sq','ss') from dual;
+
+REP                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+ssl                                                                                                                                                                                                     
+
+SQL> select eno,replace(eno,7,2) from emp;
+select eno,replace(eno,7,2) from emp
+                   *
+ERROR at line 1:
+ORA-00904: "ENO": invalid identifier 
+
+
+SQL> select empno,replace(empno,7,2) from emp;
+
+     EMPNO REPLACE(EMPNO,7,2)                                                                                                                                                                           
+---------- ----------------------------------------                                                                                                                                                     
+      7369 2369                                                                                                                                                                                         
+      7499 2499                                                                                                                                                                                         
+      7521 2521                                                                                                                                                                                         
+      7566 2566                                                                                                                                                                                         
+      7654 2654                                                                                                                                                                                         
+      7698 2698                                                                                                                                                                                         
+      7782 2282                                                                                                                                                                                         
+      7788 2288                                                                                                                                                                                         
+      7839 2839                                                                                                                                                                                         
+      7844 2844                                                                                                                                                                                         
+      7876 2826                                                                                                                                                                                         
+      7900 2900                                                                                                                                                                                         
+      7902 2902                                                                                                                                                                                         
+      7934 2934                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select empno,replace(empno,a,2) from emp;
+select empno,replace(empno,a,2) from emp
+                           *
+ERROR at line 1:
+ORA-00904: "A": invalid identifier 
+
+
+SQL> select empno,replace(empno,'a',2) from emp;
+
+     EMPNO REPLACE(EMPNO,'A',2)                                                                                                                                                                         
+---------- ----------------------------------------                                                                                                                                                     
+      7369 7369                                                                                                                                                                                         
+      7499 7499                                                                                                                                                                                         
+      7521 7521                                                                                                                                                                                         
+      7566 7566                                                                                                                                                                                         
+      7654 7654                                                                                                                                                                                         
+      7698 7698                                                                                                                                                                                         
+      7782 7782                                                                                                                                                                                         
+      7788 7788                                                                                                                                                                                         
+      7839 7839                                                                                                                                                                                         
+      7844 7844                                                                                                                                                                                         
+      7876 7876                                                                                                                                                                                         
+      7900 7900                                                                                                                                                                                         
+      7902 7902                                                                                                                                                                                         
+      7934 7934                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select ename,replace(ename,'A') from emp;
+
+ENAME      REPLACE(EN                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+SMITH      SMITH                                                                                                                                                                                        
+ALLEN      LLEN                                                                                                                                                                                         
+WARD       WRD                                                                                                                                                                                          
+JONES      JONES                                                                                                                                                                                        
+MARTIN     MRTIN                                                                                                                                                                                        
+BLAKE      BLKE                                                                                                                                                                                         
+CLARK      CLRK                                                                                                                                                                                         
+SCOTT      SCOTT                                                                                                                                                                                        
+KING       KING                                                                                                                                                                                         
+TURNER     TURNER                                                                                                                                                                                       
+ADAMS      DMS                                                                                                                                                                                          
+JAMES      JMES                                                                                                                                                                                         
+FORD       FORD                                                                                                                                                                                         
+MILLER     MILLER                                                                                                                                                                                       
+
+14 rows selected.
+
+SQL> select repalce('good boy' 'o') from dual;
+select repalce('good boy' 'o') from dual
+                          *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select repalce('good boy','o') from dual;
+select repalce('good boy','o') from dual
+       *
+ERROR at line 1:
+ORA-00904: "REPALCE": invalid identifier 
+
+
+SQL> select replace('good boy','o') from dual;
+
+REPLA                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+gd by                                                                                                                                                                                                   
+
+SQL> select substr('good afternoon',1 ) from dual;
+
+SUBSTR('GOODAF                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+good afternoon                                                                                                                                                                                          
+
+SQL> select substr('good afternoon',2) from dual;
+
+SUBSTR('GOODA                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+ood afternoon                                                                                                                                                                                           
+
+SQL> select substr('good afternoon',4) from dual;
+
+SUBSTR('GOO                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+d afternoon                                                                                                                                                                                             
+
+SQL> select substr('good afternoon',-4) from dual;
+
+SUBS                                                                                                                                                                                                    
+----                                                                                                                                                                                                    
+noon                                                                                                                                                                                                    
+
+SQL> select ename,substr(ename,3) from emp;
+
+ENAME      SUBSTR(E                                                                                                                                                                                     
+---------- --------                                                                                                                                                                                     
+SMITH      ITH                                                                                                                                                                                          
+ALLEN      LEN                                                                                                                                                                                          
+WARD       RD                                                                                                                                                                                           
+JONES      NES                                                                                                                                                                                          
+MARTIN     RTIN                                                                                                                                                                                         
+BLAKE      AKE                                                                                                                                                                                          
+CLARK      ARK                                                                                                                                                                                          
+SCOTT      OTT                                                                                                                                                                                          
+KING       NG                                                                                                                                                                                           
+TURNER     RNER                                                                                                                                                                                         
+ADAMS      AMS                                                                                                                                                                                          
+JAMES      MES                                                                                                                                                                                          
+FORD       RD                                                                                                                                                                                           
+MILLER     LLER                                                                                                                                                                                         
+
+14 rows selected.
+
+SQL> select ename,substr(ename,
+  2  -3) from emp;
+
+ENAME      SUB                                                                                                                                                                                          
+---------- ---                                                                                                                                                                                          
+SMITH      ITH                                                                                                                                                                                          
+ALLEN      LEN                                                                                                                                                                                          
+WARD       ARD                                                                                                                                                                                          
+JONES      NES                                                                                                                                                                                          
+MARTIN     TIN                                                                                                                                                                                          
+BLAKE      AKE                                                                                                                                                                                          
+CLARK      ARK                                                                                                                                                                                          
+SCOTT      OTT                                                                                                                                                                                          
+KING       ING                                                                                                                                                                                          
+TURNER     NER                                                                                                                                                                                          
+ADAMS      AMS                                                                                                                                                                                          
+JAMES      MES                                                                                                                                                                                          
+FORD       ORD                                                                                                                                                                                          
+MILLER     LER                                                                                                                                                                                          
+
+14 rows selected.
+
+SQL> select  sunstr('good boy',8) from dual;
+select  sunstr('good boy',8) from dual
+        *
+ERROR at line 1:
+ORA-00904: "SUNSTR": invalid identifier 
+
+
+SQL>  select  substr('good boy',8) from dual;
+
+S                                                                                                                                                                                                       
+-                                                                                                                                                                                                       
+y                                                                                                                                                                                                       
+
+SQL> select  substr('good boy',7) from dual;
+
+SU                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+oy                                                                                                                                                                                                      
+
+SQL> select  substr('good boy',7,3) from dual;
+
+SU                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+oy                                                                                                                                                                                                      
+
+SQL> select  substr('good boy',3,2) from dual;
+
+SU                                                                                                                                                                                                      
+--                                                                                                                                                                                                      
+od                                                                                                                                                                                                      
+
+SQL> select ename,substr(ename,1,3) from dual;
+select ename,substr(ename,1,3) from dual
+                    *
+ERROR at line 1:
+ORA-00904: "ENAME": invalid identifier 
+
+
+SQL> select ename,substr(ename,1,3) from  emp;
+
+ENAME      SUB                                                                                                                                                                                          
+---------- ---                                                                                                                                                                                          
+SMITH      SMI                                                                                                                                                                                          
+ALLEN      ALL                                                                                                                                                                                          
+WARD       WAR                                                                                                                                                                                          
+JONES      JON                                                                                                                                                                                          
+MARTIN     MAR    
+
+
+SQL> select instr('good afternoon','o',4,3) from dual;
+
+INSTR('GOODAFTERNOON','O',4,3)
+------------------------------
+                             0
+
+SQL> select instr('good afternoon','o',1,4) from dual;
+
+INSTR('GOODAFTERNOON','O',1,4)
+------------------------------
+                            13
+
+SQL> select instr('good afternoon','o',-2,3) from dual;
+
+INSTR('GOODAFTERNOON','O',-2,3)
+-------------------------------
+                              3
+
+SQL> select instr('good afternoon','o',-4,3) from dual;
+
+INSTR('GOODAFTERNOON','O',-4,3)
+-------------------------------
+                              0
+
+SQL> select instr('good afternoon','o',-4,1) from dual;
+
+INSTR('GOODAFTERNOON','O',-4,1)
+-------------------------------
+                              3
+                                                                                                                                                                                      
