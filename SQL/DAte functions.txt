@@ -1,0 +1,189 @@
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+01-APR-24
+
+SQL> select curren_date from dual;
+select curren_date from dual
+       *
+ERROR at line 1:
+ORA-00904: "CURREN_DATE": invalid identifier
+
+
+SQL> select current_date from dual;
+
+CURRENT_D
+---------
+01-APR-24
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> select session_date from dual;
+select session_date from dual
+       *
+ERROR at line 1:
+ORA-00904: "SESSION_DATE": invalid identifier
+
+
+SQL> select Session_date from dual;
+select Session_date from dual
+       *
+ERROR at line 1:
+ORA-00904: "SESSION_DATE": invalid identifier
+
+
+SQL> select sessiondate from emp;
+select sessiondate from emp
+       *
+ERROR at line 1:
+ORA-00904: "SESSIONDATE": invalid identifier
+
+
+SQL> select session_time from dual;
+select session_time from dual
+       *
+ERROR at line 1:
+ORA-00904: "SESSION_TIME": invalid identifier
+
+
+SQL> select sessiontimezone from dua;
+select sessiontimezone from dua
+                            *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select sessiontimezone from dual;
+
+SESSIONTIMEZONE
+------------------------------------------------------------------------
++05:30
+
+SQL> select month_between(sysdate,hiredate) from emp;
+select month_between(sysdate,hiredate) from emp
+       *
+ERROR at line 1:
+ORA-00904: "MONTH_BETWEEN": invalid identifier
+
+
+SQL> /
+select month_between(sysdate,hiredate) from emp
+       *
+ERROR at line 1:
+ORA-00904: "MONTH_BETWEEN": invalid identifier
+
+
+SQL> select month_between(sysdate,'1-apr-1999') from dual;
+select month_between(sysdate,'1-apr-1999') from dual
+       *
+ERROR at line 1:
+ORA-00904: "MONTH_BETWEEN": invalid identifier
+
+
+SQL> select monthbetween(sysdate,'1-apr-1999') from dual;
+select monthbetween(sysdate,'1-apr-1999') from dual
+       *
+ERROR at line 1:
+ORA-00904: "MONTHBETWEEN": invalid identifier
+
+
+SQL> select months_between(sysdate,'1-apr-1999') from dual;
+
+MONTHS_BETWEEN(SYSDATE,'1-APR-1999')
+------------------------------------
+                                 300
+
+SQL>  select months_between(sysdate,hiredate) from emp;
+
+MONTHS_BETWEEN(SYSDATE,HIREDATE)
+--------------------------------
+                      519.508808
+                      517.412034
+                      517.347518
+                      515.992679
+                       510.15397
+                             515
+                      513.766873
+                      443.444292
+                      508.508808
+                      510.799131
+                       442.31526
+
+MONTHS_BETWEEN(SYSDATE,HIREDATE)
+--------------------------------
+                      507.960421
+                      507.960421
+                       506.31526
+
+14 rows selected.
+
+SQL> set pages 130 lines 140
+SQL> /
+
+MONTHS_BETWEEN(SYSDATE,HIREDATE)
+--------------------------------
+                      519.508814
+                       517.41204
+                      517.347524
+                      515.992685
+                      510.153976
+                             515
+                      513.766879
+                      443.444298
+                      508.508814
+                      510.799137
+                      442.315266
+                      507.960427
+                      507.960427
+                      506.315266
+
+14 rows selected.
+
+SQL> select ename,hiredate,months_between(sysdate,hiredate) from emp;
+
+ENAME      HIREDATE  MONTHS_BETWEEN(SYSDATE,HIREDATE)
+---------- --------- --------------------------------
+SMITH      17-DEC-80                       519.508854
+ALLEN      20-FEB-81                        517.41208
+WARD       22-FEB-81                       517.347563
+JONES      02-APR-81                       515.992725
+MARTIN     28-SEP-81                       510.154015
+BLAKE      01-MAY-81                              515
+CLARK      09-JUN-81                       513.766918
+SCOTT      19-APR-87                       443.444338
+KING       17-NOV-81                       508.508854
+TURNER     08-SEP-81                       510.799176
+ADAMS      23-MAY-87                       442.315305
+JAMES      03-DEC-81                       507.960467
+FORD       03-DEC-81                       507.960467
+MILLER     23-JAN-82                       506.315305
+
+14 rows selected.
+
+SQL> select ename,hiredate,months_between(sysdate,hiredate)/12 from emp;
+
+ENAME      HIREDATE  MONTHS_BETWEEN(SYSDATE,HIREDATE)/12
+---------- --------- -----------------------------------
+SMITH      17-DEC-80                          43.2924048
+ALLEN      20-FEB-81                          43.1176736
+WARD       22-FEB-81                          43.1122973
+JONES      02-APR-81                          42.9993941
+MARTIN     28-SEP-81                          42.5128349
+BLAKE      01-MAY-81                          42.9166667
+CLARK      09-JUN-81                          42.8139102
+SCOTT      19-APR-87                          36.9536951
+KING       17-NOV-81                          42.3757382
+TURNER     08-SEP-81                          42.5665984
+ADAMS      23-MAY-87                          36.8596091
+JAMES      03-DEC-81                          42.3300392
+FORD       03-DEC-81                          42.3300392
+MILLER     23-JAN-82                          42.1929425
+
+14 rows selected.
+
+SQL> 

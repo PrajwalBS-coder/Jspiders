@@ -1,0 +1,639 @@
+SQL> select to_date('01/10/24','dd-mm-yy') from dual;
+
+TO_DATE('
+---------
+01-OCT-24
+
+SQL> select to_date('01/10/24','dd-yy-mm') from dual;
+select to_date('01/10/24','dd-yy-mm') from dual
+               *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select to_date('01/10/24','mm-dd-yy') from dual;
+
+TO_DATE('
+---------
+10-JAN-24
+
+SQL> select to_date('01/10/24','yy-mm-dd') from dual;
+
+TO_DATE('
+---------
+24-OCT-01
+
+SQL> select to_date('01/10/24','mm-yy-dd') from dual;
+
+TO_DATE('
+---------
+24-JAN-10
+
+SQL> select to_char(hiredate,yy) from emp;
+select to_char(hiredate,yy) from emp
+                        *
+ERROR at line 1:
+ORA-00904: "YY": invalid identifier
+
+
+SQL> select to_char(hiredate,'yy') from emp;
+
+TO
+--
+80
+81
+81
+81
+81
+81
+81
+87
+81
+81
+87
+
+TO
+--
+81
+81
+82
+
+14 rows selected.
+
+SQL> set pages 100 line 140
+SQL> /
+
+TO
+--
+80
+81
+81
+81
+81
+81
+81
+87
+81
+81
+87
+81
+81
+82
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'yy') from emp;
+
+HIREDATE  TO
+--------- --
+17-DEC-80 80
+20-FEB-81 81
+22-FEB-81 81
+02-APR-81 81
+28-SEP-81 81
+01-MAY-81 81
+09-JUN-81 81
+19-APR-87 87
+17-NOV-81 81
+08-SEP-81 81
+23-MAY-87 87
+03-DEC-81 81
+03-DEC-81 81
+23-JAN-82 82
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'dd') from dual;
+select hiredate,to_char(hiredate,'dd') from dual
+                        *
+ERROR at line 1:
+ORA-00904: "HIREDATE": invalid identifier
+
+
+SQL> select hiredate,to_char(hiredate,'dd') from emp;
+
+HIREDATE  TO
+--------- --
+17-DEC-80 17
+20-FEB-81 20
+22-FEB-81 22
+02-APR-81 02
+28-SEP-81 28
+01-MAY-81 01
+09-JUN-81 09
+19-APR-87 19
+17-NOV-81 17
+08-SEP-81 08
+23-MAY-87 23
+03-DEC-81 03
+03-DEC-81 03
+23-JAN-82 23
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'mm') from month;
+select hiredate,to_char(hiredate,'mm') from month
+                                            *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select hiredate,to_char(hiredate,'mm') from emp;
+
+HIREDATE  TO
+--------- --
+17-DEC-80 12
+20-FEB-81 02
+22-FEB-81 02
+02-APR-81 04
+28-SEP-81 09
+01-MAY-81 05
+09-JUN-81 06
+19-APR-87 04
+17-NOV-81 11
+08-SEP-81 09
+23-MAY-87 05
+03-DEC-81 12
+03-DEC-81 12
+23-JAN-82 01
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'month') from emp;
+
+HIREDATE  TO_CHAR(H
+--------- ---------
+17-DEC-80 december
+20-FEB-81 february
+22-FEB-81 february
+02-APR-81 april
+28-SEP-81 september
+01-MAY-81 may
+09-JUN-81 june
+19-APR-87 april
+17-NOV-81 november
+08-SEP-81 september
+23-MAY-87 may
+03-DEC-81 december
+03-DEC-81 december
+23-JAN-82 january
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'day') from emp;
+
+HIREDATE  TO_CHAR(H
+--------- ---------
+17-DEC-80 wednesday
+20-FEB-81 friday
+22-FEB-81 sunday
+02-APR-81 thursday
+28-SEP-81 monday
+01-MAY-81 friday
+09-JUN-81 tuesday
+19-APR-87 sunday
+17-NOV-81 tuesday
+08-SEP-81 tuesday
+23-MAY-87 saturday
+03-DEC-81 thursday
+03-DEC-81 thursday
+23-JAN-82 saturday
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'da') from emp;
+select hiredate,to_char(hiredate,'da') from emp
+                                 *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+SQL> select hiredate,to_char(hiredate,'d') from emp;
+
+HIREDATE  T
+--------- -
+17-DEC-80 4
+20-FEB-81 6
+22-FEB-81 1
+02-APR-81 5
+28-SEP-81 2
+01-MAY-81 6
+09-JUN-81 3
+19-APR-87 1
+17-NOV-81 3
+08-SEP-81 3
+23-MAY-87 7
+03-DEC-81 5
+03-DEC-81 5
+23-JAN-82 7
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'m') from emp;
+select hiredate,to_char(hiredate,'m') from emp
+                                 *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+SQL> select hiredate,to_char(hiredate,'mo') from emp;
+select hiredate,to_char(hiredate,'mo') from emp
+                                 *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+SQL> select hiredate,to_char(hiredate,'mon') from emp;
+
+HIREDATE  TO_
+--------- ---
+17-DEC-80 dec
+20-FEB-81 feb
+22-FEB-81 feb
+02-APR-81 apr
+28-SEP-81 sep
+01-MAY-81 may
+09-JUN-81 jun
+19-APR-87 apr
+17-NOV-81 nov
+08-SEP-81 sep
+23-MAY-87 may
+03-DEC-81 dec
+03-DEC-81 dec
+23-JAN-82 jan
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'mont') from emp;
+select hiredate,to_char(hiredate,'mont') from emp
+                                 *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+SQL> select hiredate,to_char(hiredate,'month') from emp;
+
+HIREDATE  TO_CHAR(H
+--------- ---------
+17-DEC-80 december
+20-FEB-81 february
+22-FEB-81 february
+02-APR-81 april
+28-SEP-81 september
+01-MAY-81 may
+09-JUN-81 june
+19-APR-87 april
+17-NOV-81 november
+08-SEP-81 september
+23-MAY-87 may
+03-DEC-81 december
+03-DEC-81 december
+23-JAN-82 january
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'dd-mm-yy') form emp;
+select hiredate,to_char(hiredate,'dd-mm-yy') form emp
+                                                  *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select hiredate,to_char(hiredate,'dd/mm/yy') from emp;
+
+HIREDATE  TO_CHAR(
+--------- --------
+17-DEC-80 17/12/80
+20-FEB-81 20/02/81
+22-FEB-81 22/02/81
+02-APR-81 02/04/81
+28-SEP-81 28/09/81
+01-MAY-81 01/05/81
+09-JUN-81 09/06/81
+19-APR-87 19/04/87
+17-NOV-81 17/11/81
+08-SEP-81 08/09/81
+23-MAY-87 23/05/87
+03-DEC-81 03/12/81
+03-DEC-81 03/12/81
+23-JAN-82 23/01/82
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'day/mm/yy') from emp;
+
+HIREDATE  TO_CHAR(HIREDAT
+--------- ---------------
+17-DEC-80 wednesday/12/80
+20-FEB-81 friday   /02/81
+22-FEB-81 sunday   /02/81
+02-APR-81 thursday /04/81
+28-SEP-81 monday   /09/81
+01-MAY-81 friday   /05/81
+09-JUN-81 tuesday  /06/81
+19-APR-87 sunday   /04/87
+17-NOV-81 tuesday  /11/81
+08-SEP-81 tuesday  /09/81
+23-MAY-87 saturday /05/87
+03-DEC-81 thursday /12/81
+03-DEC-81 thursday /12/81
+23-JAN-82 saturday /01/82
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'day /month/yy ') from emp;
+
+HIREDATE  TO_CHAR(HIREDATE,'DAY/MO
+--------- ------------------------
+17-DEC-80 wednesday /december /80
+20-FEB-81 friday    /february /81
+22-FEB-81 sunday    /february /81
+02-APR-81 thursday  /april    /81
+28-SEP-81 monday    /september/81
+01-MAY-81 friday    /may      /81
+09-JUN-81 tuesday   /june     /81
+19-APR-87 sunday    /april    /87
+17-NOV-81 tuesday   /november /81
+08-SEP-81 tuesday   /september/81
+23-MAY-87 saturday  /may      /87
+03-DEC-81 thursday  /december /81
+03-DEC-81 thursday  /december /81
+23-JAN-82 saturday  /january  /82
+
+14 rows selected.
+
+SQL> select hiredate,to_char(hiredate,'day/month/year') from emp;
+
+HIREDATE  TO_CHAR(HIREDATE,'DAY/MONTH/YEAR')
+--------- --------------------------------------------------------------
+17-DEC-80 wednesday/december /nineteen eighty
+20-FEB-81 friday   /february /nineteen eighty-one
+22-FEB-81 sunday   /february /nineteen eighty-one
+02-APR-81 thursday /april    /nineteen eighty-one
+28-SEP-81 monday   /september/nineteen eighty-one
+01-MAY-81 friday   /may      /nineteen eighty-one
+09-JUN-81 tuesday  /june     /nineteen eighty-one
+19-APR-87 sunday   /april    /nineteen eighty-seven
+17-NOV-81 tuesday  /november /nineteen eighty-one
+08-SEP-81 tuesday  /september/nineteen eighty-one
+23-MAY-87 saturday /may      /nineteen eighty-seven
+03-DEC-81 thursday /december /nineteen eighty-one
+03-DEC-81 thursday /december /nineteen eighty-one
+23-JAN-82 saturday /january  /nineteen eighty-two
+
+14 rows selected.
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:40
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:46
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate
+select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate,'hh:
+                                            *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:49
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:50
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:51
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:52
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:52
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:53
+
+SQL> 
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate
+select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate,'hh:
+                                            *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> 
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:54
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:55
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:55
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:49:55
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate
+select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate,'hh:
+                                            *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> 
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate
+ct to_char(sysdate,'hh:mi:ss') from dual;
+select to_char(sysdate,'hh:mi:ss') from dual;select to_char(sysdate,'hh:
+                                            *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select to_char(sysdate,'hh:mi:ss') from dual;
+
+TO_CHAR(
+--------
+07:50:00
+
+SQL> select max(sal) from emp;
+
+  MAX(SAL)
+----------
+      5000
+
+SQL> select max(sal),ename from emp;
+select max(sal),ename from emp
+                *
+ERROR at line 1:
+ORA-00937: not a single-group group function
+
+
+SQL> select max(sal),ename from empgroup by ename;
+select max(sal),ename from empgroup by ename
+                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select max(sal),ename from emp group by ename;
+
+  MAX(SAL) ENAME
+---------- ----------
+      1600 ALLEN
+      2975 JONES
+      3000 FORD
+      2450 CLARK
+      1300 MILLER
+       800 SMITH
+      1250 WARD
+      1250 MARTIN
+      3000 SCOTT
+      1500 TURNER
+      1100 ADAMS
+      2850 BLAKE
+      5000 KING
+       950 JAMES
+
+14 rows selected.
+
+SQL> select max(sal),ename from emp order by sal desc;
+select max(sal),ename from emp order by sal desc
+                *
+ERROR at line 1:
+ORA-00937: not a single-group group function
+
+
+SQL> select max(sal),ename from emp group by ename order by sal;
+select max(sal),ename from emp group by ename order by sal
+                                                       *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression
+
+
+SQL> select max(sal),ename from emp where sal =(select max(sal) from emp
+select max(sal),ename from emp where sal =(select max(sal) from emp)
+                *
+ERROR at line 1:
+ORA-00937: not a single-group group function
+
+
+SQL> select max(sal),ename from emp where sal in(select max(sal) from em
+select max(sal),ename from emp where sal in(select max(sal) from emp)
+                *
+ERROR at line 1:
+ORA-00937: not a single-group group function
+
+
+SQL> select max(sal),ename from emp where job in('SALESMAN');
+select max(sal),ename from emp where job in('SALESMAN')
+                *
+ERROR at line 1:
+ORA-00937: not a single-group group function
+
+
+SQL> select max(sal) from emp where job in('SALESMAN');
+
+  MAX(SAL)
+----------
+      1600
+
+SQL> select max(sal),ename from emp where  deptno =30;
+select max(sal),ename from emp where  deptno =30
+                *
+ERROR at line 1:
+ORA-00937: not a single-group group function
+
+
+SQL> select max(sal) from emp where  deptno=30;
+
+  MAX(SAL)
+----------
+      2850
+
+SQL> select min(sal) from emp;
+
+  MIN(SAL)
+----------
+       800
+
+SQL> select min(empno) from emp;
+
+MIN(EMPNO)
+----------
+      7369
+
+SQL> select min(deptno) from emp;
+
+MIN(DEPTNO)
+-----------
+         10
+
+SQL> select min(hiredate) from emp;
+
+MIN(HIRED
+---------
+17-DEC-80
+
+SQL> select avg(sal) from emp;
+
+  AVG(SAL)
+----------
+2073.21429
+
+SQL> select floor(avg(sal)) from emp;
+
+FLOOR(AVG(SAL))
+---------------
+           2073
+
+SQL> select ceil(avg(sal)) from emp;
+
+CEIL(AVG(SAL))
+--------------
+          2074
+
+SQL> select round(avg(sal)) from emp;
+
+ROUND(AVG(SAL))
+---------------
+           2073
+
+SQL> 
