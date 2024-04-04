@@ -1,0 +1,469 @@
+    1  git --version
+    2  help
+    3  help config
+    4  git help config
+    5  mkdir test
+    6  cd test
+    7  git init
+    8  git status
+    9  git demo.txt
+   10  git add demo.txt
+   11  git commit -m "success"
+   12   git config --global user.email "legendamin008@gmail.com"
+   13  git config --global user.name "Prajwal B S"
+   14  git commit -m "success"
+   15  git config --global user.username PrajwalBS-coder
+   16  git remote add origin https://github.com/PrajwalBS-coder/fun.git
+   17  git push origin master
+   18  cd..
+   19  cd
+   20  cd E:\GIT\GO LANG
+   21  cd e
+   22  cd E
+   23  exit
+   24  git status
+   25  git add a.txt
+   26  git status
+   27  git commit -m "a.txt added"
+   28  mkdir amin
+   29  ls
+   30  cd amin
+   31  git -v
+   32  touch a.txt
+   33  ls
+   34  vi a.txt
+   35  cat a.txt
+   36  git status
+   37  git add a.txt
+   38  git commit -m "Added"
+   39  git log
+   40  git remote add origin https://github.com/PrajwalBS-coder/gitlearn.git
+   41  git remote -v
+   42  git push origin master
+   43  cd ..
+   44  cd ..
+   45  E:
+   46  cd e
+   47  cd e:
+   48  ls
+   49  cd my data
+   50  cd 'my data'
+   51  ls
+   52  cd ..
+   53  cd git
+   54  ls
+   55  cd javascript
+   56  ls
+   57  git status
+   58  git init
+   59  git status
+   60  git add .
+   61  git commit -m "ALL JAVASCRIPT CoDES"
+   62  git push origin master
+   63  git remote add origin https://github.com/PrajwalBS-coder/gitlearn.git
+   64  git push origin master
+   65  git push --help
+   66  git push origin master
+   67  git push -f origin master
+   68  cd /OneDrive/Desktop/amin
+   69  cd Desktop
+   70  cd C:\Users\admin\OneDrive\Desktop\amin
+   71  cd c:
+   72  cd Users\admin\OneDrive\Desktop\amin
+   73  exit
+   74  git status
+   75  git init
+   76  git status
+   77  git add .
+   78  git status
+   79  git commit -m "leetcode"
+   80  git status
+   81  git remote add origin https://github.com/PrajwalBS-coder/gitlearn.git
+   82  git push origin master
+   83  git push origin master
+   84  git pull
+   85  git push origin master
+   86  git pull origin master
+   87  git push origin master
+   88  git fetch origin master
+   89  ls
+   90  git push origin master
+   91  git merge origin/master
+   92  git fetch origin master
+   93  git status
+   94  git status
+   95  git remote add origin https://github.com/PrajwalBS-coder/gitlearn.git
+   96  pit push
+   97  git push
+   98   git push --set-upstream origin master
+   99  log -v
+  100  git log -v
+  101  git branch amin
+  102  git checkout amin
+  103  status
+  104  git status
+  105  touch a.txt
+  106  git status
+  107  git add .
+  108  git commit -m "Amin Added one file"
+  109  git log
+  110  git push origin amin
+  111  cat>> a.txt
+  112  git status
+  113  git add .
+  114  git commit -m "New message added"
+  115  git push origin amin
+  116  exit
+  117  exit
+  118  ssh git@github.com:legendamin/1stone.git
+  119  git status
+  120  ls
+  121  ls -a
+  122  git init
+  123  git status
+  124  git clone https://github.com/legendamin/1stone.git
+  125  cd 1stone
+  126  ls
+  127  cat firstfile
+  128  cat >> firstfile
+  129  git status
+  130  cat firstfile
+  131  git .add
+  132  git add .
+  133  git status
+  134  git commit -m "edioteed by jhon"
+  135  git push origin main
+  136  git push origin main
+  137  git status
+  138  git clone https://github.com/PrajwalBS-coder/1stone.git
+  139  ls
+  140  cd 1stone
+  141  ls
+  142  cat firtsfile
+  143  cat firstfile
+  144  cat >> firtsfile
+  145  cat firstfile
+  146  ls
+  147  rm firtsfile
+  148  ls
+  149  cat firstfile
+  150  cat >> firstfile
+  151  cat firstfile
+  152  git status
+  153  git add .
+  154  git status
+  155  git commit -m "Edited by pjhon"
+  156  git push origin main
+  157  git status
+  158  git log
+  159  git status
+  160  cd  1stone
+  161  l;s
+  162  ls
+  163  git status
+  164  git log
+  165  branch amin
+  166  git branch amin
+  167  checkout amin
+  168  git checkout amin
+  169  git status
+  170  ld
+  171  ls
+  172  cat firstfile
+  173  vi firtsfile
+  174  cat firstfile
+  175  git status
+  176  git add .
+  177  git status
+  178  git commit -m "amin edited this page"
+  179  git push origin amin
+  180  cat firtstfile
+  181  cat firstfile
+  182  cat  >> firstfile
+  183  cat  >> firstfile
+  184  cat firstfile
+  185  git status
+  186  git add .
+  187  git status
+  188  git commit -m "changed a bit "
+  189  git push origin amin
+  190  git log
+  191  git branch jhon
+  192  git checkout jhon
+  193  git status
+  194  ls
+  195  edit firstfile
+  196  git status
+  197  git add .
+  198  git commit -m "reedited by pa"
+  199  git status
+  200  git push origin jhon
+  201  git status
+  202  git checkout amin
+  203  bit branch ls
+  204  git branch ls
+  205  git branch
+  206  git log
+  207  git reset 5e4e279da1174a3d69609a77f649ebf1cd8e58d6
+  208  git status
+  209  git add.
+  210  git add .
+  211  git push origin amin
+  212  git push origin amin -f
+  213  git status
+  214  git add .
+  215  git status
+  216  git commit -m "updated"
+  217  git push origin master
+  218  git log
+  219  git status
+  220  git ini
+  221  git init
+  222  git status
+  223  git remote add origin https://github.com/legendamin/Go-Project.git
+  224  git add .
+  225  git status
+  226  git commit -m "my first project on Go"
+  227  git branch amin
+  228  checkout amin
+  229  checkout amin
+  230  git checkout amin
+  231  git status
+  232  git push origin amin
+  233  git remote add origin https://github.com/PrajwalBS-coder/Go-Project.git
+  234  git push origin amin
+  235  git checkout master
+  236  git status
+  237  git push origin master
+  238  git branch -r
+  239  git status
+  240  git status
+  241  git status
+  242  git add .
+  243  git commit 
+  244  git commit -m "added"
+  245  git push origin master
+  246  git remote remove origin
+  247  git branch -r
+  248  git remote add origin https://github.com/legendamin/Go-Project.git
+  249  git status
+  250  git remote remove origin
+  251  git push origin master
+  252  git status
+  253  git remote add amin https://github.com/PrajwalBS-coder/GO-Project.git
+  254  git branch -r
+  255  git branch 
+  256  git status
+  257  git add .
+  258  git commit -m "added"
+  259  git push amin master
+  260  git status
+  261  git add .
+  262  git status
+  263  git commit -m ""
+  264  git commit -m "new lines added"
+  265  git push amin master
+  266  git log
+  267  git status
+  268  git status
+  269  git add .
+  270  git commit -m "more lines of code "
+  271  git push amin master
+  272  git status
+  273  git branch
+  274  git checckout amin
+  275  git  checkout amin
+  276  git status
+  277  git status
+  278  git add .
+  279  git commit -m "pushed"
+  280  git push amin amin
+  281  git branch
+  282  git checkout master
+  283  git status
+  284  git status
+  285  git add .
+  286  git commit -m "pushed"
+  287  git push amin master
+  288  git status
+  289  scp -i agent.jar prajwal@127.0.0.1:/home/linux
+  290  scp -i agent.jar prajwal@127.0.0.1:/Desktop/Linux
+  291  git status
+  292  git add .
+  293  git status
+  294  git push origin master
+  295  git push amin master
+  296  git status
+  297  git branch
+  298  git commit -m "added more lines of code"
+  299  git push amin master
+  300  git init
+  301  git status
+  302  git add .
+  303  git status
+  304  git commit -m "Certifictaes"
+  305  git status
+  306  git remote add certificate https://github.com/PrajwalBS-coder/Certificates-and-Papers.git
+  307  git branch
+  308  git log
+  309  git remote
+  310  git push certificate master
+  311  git ls
+  312  git-ls
+  313   git ls-remote
+  314  git remote
+  315  git remote-ls
+  316  git remote
+  317  git status
+  318  git add .
+  319  git commit -m "Certificates"
+  320  git push certificate master
+  321  git config –list
+  322  git config 
+  323  git config -get
+  324  git config --get
+  325  git config --get-all
+  326  git config –-list
+  327  git config 
+  328  git config user.name
+  329  git config --list
+  330  git config --global --unset user.name
+  331  git config --global user.name
+  332   git config --global user.email
+  333  git config --global --unset user.email
+  334  git config --global user.email
+  335  git config user.name
+  336  git config --global user.name "Prajwal B S"
+  337  git config --global user.email "prajwaljhon@gmail.com"
+  338  git config --global --list
+  339  git status
+  340  git status
+  341  git add .
+  342  git commit -m "updated"
+  343  git push certificate master
+  344  git status
+  345  git add .
+  346  git commit -m "new certificate added"
+  347  git push certificate master
+  348  git remote
+  349  git remote -ls
+  350  git remote-ls
+  351  git status
+  352  git add .
+  353  git commit -m "new added"
+  354  git status
+  355  git push certificate master
+  356  git status
+  357  git add .
+  358  git commit -m "MOre added"
+  359  git push certificate master
+  360  git status
+  361  git add .
+  362  git commit -m "MOre added"
+  363  git status
+  364  git push certificate master
+  365  git status
+  366  git add .
+  367  git commit -m "Data Science"
+  368  git push certificate master
+  369  git status
+  370  git add .
+  371  git status
+  372  git commit -m "Encryption"
+  373  git push maste certificate
+  374  git push master certificate
+  375  histroy
+  376  git push origin master ceritificate
+  377  git push ceritificate master
+  378  git push certificate master
+  379  git status
+  380  git add .
+  381  git commit -m "Firewall Cirtificate"
+  382  git pish certificate master
+  383   git push certificate master
+  384  git add .
+  385  git stasus
+  386  git status
+  387  git push certificate master
+  388  git commit -m "R"
+  389  git push certificate master
+  390  log
+  391  git log
+  392  ls
+  393  dir
+  394  pwd
+  395  git status
+  396  giit add .
+  397  git add.
+  398  git add .
+  399  git status
+  400  git commit -m "Devops"
+  401  git satus
+  402  git status
+  403  git push cirtificate master
+  404  git push certificate master
+  405  git push certificate master
+  406  git push certificate master
+  407  git stastus
+  408  git status
+  409  git add .
+  410  git commit -m "Network Security"
+  411  git status
+  412  git push certificate master
+  413  git status
+  414  git status
+  415  git status
+  416  git add .
+  417  git commitr -m ""
+  418  git commit -m ""
+  419  git status
+  420  cd ..
+  421  git status
+  422  git init
+  423  git status
+  424  git add -m ""
+  425  git add .
+  426  git status
+  427  git commit -m ""
+  428  git commit -m " "
+  429  git commit -m ""
+  430  git commit -m "Training"
+  431  git remote add origin git@github.com:PrajwalBS-coder/Jspiders.git
+  432  git branch -m main
+  433  git push -u origin main
+  434  git push -u origin main
+  435  git remote add origin https://github.com/PrajwalBS-coder/Jspiders.git
+  436  git remote add jspider https://github.com/PrajwalBS-coder/Jspiders.git
+  437  git branch -m main
+  438  git push -u jspider main
+  439  git branch
+  440  exit
+  441  git status
+  442  git add .
+  443  git status
+  444  023.
+  445  .git commit -m ""
+  446  git commit -m ""
+  447  git commit  ""
+  448  git commit -m "Training"
+  449  git status
+  450  git push main jhon
+  451  git push -u jspider main
+  452  exit
+  453  git status
+  454  git add .
+  455  git status
+  456  git commit -m " "
+  457  git commit -m "Sql "
+  458  git push -u jspider main
+  459  git status
+  460  git add .
+  461  git status
+  462  git push -u jspider main
+  463  help
+  464  histroy -c
+  465   history [-c]
+  466   history 
+  467  cat gitcommnds.txt >> history
+  468  cat gitcommnds.txt >> history
+  469   history > gitcommnds.txt
