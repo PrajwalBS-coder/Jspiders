@@ -1,0 +1,489 @@
+SQL> select * from emp where  rownum<=5
+  2  ;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+
+SQL> set pages 140 lines 200
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+
+SQL> select * from emp where  rownum<=15;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from emp where  rownum=14;
+
+no rows selected
+
+SQL> select * from emp where  rownum<14;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+
+13 rows selected.
+
+SQL> select * from emp where  rownum<=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> select * from emp where  rownum<1;
+
+no rows selected
+
+SQL> select * from emp where  rownum = 1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> select * from emp where  rownum >=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from emp where  rownum <=100;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from emp where  rownum >=2;
+
+no rows selected
+
+SQL> select rowid from emp;
+
+ROWID                                                                                                                                                                                                   
+------------------                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAA                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAB                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAC                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAD                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAE                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAF                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAG                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAH                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAI                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAJ                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAK                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAL                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAM                                                                                                                                                                                      
+AAAMfPAAEAAAAAgAAN                                                                                                                                                                                      
+
+14 rows selected.
+
+SQL> select * from emp where  rowid ='AAAMfPAAEAAAAAgAAA';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+
+SQL> select sal from emp order by sal desc;
+
+       SAL                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      2975                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> select sal from emp order by sal;
+
+       SAL                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2975                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> lect hiredate from emp where
+SP2-0734: unknown command beginning "lect hired..." - rest of line ignored.
+SQL> 
+SQL> select hiredate from emp order by hiredate;
+
+HIREDATE                                                                                                                                                                                                
+---------                                                                                                                                                                                               
+17-DEC-80                                                                                                                                                                                               
+20-FEB-81                                                                                                                                                                                               
+22-FEB-81                                                                                                                                                                                               
+02-APR-81                                                                                                                                                                                               
+01-MAY-81                                                                                                                                                                                               
+09-JUN-81                                                                                                                                                                                               
+08-SEP-81                                                                                                                                                                                               
+28-SEP-81                                                                                                                                                                                               
+17-NOV-81                                                                                                                                                                                               
+03-DEC-81                                                                                                                                                                                               
+03-DEC-81                                                                                                                                                                                               
+23-JAN-82                                                                                                                                                                                               
+19-APR-87                                                                                                                                                                                               
+23-MAY-87                                                                                                                                                                                               
+
+14 rows selected.
+
+SQL> select hiredate from emp order by hiredate wheer rownum=3;
+select hiredate from emp order by hiredate wheer rownum=3
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select hiredate from emp order by hiredate where rownum=3;
+select hiredate from emp order by hiredate where rownum=3
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select ename from emp order by ename;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+ADAMS                                                                                                                                                                                                   
+ALLEN                                                                                                                                                                                                   
+BLAKE                                                                                                                                                                                                   
+CLARK                                                                                                                                                                                                   
+FORD                                                                                                                                                                                                    
+JAMES                                                                                                                                                                                                   
+JONES                                                                                                                                                                                                   
+KING                                                                                                                                                                                                    
+MARTIN                                                                                                                                                                                                  
+MILLER                                                                                                                                                                                                  
+SCOTT                                                                                                                                                                                                   
+SMITH                                                                                                                                                                                                   
+TURNER                                                                                                                                                                                                  
+WARD                                                                                                                                                                                                    
+
+14 rows selected.
+
+SQL> select ename from emp order by ename desc;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+WARD                                                                                                                                                                                                    
+TURNER                                                                                                                                                                                                  
+SMITH                                                                                                                                                                                                   
+SCOTT                                                                                                                                                                                                   
+MILLER                                                                                                                                                                                                  
+MARTIN                                                                                                                                                                                                  
+KING                                                                                                                                                                                                    
+JONES                                                                                                                                                                                                   
+JAMES                                                                                                                                                                                                   
+FORD                                                                                                                                                                                                    
+CLARK                                                                                                                                                                                                   
+BLAKE                                                                                                                                                                                                   
+ALLEN                                                                                                                                                                                                   
+ADAMS                                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> select comm from emp order by comm;
+
+      COMM                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         0                                                                                                                                                                                              
+       300                                                                                                                                                                                              
+       500                                                                                                                                                                                              
+      1400                                                                                                                                                                                              
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+
+14 rows selected.
+
+SQL> select comm from emp order by comm desc;
+
+      COMM                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+      1400                                                                                                                                                                                              
+       500                                                                                                                                                                                              
+       300                                                                                                                                                                                              
+         0                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> select ename from emp where ename in('SMITH',
+  2  'ALLEN','WARD') ORDER BY ENAME DESC;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+WARD                                                                                                                                                                                                    
+SMITH                                                                                                                                                                                                   
+ALLEN                                                                                                                                                                                                   
+
+SQL>  select ename from emp where ename in('SMITH',
+  2   'ALLEN','WARD') ORDER BY ENAME ;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+ALLEN                                                                                                                                                                                                   
+SMITH                                                                                                                                                                                                   
+WARD                                                                                                                                                                                                    
+
+SQL>  select ename from emp where ename in('SMITH',
+  2   'ALLEN','WARD') ORDER BY ENAME DESC;
+
+ENAME                                                                                                                                                                                                   
+----------                                                                                                                                                                                              
+WARD                                                                                                                                                                                                    
+SMITH                                                                                                                                                                                                   
+ALLEN                                                                                                                                                                                                   
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT ENAME,SAL FROM EMP ORDER BY SAL DESC,ENAME;
+
+ENAME             SAL                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+KING             5000                                                                                                                                                                                   
+FORD             3000                                                                                                                                                                                   
+SCOTT            3000                                                                                                                                                                                   
+JONES            2975                                                                                                                                                                                   
+BLAKE            2850                                                                                                                                                                                   
+CLARK            2450                                                                                                                                                                                   
+ALLEN            1600                                                                                                                                                                                   
+TURNER           1500                                                                                                                                                                                   
+MILLER           1300                                                                                                                                                                                   
+MARTIN           1250                                                                                                                                                                                   
+WARD             1250                                                                                                                                                                                   
+ADAMS            1100                                                                                                                                                                                   
+JAMES             950                                                                                                                                                                                   
+SMITH             800                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL FROM EMP ORDER BY ENAME,SAL;
+
+ENAME             SAL                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+ADAMS            1100                                                                                                                                                                                   
+ALLEN            1600                                                                                                                                                                                   
+BLAKE            2850                                                                                                                                                                                   
+CLARK            2450                                                                                                                                                                                   
+FORD             3000                                                                                                                                                                                   
+JAMES             950                                                                                                                                                                                   
+JONES            2975                                                                                                                                                                                   
+KING             5000                                                                                                                                                                                   
+MARTIN           1250                                                                                                                                                                                   
+MILLER           1300                                                                                                                                                                                   
+SCOTT            3000                                                                                                                                                                                   
+SMITH             800                                                                                                                                                                                   
+TURNER           1500                                                                                                                                                                                   
+WARD             1250                                                                                                                                                                                   
+
+14 rows selected.
+
+SQL> SELECT DISTINCT SAL FROM EMP;
+
+       SAL                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2975                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+
+12 rows selected.
+
+SQL> SELECT DISTINCT SAL,JOB FROM EMP;
+
+       SAL JOB                                                                                                                                                                                          
+---------- ---------                                                                                                                                                                                    
+       800 CLERK                                                                                                                                                                                        
+      2850 MANAGER                                                                                                                                                                                      
+      1500 SALESMAN                                                                                                                                                                                     
+      2975 MANAGER                                                                                                                                                                                      
+      2450 MANAGER                                                                                                                                                                                      
+      1300 CLERK                                                                                                                                                                                        
+      1250 SALESMAN                                                                                                                                                                                     
+      1100 CLERK                                                                                                                                                                                        
+      3000 ANALYST                                                                                                                                                                                      
+       950 CLERK                                                                                                                                                                                        
+      1600 SALESMAN                                                                                                                                                                                     
+      5000 PRESIDENT                                                                                                                                                                                    
+
+12 rows selected.
+
+SQL> SELECT DISTINCT SAL,job,deptno from emp;
+
+       SAL JOB           DEPTNO                                                                                                                                                                         
+---------- --------- ----------                                                                                                                                                                         
+       950 CLERK             30                                                                                                                                                                         
+       800 CLERK             20                                                                                                                                                                         
+      2850 MANAGER           30                                                                                                                                                                         
+      1100 CLERK             20                                                                                                                                                                         
+      2975 MANAGER           20                                                                                                                                                                         
+      2450 MANAGER           10                                                                                                                                                                         
+      1600 SALESMAN          30                                                                                                                                                                         
+      1250 SALESMAN          30                                                                                                                                                                         
+      5000 PRESIDENT         10                                                                                                                                                                         
+      1500 SALESMAN          30                                                                                                                                                                         
+      3000 ANALYST           20                                                                                                                                                                         
+      1300 CLERK             10                                                                                                                                                                         
+
+12 rows selected.
+
+SQL> SELECT DISTINCT SAL,job,deptno,empno from emp;
+
+       SAL JOB           DEPTNO      EMPNO                                                                                                                                                              
+---------- --------- ---------- ----------                                                                                                                                                              
+      1250 SALESMAN          30       7521                                                                                                                                                              
+      2850 MANAGER           30       7698                                                                                                                                                              
+      1250 SALESMAN          30       7654                                                                                                                                                              
+      5000 PRESIDENT         10       7839                                                                                                                                                              
+       800 CLERK             20       7369                                                                                                                                                              
+      1600 SALESMAN          30       7499                                                                                                                                                              
+      2975 MANAGER           20       7566                                                                                                                                                              
+      1500 SALESMAN          30       7844                                                                                                                                                              
+      2450 MANAGER           10       7782                                                                                                                                                              
+      3000 ANALYST           20       7788                                                                                                                                                              
+      1100 CLERK             20       7876                                                                                                                                                              
+       950 CLERK             30       7900                                                                                                                                                              
+      3000 ANALYST           20       7902                                                                                                                                                              
+      1300 CLERK             10       7934                                                                                                                                                              
+
+14 rows selected.
+
+SQL> spool off
