@@ -1,0 +1,17 @@
+SQL> select sal from (select sal from(select distinct sal from emp
+  2  order by sal desc)
+  3  where rownum<=3 order by sal) where rownum=1;
+
+       SAL
+----------
+      2975
+
+SQL> select sal from (select sal from(select distinct sal from emp
+  2  order by sal desc)
+  3  where rownum<=4 order by sal) where rownum=1;
+
+       SAL
+----------
+      2850
+
+SQL> 
