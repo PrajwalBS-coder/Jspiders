@@ -1,0 +1,336 @@
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+COURSE                         TABLE                                            
+STUDENT                        TABLE                                            
+DOCTOR                         TABLE                                            
+PATIENT                        TABLE                                            
+PEOPLE                         TABLE                                            
+VACCINE                        TABLE                                            
+CUSTOMER                       TABLE                                            
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+CRICKET                        TABLE                                            
+PLAYER                         TABLE                                            
+AMIN                           TABLE                                            
+LOGIN                          TABLE                                            
+JHON                           TABLE                                            
+PRODUCT                        TABLE                                            
+
+17 rows selected.
+
+SQL> set pages 10 lines 140
+SQL> /
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+DEPT                           TABLE                                                                                                        
+EMP                            TABLE                                                                                                        
+BONUS                          TABLE                                                                                                        
+SALGRADE                       TABLE                                                                                                        
+COURSE                         TABLE                                                                                                        
+STUDENT                        TABLE                                                                                                        
+DOCTOR                         TABLE                                                                                                        
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+PATIENT                        TABLE                                                                                                        
+PEOPLE                         TABLE                                                                                                        
+VACCINE                        TABLE                                                                                                        
+CUSTOMER                       TABLE                                                                                                        
+CRICKET                        TABLE                                                                                                        
+PLAYER                         TABLE                                                                                                        
+AMIN                           TABLE                                                                                                        
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+LOGIN                          TABLE                                                                                                        
+JHON                           TABLE                                                                                                        
+PRODUCT                        TABLE                                                                                                        
+
+17 rows selected.
+
+SQL> set pages 140
+SQL> /
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+DEPT                           TABLE                                                                                                        
+EMP                            TABLE                                                                                                        
+BONUS                          TABLE                                                                                                        
+SALGRADE                       TABLE                                                                                                        
+COURSE                         TABLE                                                                                                        
+STUDENT                        TABLE                                                                                                        
+DOCTOR                         TABLE                                                                                                        
+PATIENT                        TABLE                                                                                                        
+PEOPLE                         TABLE                                                                                                        
+VACCINE                        TABLE                                                                                                        
+CUSTOMER                       TABLE                                                                                                        
+CRICKET                        TABLE                                                                                                        
+PLAYER                         TABLE                                                                                                        
+AMIN                           TABLE                                                                                                        
+LOGIN                          TABLE                                                                                                        
+JHON                           TABLE                                                                                                        
+PRODUCT                        TABLE                                                                                                        
+
+17 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e innner join dept d
+  3  on e.deptno=d.deptno;
+from emp e innner join dept d
+           *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e inner join dept d
+  3   on e.deptno=d.deptno;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                      
+---------- ---------- ---------- --------------                                                                                             
+SMITH              20         20 RESEARCH                                                                                                   
+ALLEN              30         30 SALES                                                                                                      
+WARD               30         30 SALES                                                                                                      
+JONES              20         20 RESEARCH                                                                                                   
+MARTIN             30         30 SALES                                                                                                      
+BLAKE              30         30 SALES                                                                                                      
+CLARK              10         10 ACCOUNTING                                                                                                 
+SCOTT              20         20 RESEARCH                                                                                                   
+KING               10         10 ACCOUNTING                                                                                                 
+TURNER             30         30 SALES                                                                                                      
+ADAMS              20         20 RESEARCH                                                                                                   
+JAMES              30         30 SALES                                                                                                      
+FORD               20         20 RESEARCH                                                                                                   
+MILLER             10         10 ACCOUNTING                                                                                                 
+
+14 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e inner join dept d
+  3   on e.deptno!=d.deptno;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                      
+---------- ---------- ---------- --------------                                                                                             
+SMITH              20         10 ACCOUNTING                                                                                                 
+ALLEN              30         10 ACCOUNTING                                                                                                 
+WARD               30         10 ACCOUNTING                                                                                                 
+JONES              20         10 ACCOUNTING                                                                                                 
+MARTIN             30         10 ACCOUNTING                                                                                                 
+BLAKE              30         10 ACCOUNTING                                                                                                 
+SCOTT              20         10 ACCOUNTING                                                                                                 
+TURNER             30         10 ACCOUNTING                                                                                                 
+ADAMS              20         10 ACCOUNTING                                                                                                 
+JAMES              30         10 ACCOUNTING                                                                                                 
+FORD               20         10 ACCOUNTING                                                                                                 
+ALLEN              30         20 RESEARCH                                                                                                   
+WARD               30         20 RESEARCH                                                                                                   
+MARTIN             30         20 RESEARCH                                                                                                   
+BLAKE              30         20 RESEARCH                                                                                                   
+CLARK              10         20 RESEARCH                                                                                                   
+KING               10         20 RESEARCH                                                                                                   
+TURNER             30         20 RESEARCH                                                                                                   
+JAMES              30         20 RESEARCH                                                                                                   
+MILLER             10         20 RESEARCH                                                                                                   
+SMITH              20         30 SALES                                                                                                      
+JONES              20         30 SALES                                                                                                      
+CLARK              10         30 SALES                                                                                                      
+SCOTT              20         30 SALES                                                                                                      
+KING               10         30 SALES                                                                                                      
+ADAMS              20         30 SALES                                                                                                      
+FORD               20         30 SALES                                                                                                      
+MILLER             10         30 SALES                                                                                                      
+SMITH              20         40 OPERATIONS                                                                                                 
+ALLEN              30         40 OPERATIONS                                                                                                 
+WARD               30         40 OPERATIONS                                                                                                 
+JONES              20         40 OPERATIONS                                                                                                 
+MARTIN             30         40 OPERATIONS                                                                                                 
+BLAKE              30         40 OPERATIONS                                                                                                 
+CLARK              10         40 OPERATIONS                                                                                                 
+SCOTT              20         40 OPERATIONS                                                                                                 
+KING               10         40 OPERATIONS                                                                                                 
+TURNER             30         40 OPERATIONS                                                                                                 
+ADAMS              20         40 OPERATIONS                                                                                                 
+JAMES              30         40 OPERATIONS                                                                                                 
+FORD               20         40 OPERATIONS                                                                                                 
+MILLER             10         40 OPERATIONS                                                                                                 
+
+42 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e inner join dept d
+  3   on e.deptno=d.deptno
+  4  where e.ename='SMITH';
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                      
+---------- ---------- ---------- --------------                                                                                             
+SMITH              20         20 RESEARCH                                                                                                   
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e inner join dept d
+  3   on e.deptno!=d.deptno
+  4  where e.ename='SMITH';
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                      
+---------- ---------- ---------- --------------                                                                                             
+SMITH              20         10 ACCOUNTING                                                                                                 
+SMITH              20         30 SALES                                                                                                      
+SMITH              20         40 OPERATIONS                                                                                                 
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e inner join dept d
+  3   on e.deptno>D.DEPTNO;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                      
+---------- ---------- ---------- --------------                                                                                             
+SMITH              20         10 ACCOUNTING                                                                                                 
+ALLEN              30         10 ACCOUNTING                                                                                                 
+ALLEN              30         20 RESEARCH                                                                                                   
+WARD               30         10 ACCOUNTING                                                                                                 
+WARD               30         20 RESEARCH                                                                                                   
+JONES              20         10 ACCOUNTING                                                                                                 
+MARTIN             30         10 ACCOUNTING                                                                                                 
+MARTIN             30         20 RESEARCH                                                                                                   
+BLAKE              30         10 ACCOUNTING                                                                                                 
+BLAKE              30         20 RESEARCH                                                                                                   
+SCOTT              20         10 ACCOUNTING                                                                                                 
+TURNER             30         10 ACCOUNTING                                                                                                 
+TURNER             30         20 RESEARCH                                                                                                   
+ADAMS              20         10 ACCOUNTING                                                                                                 
+JAMES              30         10 ACCOUNTING                                                                                                 
+JAMES              30         20 RESEARCH                                                                                                   
+FORD               20         10 ACCOUNTING                                                                                                 
+
+17 rows selected.
+
+SQL> select e.ename,e.deptno,d.deptno,d.dname
+  2  from emp e inner join dept d
+  3   on e.deptno>=D.DEPTNO;
+
+ENAME          DEPTNO     DEPTNO DNAME                                                                                                      
+---------- ---------- ---------- --------------                                                                                             
+SMITH              20         10 ACCOUNTING                                                                                                 
+SMITH              20         20 RESEARCH                                                                                                   
+ALLEN              30         10 ACCOUNTING                                                                                                 
+ALLEN              30         20 RESEARCH                                                                                                   
+ALLEN              30         30 SALES                                                                                                      
+WARD               30         10 ACCOUNTING                                                                                                 
+WARD               30         20 RESEARCH                                                                                                   
+WARD               30         30 SALES                                                                                                      
+JONES              20         10 ACCOUNTING                                                                                                 
+JONES              20         20 RESEARCH                                                                                                   
+MARTIN             30         10 ACCOUNTING                                                                                                 
+MARTIN             30         20 RESEARCH                                                                                                   
+MARTIN             30         30 SALES                                                                                                      
+BLAKE              30         10 ACCOUNTING                                                                                                 
+BLAKE              30         20 RESEARCH                                                                                                   
+BLAKE              30         30 SALES                                                                                                      
+CLARK              10         10 ACCOUNTING                                                                                                 
+SCOTT              20         10 ACCOUNTING                                                                                                 
+SCOTT              20         20 RESEARCH                                                                                                   
+KING               10         10 ACCOUNTING                                                                                                 
+TURNER             30         10 ACCOUNTING                                                                                                 
+TURNER             30         20 RESEARCH                                                                                                   
+TURNER             30         30 SALES                                                                                                      
+ADAMS              20         10 ACCOUNTING                                                                                                 
+ADAMS              20         20 RESEARCH                                                                                                   
+JAMES              30         10 ACCOUNTING                                                                                                 
+JAMES              30         20 RESEARCH                                                                                                   
+JAMES              30         30 SALES                                                                                                      
+FORD               20         10 ACCOUNTING                                                                                                 
+FORD               20         20 RESEARCH                                                                                                   
+MILLER             10         10 ACCOUNTING                                                                                                 
+
+31 rows selected.
+
+SQL> SELECT * FROM STUDENT;
+
+    STU_ID SNAM        CID      MARKS                                                                                                       
+---------- ---- ---------- ----------                                                                                                       
+         2 Jhon          1         78                                                                                                       
+         3 Kate          3         89                                                                                                       
+
+SQL> SELECT * FROM COURSE;
+
+       CID CNAME            FEES TNAME                                                                                                      
+---------- ---------- ---------- ----------                                                                                                 
+         1 sql               100 aa                                                                                                         
+         2 python            200 bb                                                                                                         
+         3 html              300 cc                                                                                                         
+        50 Java             2000 jhon                                                                                                       
+
+SQL> SELECT S.SNAME,S.CID,C,CID,C.CNAME
+  2  FROM STUDENT S JOIN DEPT D
+  3  ON S.CID=C.CID;
+ON S.CID=C.CID
+         *
+ERROR at line 3:
+ORA-00904: "C"."CID": invalid identifier 
+
+
+SQL> SELECT S.SNAME,S.CID,C,CID,C.CNAME
+  2  FROM STUDENT S JOIN COURSE C
+  3  ON S.CID=C.CID;
+SELECT S.SNAME,S.CID,C,CID,C.CNAME
+                       *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> SELECT S.SNAME,S.CID,C.CID,C.CNAME
+  2   FROM STUDENT S JOIN COURSE C
+  3   ON S.CID=C.CID;
+
+SNAM        CID        CID CNAME                                                                                                            
+---- ---------- ---------- ----------                                                                                                       
+Jhon          1          1 sql                                                                                                              
+Kate          3          3 html                                                                                                             
+
+SQL> SELECT S.SNAME,S.CID,C.CID,C.CNAME
+  2   FROM STUDENT S JOIN COURSE C
+  3   ON S.CID!=C.CID;
+
+SNAM        CID        CID CNAME                                                                                                            
+---- ---------- ---------- ----------                                                                                                       
+Jhon          1          2 python                                                                                                           
+Jhon          1          3 html                                                                                                             
+Jhon          1         50 Java                                                                                                             
+Kate          3          1 sql                                                                                                              
+Kate          3          2 python                                                                                                           
+Kate          3         50 Java                                                                                                             
+
+6 rows selected.
+
+SQL> SELECT S.SNAME,S.CID,C.CID,C.CNAME
+  2   FROM STUDENT S JOIN COURSE C
+  3   ON S.CID!=C.CID
+  4  WHERE S.SNAME='JHON';
+
+no rows selected
+
+SQL> SELECT S.SNAME,S.CID,C.CID,C.CNAME
+  2   FROM STUDENT S JOIN COURSE C
+  3   ON S.CID!=C.CID
+  4  WHERE S.SNAME='jhon';
+
+no rows selected
+
+SQL>  SELECT S.SNAME,S.CID,C.CID,C.CNAME
+  2    FROM STUDENT S JOIN COURSE C
+  3    ON S.CID!=C.CID
+  4   WHERE S.SNAME='Jhon';
+
+SNAM        CID        CID CNAME                                                                                                            
+---- ---------- ---------- ----------                                                                                                       
+Jhon          1          2 python                                                                                                           
+Jhon          1          3 html                                                                                                             
+Jhon          1         50 Java                                                                                                             
+
+SQL> spool off
