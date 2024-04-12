@@ -1,0 +1,1435 @@
+SQL> create index idon emp(job);
+create index idon emp(job)
+                  *
+ERROR at line 1:
+ORA-00969: missing ON keyword 
+
+
+SQL> create index id on emp(job);
+
+Index created.
+
+SQL> set auto trace on explain;
+SP2-0158: unknown SET autocommit option "trace"
+Usage: SET AUTO[COMMIT] { OFF | ON | IMM[EDIATE] | n } 
+SQL> set autotrace on explain;
+SQL> select job from emp;
+
+JOB                                                                             
+---------                                                                       
+CLERK                                                                           
+SALESMAN                                                                        
+SALESMAN                                                                        
+MANAGER                                                                         
+SALESMAN                                                                        
+MANAGER                                                                         
+MANAGER                                                                         
+ANALYST                                                                         
+PRESIDENT                                                                       
+SALESMAN                                                                        
+CLERK                                                                           
+
+JOB                                                                             
+---------                                                                       
+CLERK                                                                           
+ANALYST                                                                         
+CLERK                                                                           
+
+14 rows selected.
+
+
+Execution Plan
+----------------------------------------------------------                      
+Plan hash value: 3956160932                                                     
+                                                                                
+--------------------------------------------------------------------------      
+| Id  | Operation         | Name | Rows  | Bytes | Cost (%CPU)| Time     |      
+--------------------------------------------------------------------------      
+|   0 | SELECT STATEMENT  |      |    14 |   112 |     3   (0)| 00:00:01 |      
+|   1 |  TABLE ACCESS FULL| EMP  |    14 |   112 |     3   (0)| 00:00:01 |      
+--------------------------------------------------------------------------      
+
+SQL> create index sal on emp(sal,comm);
+
+Index created.
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+
+Execution Plan
+----------------------------------------------------------                      
+Plan hash value: 3956160932                                                     
+                                                                                
+--------------------------------------------------------------------------      
+| Id  | Operation         | Name | Rows  | Bytes | Cost (%CPU)| Time     |      
+--------------------------------------------------------------------------      
+|   0 | SELECT STATEMENT  |      |    14 |   518 |     3   (0)| 00:00:01 |      
+|   1 |  TABLE ACCESS FULL| EMP  |    14 |   518 |     3   (0)| 00:00:01 |      
+--------------------------------------------------------------------------      
+
+SQL> select sal from emp;
+
+       SAL                                                                      
+----------                                                                      
+       800                                                                      
+      1600                                                                      
+      1250                                                                      
+      2975                                                                      
+      1250                                                                      
+      2850                                                                      
+      2450                                                                      
+      3000                                                                      
+      5000                                                                      
+      1500                                                                      
+      1100                                                                      
+
+       SAL                                                                      
+----------                                                                      
+       950                                                                      
+      3000                                                                      
+      1300                                                                      
+
+14 rows selected.
+
+
+Execution Plan
+----------------------------------------------------------                      
+Plan hash value: 3956160932                                                     
+                                                                                
+--------------------------------------------------------------------------      
+| Id  | Operation         | Name | Rows  | Bytes | Cost (%CPU)| Time     |      
+--------------------------------------------------------------------------      
+|   0 | SELECT STATEMENT  |      |    14 |    56 |     3   (0)| 00:00:01 |      
+|   1 |  TABLE ACCESS FULL| EMP  |    14 |    56 |     3   (0)| 00:00:01 |      
+--------------------------------------------------------------------------      
+
+SQL> set autotrace off;
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7566 JONES      MANAGER         7839 02-APR-81       2975                 
+        20                                                                      
+                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+14 rows selected.
+
+SQL> set pages 140 lines 140;
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                       
+
+14 rows selected.
+
+SQL> drop index id;
+
+Index dropped.
+
+SQL> drop index sal;
+
+Index dropped.
+
+SQL> select mod (sal,2) from emp;
+
+MOD(SAL,2)                                                                                                                                  
+----------                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         1                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+         0                                                                                                                                  
+
+14 rows selected.
+
+SQL> select sqrt(sal) from emp;
+
+ SQRT(SAL)                                                                                                                                  
+----------                                                                                                                                  
+28.2842712                                                                                                                                  
+        40                                                                                                                                  
+35.3553391                                                                                                                                  
+54.5435606                                                                                                                                  
+35.3553391                                                                                                                                  
+53.3853913                                                                                                                                  
+49.4974747                                                                                                                                  
+54.7722558                                                                                                                                  
+70.7106781                                                                                                                                  
+38.7298335                                                                                                                                  
+33.1662479                                                                                                                                  
+  30.82207                                                                                                                                  
+54.7722558                                                                                                                                  
+36.0555128                                                                                                                                  
+
+14 rows selected.
+
+SQL>  select floor(sqrt(sal)) from emp;
+
+FLOOR(SQRT(SAL))                                                                                                                            
+----------------                                                                                                                            
+              28                                                                                                                            
+              40                                                                                                                            
+              35                                                                                                                            
+              54                                                                                                                            
+              35                                                                                                                            
+              53                                                                                                                            
+              49                                                                                                                            
+              54                                                                                                                            
+              70                                                                                                                            
+              38                                                                                                                            
+              33                                                                                                                            
+              30                                                                                                                            
+              54                                                                                                                            
+              36                                                                                                                            
+
+14 rows selected.
+
+SQL>  select ceil(sqrt(sal)) from emp;
+
+CEIL(SQRT(SAL))                                                                                                                             
+---------------                                                                                                                             
+             29                                                                                                                             
+             40                                                                                                                             
+             36                                                                                                                             
+             55                                                                                                                             
+             36                                                                                                                             
+             54                                                                                                                             
+             50                                                                                                                             
+             55                                                                                                                             
+             71                                                                                                                             
+             39                                                                                                                             
+             34                                                                                                                             
+             31                                                                                                                             
+             55                                                                                                                             
+             37                                                                                                                             
+
+14 rows selected.
+
+SQL> select sqrt(sal) from emp;
+
+ SQRT(SAL)                                                                                                                                  
+----------                                                                                                                                  
+28.2842712                                                                                                                                  
+        40                                                                                                                                  
+35.3553391                                                                                                                                  
+54.5435606                                                                                                                                  
+35.3553391                                                                                                                                  
+53.3853913                                                                                                                                  
+49.4974747                                                                                                                                  
+54.7722558                                                                                                                                  
+70.7106781                                                                                                                                  
+38.7298335                                                                                                                                  
+33.1662479                                                                                                                                  
+  30.82207                                                                                                                                  
+54.7722558                                                                                                                                  
+36.0555128                                                                                                                                  
+
+14 rows selected.
+
+SQL> select round(sqrt(sal)) from emp;
+
+ROUND(SQRT(SAL))                                                                                                                            
+----------------                                                                                                                            
+              28                                                                                                                            
+              40                                                                                                                            
+              35                                                                                                                            
+              55                                                                                                                            
+              35                                                                                                                            
+              53                                                                                                                            
+              49                                                                                                                            
+              55                                                                                                                            
+              71                                                                                                                            
+              39                                                                                                                            
+              33                                                                                                                            
+              31                                                                                                                            
+              55                                                                                                                            
+              36                                                                                                                            
+
+14 rows selected.
+
+SQL> select pow(2,3);
+select pow(2,3)
+              *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select pow(2,3) from dul;
+select pow(2,3) from dul
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select pow(2,3) from dual;
+select pow(2,3) from dual
+       *
+ERROR at line 1:
+ORA-00904: "POW": invalid identifier 
+
+
+SQL> select power(2,3) from dual;
+
+POWER(2,3)                                                                                                                                  
+----------                                                                                                                                  
+         8                                                                                                                                  
+
+SQL> select len(ename ) from emp;
+select len(ename ) from emp
+       *
+ERROR at line 1:
+ORA-00904: "LEN": invalid identifier 
+
+
+SQL> select length(ename ) from emp;
+
+LENGTH(ENAME)                                                                                                                               
+-------------                                                                                                                               
+            5                                                                                                                               
+            5                                                                                                                               
+            4                                                                                                                               
+            5                                                                                                                               
+            6                                                                                                                               
+            5                                                                                                                               
+            5                                                                                                                               
+            5                                                                                                                               
+            4                                                                                                                               
+            6                                                                                                                               
+            5                                                                                                                               
+            5                                                                                                                               
+            4                                                                                                                               
+            6                                                                                                                               
+
+14 rows selected.
+
+SQL> select upper(ename ) from emp;
+
+UPPER(ENAM                                                                                                                                  
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select lower(ename ) from emp;
+
+LOWER(ENAM                                                                                                                                  
+----------                                                                                                                                  
+smith                                                                                                                                       
+allen                                                                                                                                       
+ward                                                                                                                                        
+jones                                                                                                                                       
+martin                                                                                                                                      
+blake                                                                                                                                       
+clark                                                                                                                                       
+scott                                                                                                                                       
+king                                                                                                                                        
+turner                                                                                                                                      
+adams                                                                                                                                       
+james                                                                                                                                       
+ford                                                                                                                                        
+miller                                                                                                                                      
+
+14 rows selected.
+
+SQL> select trim('a',ename) from emp;
+select trim('a',ename) from emp
+               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select trim('a'from ename) from emp;
+
+TRIM('A'FR                                                                                                                                  
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select trim('A'from ename) from emp;
+
+TRIM('A'FR                                                                                                                                  
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+LLEN                                                                                                                                        
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+DAMS                                                                                                                                        
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select ename,replace(ename,'A','C') from emp;
+
+ENAME      REPLACE(EN                                                                                                                       
+---------- ----------                                                                                                                       
+SMITH      SMITH                                                                                                                            
+ALLEN      CLLEN                                                                                                                            
+WARD       WCRD                                                                                                                             
+JONES      JONES                                                                                                                            
+MARTIN     MCRTIN                                                                                                                           
+BLAKE      BLCKE                                                                                                                            
+CLARK      CLCRK                                                                                                                            
+SCOTT      SCOTT                                                                                                                            
+KING       KING                                                                                                                             
+TURNER     TURNER                                                                                                                           
+ADAMS      CDCMS                                                                                                                            
+JAMES      JCMES                                                                                                                            
+FORD       FORD                                                                                                                             
+MILLER     MILLER                                                                                                                           
+
+14 rows selected.
+
+SQL> select ename,replace(ename,'A') from emp;
+
+ENAME      REPLACE(EN                                                                                                                       
+---------- ----------                                                                                                                       
+SMITH      SMITH                                                                                                                            
+ALLEN      LLEN                                                                                                                             
+WARD       WRD                                                                                                                              
+JONES      JONES                                                                                                                            
+MARTIN     MRTIN                                                                                                                            
+BLAKE      BLKE                                                                                                                             
+CLARK      CLRK                                                                                                                             
+SCOTT      SCOTT                                                                                                                            
+KING       KING                                                                                                                             
+TURNER     TURNER                                                                                                                           
+ADAMS      DMS                                                                                                                              
+JAMES      JMES                                                                                                                             
+FORD       FORD                                                                                                                             
+MILLER     MILLER                                                                                                                           
+
+14 rows selected.
+
+SQL> select ename,substr(ename,3) from emp;
+
+ENAME      SUBSTR(E                                                                                                                         
+---------- --------                                                                                                                         
+SMITH      ITH                                                                                                                              
+ALLEN      LEN                                                                                                                              
+WARD       RD                                                                                                                               
+JONES      NES                                                                                                                              
+MARTIN     RTIN                                                                                                                             
+BLAKE      AKE                                                                                                                              
+CLARK      ARK                                                                                                                              
+SCOTT      OTT                                                                                                                              
+KING       NG                                                                                                                               
+TURNER     RNER                                                                                                                             
+ADAMS      AMS                                                                                                                              
+JAMES      MES                                                                                                                              
+FORD       RD                                                                                                                               
+MILLER     LLER                                                                                                                             
+
+14 rows selected.
+
+SQL> select ename,substr(ename,3,2) from emp;
+
+ENAME      SU                                                                                                                               
+---------- --                                                                                                                               
+SMITH      IT                                                                                                                               
+ALLEN      LE                                                                                                                               
+WARD       RD                                                                                                                               
+JONES      NE                                                                                                                               
+MARTIN     RT                                                                                                                               
+BLAKE      AK                                                                                                                               
+CLARK      AR                                                                                                                               
+SCOTT      OT                                                                                                                               
+KING       NG                                                                                                                               
+TURNER     RN                                                                                                                               
+ADAMS      AM                                                                                                                               
+JAMES      ME                                                                                                                               
+FORD       RD                                                                                                                               
+MILLER     LL                                                                                                                               
+
+14 rows selected.
+
+SQL> select ename,instr(ename,'A') from emp;
+
+ENAME      INSTR(ENAME,'A')                                                                                                                 
+---------- ----------------                                                                                                                 
+SMITH                     0                                                                                                                 
+ALLEN                     1                                                                                                                 
+WARD                      2                                                                                                                 
+JONES                     0                                                                                                                 
+MARTIN                    2                                                                                                                 
+BLAKE                     3                                                                                                                 
+CLARK                     3                                                                                                                 
+SCOTT                     0                                                                                                                 
+KING                      0                                                                                                                 
+TURNER                    0                                                                                                                 
+ADAMS                     1                                                                                                                 
+JAMES                     2                                                                                                                 
+FORD                      0                                                                                                                 
+MILLER                    0                                                                                                                 
+
+14 rows selected.
+
+SQL> select ename,instr(ename,'A',2) from emp;
+
+ENAME      INSTR(ENAME,'A',2)                                                                                                               
+---------- ------------------                                                                                                               
+SMITH                       0                                                                                                               
+ALLEN                       0                                                                                                               
+WARD                        2                                                                                                               
+JONES                       0                                                                                                               
+MARTIN                      2                                                                                                               
+BLAKE                       3                                                                                                               
+CLARK                       3                                                                                                               
+SCOTT                       0                                                                                                               
+KING                        0                                                                                                               
+TURNER                      0                                                                                                               
+ADAMS                       3                                                                                                               
+JAMES                       2                                                                                                               
+FORD                        0                                                                                                               
+MILLER                      0                                                                                                               
+
+14 rows selected.
+
+SQL> select ename,instr(ename,'A',2,2) from emp;
+
+ENAME      INSTR(ENAME,'A',2,2)                                                                                                             
+---------- --------------------                                                                                                             
+SMITH                         0                                                                                                             
+ALLEN                         0                                                                                                             
+WARD                          0                                                                                                             
+JONES                         0                                                                                                             
+MARTIN                        0                                                                                                             
+BLAKE                         0                                                                                                             
+CLARK                         0                                                                                                             
+SCOTT                         0                                                                                                             
+KING                          0                                                                                                             
+TURNER                        0                                                                                                             
+ADAMS                         0                                                                                                             
+JAMES                         0                                                                                                             
+FORD                          0                                                                                                             
+MILLER                        0                                                                                                             
+
+14 rows selected.
+
+SQL> select ename,instr(ename,'A',1,2) from emp;
+
+ENAME      INSTR(ENAME,'A',1,2)                                                                                                             
+---------- --------------------                                                                                                             
+SMITH                         0                                                                                                             
+ALLEN                         0                                                                                                             
+WARD                          0                                                                                                             
+JONES                         0                                                                                                             
+MARTIN                        0                                                                                                             
+BLAKE                         0                                                                                                             
+CLARK                         0                                                                                                             
+SCOTT                         0                                                                                                             
+KING                          0                                                                                                             
+TURNER                        0                                                                                                             
+ADAMS                         3                                                                                                             
+JAMES                         0                                                                                                             
+FORD                          0                                                                                                             
+MILLER                        0                                                                                                             
+
+14 rows selected.
+
+SQL> 
+SQL> select ename,instr(ename,'A',0,1) from emp;
+
+ENAME      INSTR(ENAME,'A',0,1)                                                                                                             
+---------- --------------------                                                                                                             
+SMITH                         0                                                                                                             
+ALLEN                         0                                                                                                             
+WARD                          0                                                                                                             
+JONES                         0                                                                                                             
+MARTIN                        0                                                                                                             
+BLAKE                         0                                                                                                             
+CLARK                         0                                                                                                             
+SCOTT                         0                                                                                                             
+KING                          0                                                                                                             
+TURNER                        0                                                                                                             
+ADAMS                         0                                                                                                             
+JAMES                         0                                                                                                             
+FORD                          0                                                                                                             
+MILLER                        0                                                                                                             
+
+14 rows selected.
+
+SQL> select ename,instr(ename,'A',1,1) from emp;
+
+ENAME      INSTR(ENAME,'A',1,1)                                                                                                             
+---------- --------------------                                                                                                             
+SMITH                         0                                                                                                             
+ALLEN                         1                                                                                                             
+WARD                          2                                                                                                             
+JONES                         0                                                                                                             
+MARTIN                        2                                                                                                             
+BLAKE                         3                                                                                                             
+CLARK                         3                                                                                                             
+SCOTT                         0                                                                                                             
+KING                          0                                                                                                             
+TURNER                        0                                                                                                             
+ADAMS                         1                                                                                                             
+JAMES                         2                                                                                                             
+FORD                          0                                                                                                             
+MILLER                        0                                                                                                             
+
+14 rows selected.
+
+SQL> select current_date from dual;
+
+CURRENT_D                                                                                                                                   
+---------                                                                                                                                   
+12-APR-24                                                                                                                                   
+
+SQL> select sysdate from emp;
+
+SYSDATE                                                                                                                                     
+---------                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+12-APR-24                                                                                                                                   
+
+14 rows selected.
+
+SQL> select session_time_zone from emp;
+select session_time_zone from emp
+       *
+ERROR at line 1:
+ORA-00904: "SESSION_TIME_ZONE": invalid identifier 
+
+
+SQL> select sessiontimezone from emp;
+
+SESSIONTIMEZONE                                                                                                                             
+---------------------------------------------------------------------------                                                                 
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
++05:30                                                                                                                                      
+
+14 rows selected.
+
+SQL> select months_between(sysdate,hiredate) from emp;
+
+MONTHS_BETWEEN(SYSDATE,HIREDATE)                                                                                                            
+--------------------------------                                                                                                            
+                       519.87093                                                                                                            
+                      517.774155                                                                                                            
+                      517.709639                                                                                                            
+                      516.354801                                                                                                            
+                      510.516091                                                                                                            
+                      515.387059                                                                                                            
+                      514.128994                                                                                                            
+                      443.806414                                                                                                            
+                       508.87093                                                                                                            
+                      511.161252                                                                                                            
+                      442.677381                                                                                                            
+                      508.322543                                                                                                            
+                      508.322543                                                                                                            
+                      506.677381                                                                                                            
+
+14 rows selected.
+
+SQL> select to_date('01-11-22','dd-mm-yy) from dual;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select to_date('01-11-22','dd-mm-yy') from dual;
+
+TO_DATE('                                                                                                                                   
+---------                                                                                                                                   
+01-NOV-22                                                                                                                                   
+
+SQL> select to_char('01-11-22',mon) from dual;
+select to_char('01-11-22',mon) from dual
+                          *
+ERROR at line 1:
+ORA-00904: "MON": invalid identifier 
+
+
+SQL> select to_char('01-11-22','mon') from dual;
+select to_char('01-11-22','mon') from dual
+               *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select to_char(hiredate,'mon') from emp;
+
+TO_                                                                                                                                         
+---                                                                                                                                         
+dec                                                                                                                                         
+feb                                                                                                                                         
+feb                                                                                                                                         
+apr                                                                                                                                         
+sep                                                                                                                                         
+may                                                                                                                                         
+jun                                                                                                                                         
+apr                                                                                                                                         
+nov                                                                                                                                         
+sep                                                                                                                                         
+may                                                                                                                                         
+dec                                                                                                                                         
+dec                                                                                                                                         
+jan                                                                                                                                         
+
+14 rows selected.
+
+SQL> select to_char(hiredate,''month') from emp;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select to_char(hiredate,'month') from emp;
+
+TO_CHAR(H                                                                                                                                   
+---------                                                                                                                                   
+december                                                                                                                                    
+february                                                                                                                                    
+february                                                                                                                                    
+april                                                                                                                                       
+september                                                                                                                                   
+may                                                                                                                                         
+june                                                                                                                                        
+april                                                                                                                                       
+november                                                                                                                                    
+september                                                                                                                                   
+may                                                                                                                                         
+december                                                                                                                                    
+december                                                                                                                                    
+january                                                                                                                                     
+
+14 rows selected.
+
+SQL> select to_char(hiredate,'day') from emp;
+
+TO_CHAR(H                                                                                                                                   
+---------                                                                                                                                   
+wednesday                                                                                                                                   
+friday                                                                                                                                      
+sunday                                                                                                                                      
+thursday                                                                                                                                    
+monday                                                                                                                                      
+friday                                                                                                                                      
+tuesday                                                                                                                                     
+sunday                                                                                                                                      
+tuesday                                                                                                                                     
+tuesday                                                                                                                                     
+saturday                                                                                                                                    
+thursday                                                                                                                                    
+thursday                                                                                                                                    
+saturday                                                                                                                                    
+
+14 rows selected.
+
+SQL> select to_char(hiredate,'year') from emp;
+
+TO_CHAR(HIREDATE,'YEAR')                                                                                                                    
+------------------------------------------                                                                                                  
+nineteen eighty                                                                                                                             
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-seven                                                                                                                       
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-seven                                                                                                                       
+nineteen eighty-one                                                                                                                         
+nineteen eighty-one                                                                                                                         
+nineteen eighty-two                                                                                                                         
+
+14 rows selected.
+
+SQL> select to_char(hiredate,'dd/mm/yy') from emp;
+
+TO_CHAR(                                                                                                                                    
+--------                                                                                                                                    
+17/12/80                                                                                                                                    
+20/02/81                                                                                                                                    
+22/02/81                                                                                                                                    
+02/04/81                                                                                                                                    
+28/09/81                                                                                                                                    
+01/05/81                                                                                                                                    
+09/06/81                                                                                                                                    
+19/04/87                                                                                                                                    
+17/11/81                                                                                                                                    
+08/09/81                                                                                                                                    
+23/05/87                                                                                                                                    
+03/12/81                                                                                                                                    
+03/12/81                                                                                                                                    
+23/01/82                                                                                                                                    
+
+14 rows selected.
+
+SQL> select to_char(hiredate,'dd-mm-yy') from emp;
+
+TO_CHAR(                                                                                                                                    
+--------                                                                                                                                    
+17-12-80                                                                                                                                    
+20-02-81                                                                                                                                    
+22-02-81                                                                                                                                    
+02-04-81                                                                                                                                    
+28-09-81                                                                                                                                    
+01-05-81                                                                                                                                    
+09-06-81                                                                                                                                    
+19-04-87                                                                                                                                    
+17-11-81                                                                                                                                    
+08-09-81                                                                                                                                    
+23-05-87                                                                                                                                    
+03-12-81                                                                                                                                    
+03-12-81                                                                                                                                    
+23-01-82                                                                                                                                    
+
+14 rows selected.
+
+SQL> select to_char(hiredate,'hh:mm:ss') from emp;
+
+TO_CHAR(                                                                                                                                    
+--------                                                                                                                                    
+12:12:00                                                                                                                                    
+12:02:00                                                                                                                                    
+12:02:00                                                                                                                                    
+12:04:00                                                                                                                                    
+12:09:00                                                                                                                                    
+12:05:00                                                                                                                                    
+12:06:00                                                                                                                                    
+12:04:00                                                                                                                                    
+12:11:00                                                                                                                                    
+12:09:00                                                                                                                                    
+12:05:00                                                                                                                                    
+12:12:00                                                                                                                                    
+12:12:00                                                                                                                                    
+12:01:00                                                                                                                                    
+
+14 rows selected.
+
+SQL> select to_char(hiredate,'hh:mm:ss') "Hired Time' from emp;
+ERROR:
+ORA-01740: missing double quote in identifier 
+
+
+SQL> select to_char(hiredate,'hh:mm:ss') "Hired Time"  from emp;
+
+Hired Ti                                                                                                                                    
+--------                                                                                                                                    
+12:12:00                                                                                                                                    
+12:02:00                                                                                                                                    
+12:02:00                                                                                                                                    
+12:04:00                                                                                                                                    
+12:09:00                                                                                                                                    
+12:05:00                                                                                                                                    
+12:06:00                                                                                                                                    
+12:04:00                                                                                                                                    
+12:11:00                                                                                                                                    
+12:09:00                                                                                                                                    
+12:05:00                                                                                                                                    
+12:12:00                                                                                                                                    
+12:12:00                                                                                                                                    
+12:01:00                                                                                                                                    
+
+14 rows selected.
+
+SQL> 
+SQL> select ename from emp
+  2  where regexp_like(ename,'([aeiou])\1','i');
+
+no rows selected
+
+SQL> select ename from emp
+  2  where regexp_like(ename,'([aeiou])\1');
+
+no rows selected
+
+SQL> select ename from emp
+  2  where regexp_like(ename,'([aeiou])\1') order by ename;
+
+no rows selected
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+DEPT                           TABLE                                                                                                        
+EMP                            TABLE                                                                                                        
+BONUS                          TABLE                                                                                                        
+SALGRADE                       TABLE                                                                                                        
+COURSE                         TABLE                                                                                                        
+STUDENT                        TABLE                                                                                                        
+CUSTOMER                       TABLE                                                                                                        
+PRODUCT                        TABLE                                                                                                        
+DOCTOR                         TABLE                                                                                                        
+PATIENT                        TABLE                                                                                                        
+
+10 rows selected.
+
+SQL> select * from doctor;
+
+        ID NAME            AGE SPEC       EXPERINCE                                                                                         
+---------- -------- ---------- ---------- ----------                                                                                        
+         1 AAA              25 Bones      4                                                                                                 
+         2 BBB              26 NREVES     4                                                                                                 
+         3 CCC              27 HAIR       4                                                                                                 
+         4 DDD              34 NURO       4                                                                                                 
+
+SQL> select name from doctor
+  2  where regexp_like(name,'([aeiou])\1');
+
+no rows selected
+
+SQL> select name from doctor
+  2  where name REGEXP "^[aeiou].*";
+where name REGEXP "^[aeiou].*"
+           *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> select name from doctor
+  2  where name regexp "^[aeiou].*";
+where name regexp "^[aeiou].*"
+           *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> select name from doctor
+  2  where regexp_like(name,'A','i');
+
+NAME                                                                                                                                        
+--------                                                                                                                                    
+AAA                                                                                                                                         
+
+SQL> select name from doctor
+  2  where regexp_like(name,'[aeiou]','i');
+
+NAME                                                                                                                                        
+--------                                                                                                                                    
+AAA                                                                                                                                         
+
+SQL> select ename from emp
+  2  where regexp_like(ename,'[aeiou]','i');
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select ename from emp
+  2  where regexp_like(ename,'[aeiou]\1','i');
+where regexp_like(ename,'[aeiou]\1','i')
+                        *
+ERROR at line 2:
+ORA-12727: invalid back reference in regular expression 
+
+
+SQL> select name from doctor
+  2  where regexp_like(name,'([aeiou])\1','i');
+
+NAME                                                                                                                                        
+--------                                                                                                                                    
+AAA                                                                                                                                         
+
+SQL> 
+SQL> select ename from emp
+  2  where regexp_like(ename,'([aeiou])\1','i');
+
+no rows selected
+
+SQL> select ename from emp
+  2  where regexp_like(ename,'([aeiou])\1','c');
+
+no rows selected
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC                                                                                                               
+---------- -------------- -------------                                                                                                     
+        10 ACCOUNTING     NEW YORK                                                                                                          
+        20 RESEARCH       DALLAS                                                                                                            
+        30 SALES          CHICAGO                                                                                                           
+        40 OPERATIONS     BOSTON                                                                                                            
+
+SQL> select dname from dept
+  2  where regexp(dname,'([aeiou])\1','i');
+where regexp(dname,'([aeiou])\1','i')
+                                    *
+ERROR at line 2:
+ORA-00920: invalid relational operator 
+
+
+SQL> select dname from dept
+  2  where regexp_like(dname,'([aeiou])\1','i');
+
+no rows selected
+
+SQL> select dname from dept
+  2  where regexp_like(dname,'([aeiouAEIOU])\1','i');
+
+no rows selected
+
+SQL> select dname from dept
+  2  where regexp_like(dname,'([AEIOU])\1','i');
+
+no rows selected
+
+SQL> 
+SQL> 
+SQL> SELECT ENAME FROM EMP WHERE
+  2  ENAME LIKE '[AEIOUaeiou]%';
+
+no rows selected
+
+SQL> desc doctor;
+ Name                                                                          Null?    Type
+ ----------------------------------------------------------------------------- -------- ----------------------------------------------------
+ ID                                                                            NOT NULL NUMBER(11)
+ NAME                                                                          NOT NULL VARCHAR2(8)
+ AGE                                                                                    NUMBER(3)
+ SPEC                                                                                   VARCHAR2(10)
+ EXPERINCE                                                                              VARCHAR2(10)
+
+SQL> insert inot doctor values(12,'Alwin',22,'eye'6);
+insert inot doctor values(12,'Alwin',22,'eye'6)
+       *
+ERROR at line 1:
+ORA-00925: missing INTO keyword 
+
+
+SQL> insert into  doctor values(12,'Alwin',22,'eye'6);
+insert into  doctor values(12,'Alwin',22,'eye'6)
+                                              *
+ERROR at line 1:
+ORA-00917: missing comma 
+
+
+SQL> insert into  doctor values(12,'Alwin',22,'eye',6);
+insert into  doctor values(12,'Alwin',22,'eye',6)
+*
+ERROR at line 1:
+ORA-02290: check constraint (SCOTT.SYS_C005475) violated 
+
+
+SQL> insert into  doctor values(12,'Alwin',28,'eye'6);
+insert into  doctor values(12,'Alwin',28,'eye'6)
+                                              *
+ERROR at line 1:
+ORA-00917: missing comma 
+
+
+SQL> insert into  doctor values(12,'Alwin',28,'eye',7);
+
+1 row created.
+
+SQL> select name from doctor
+  2  where regexp_like(name,'([aeiou])\1','i');
+
+NAME                                                                                                                                        
+--------                                                                                                                                    
+AAA                                                                                                                                         
+
+SQL> insert into  doctor values(12,'Al
+  2  
+SQL> 
+SQL> insert into  doctor values(12,'Al
+  2  insert into  doctor values(12,'Aash',28,'eye',7);
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> insert into  doctor values(12,'Aash',28,'eye',7);
+insert into  doctor values(12,'Aash',28,'eye',7)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SCOTT.SYS_C005476) violated 
+
+
+SQL> insert into  doctor values(23'Aash',28,'eye',7);
+insert into  doctor values(23'Aash',28,'eye',7)
+                             *
+ERROR at line 1:
+ORA-00917: missing comma 
+
+
+SQL> insert into  doctor values(23,'Aash',28,'eye',7);
+
+1 row created.
+
+SQL>  select name from doctor
+  2   where regexp_like(name,'([aeiou])\1','i');
+
+NAME                                                                                                                                        
+--------                                                                                                                                    
+AAA                                                                                                                                         
+Aash                                                                                                                                        
+
+SQL> select name from doctor
+  2  where name like '%[aeiouAEIOU]%';
+
+no rows selected
+
+SQL> select name from doctor
+  2  REGEXP_LIKE(your_string, '[aeiou]') OR
+  3      REGEXP_LIKE(your_string, '[AEIOU]');
+REGEXP_LIKE(your_string, '[aeiou]') OR
+           *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select name from doctor
+  2  regexp_like(name,'[aeiou]') OR
+  3  regexp_like(name,'[AEIOU');
+regexp_like(name,'[aeiou]') OR
+           *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select name from doctor
+  2  WHERE
+  3  regexp_like(name,'[aeiou]') OR
+  4  regexp_like(name,'[AEIOU');
+regexp_like(name,'[AEIOU')
+                 *
+ERROR at line 4:
+ORA-12726: unmatched bracket in regular expression 
+
+
+SQL> 
+SQL> select name from doctor
+  2  WHERE
+  3  regexp_like(name,'[aeiou]') OR
+  4  regexp_like(name,'[AEIOU]');
+
+NAME                                                                                                                                        
+--------                                                                                                                                    
+AAA                                                                                                                                         
+Alwin                                                                                                                                       
+Aash                                                                                                                                        
+
+SQL> SELECT ENAME FROM EMP WHERE
+  2  REGEXP_LIKE(ENAME,'[AEIOUaeiou]');
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> SELECT ENAME FROM EMP WHERE
+  2  REGEXP_LIKE(ENAME,'[AEIOU') or
+  3  REGEXP_LIKE(ENAME,'[aeiou
+  4  
+SQL> SELECT ENAME FROM EMP WHERE
+  2  REGEXP_LIKE(ENAME,'[AEIOU]') or
+  3  REGEXP_LIKE(ENAME,'[aeiou]');
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select ename from emp
+  2  WHERE
+  3  regexp_like(ename,'[aeiou]') OR
+  4  regexp_like(ename,'[AEIOU]');
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+SMITH                                                                                                                                       
+ALLEN                                                                                                                                       
+WARD                                                                                                                                        
+JONES                                                                                                                                       
+MARTIN                                                                                                                                      
+BLAKE                                                                                                                                       
+CLARK                                                                                                                                       
+SCOTT                                                                                                                                       
+KING                                                                                                                                        
+TURNER                                                                                                                                      
+ADAMS                                                                                                                                       
+JAMES                                                                                                                                       
+FORD                                                                                                                                        
+MILLER                                                                                                                                      
+
+14 rows selected.
+
+SQL> select dname from dept
+  2  WHERE
+  3  regexp_like(dname,'[aeiou]') OR
+  4  regexp_like(dname,'[AEIOU]');
+
+DNAME                                                                                                                                       
+--------------                                                                                                                              
+ACCOUNTING                                                                                                                                  
+RESEARCH                                                                                                                                    
+SALES                                                                                                                                       
+OPERATIONS                                                                                                                                  
+
+SQL> select ename from emp
+  2  WHERE
+  3  regexp_like(ename,'^[aeiou]','i')
+  4  ;
+
+ENAME                                                                                                                                       
+----------                                                                                                                                  
+ALLEN                                                                                                                                       
+ADAMS                                                                                                                                       
+
+SQL> select dname from dept
+  2  WHERE
+  3  regexp_like(dname,'^[aeiou]','i');
+
+DNAME                                                                                                                                       
+--------------                                                                                                                              
+ACCOUNTING                                                                                                                                  
+OPERATIONS                                                                                                                                  
+
+SQL> spool off

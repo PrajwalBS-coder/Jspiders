@@ -1,0 +1,997 @@
+SQL> select ename||sal from emp;
+
+ENAME||SAL
+--------------------------------------------------
+SMITH800
+ALLEN1600
+WARD1250
+JONES2975
+MARTIN1250
+BLAKE2850
+CLARK2450
+SCOTT3000
+KING5000
+TURNER1500
+ADAMS1100
+JAMES950
+FORD3000
+MILLER1300
+
+14 rows selected.
+
+SQL> select ename||sal "Employee Name And Salary" from emp;
+
+Employee Name And Salary
+--------------------------------------------------
+SMITH800
+ALLEN1600
+WARD1250
+JONES2975
+MARTIN1250
+BLAKE2850
+CLARK2450
+SCOTT3000
+KING5000
+TURNER1500
+ADAMS1100
+JAMES950
+FORD3000
+MILLER1300
+
+14 rows selected.
+
+SQL> select ename ||'is an emp ' from emp;
+
+ENAME||'ISANEMP'
+--------------------
+SMITHis an emp
+ALLENis an emp
+WARDis an emp
+JONESis an emp
+MARTINis an emp
+BLAKEis an emp
+CLARKis an emp
+SCOTTis an emp
+KINGis an emp
+TURNERis an emp
+ADAMSis an emp
+JAMESis an emp
+FORDis an emp
+MILLERis an emp
+
+14 rows selected.
+
+SQL> select ename ||'is an employee who is having a id of'||empno||'and having' ||comm|| from emp;
+select ename ||'is an employee who is having a id of'||empno||'and having' ||comm|| from emp
+                                                                                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select ename ||'is an employee who is having a id of'||empno||'and having' ||comm from emp;
+
+ENAME||'ISANEMPLOYEEWHOISHAVINGAIDOF'||EMPNO||'ANDHAVING'||COMM
+----------------------------------------------------------------------------------------------------
+SMITHis an employee who is having a id of7369and having
+ALLENis an employee who is having a id of7499and having300
+WARDis an employee who is having a id of7521and having500
+JONESis an employee who is having a id of7566and having
+MARTINis an employee who is having a id of7654and having1400
+BLAKEis an employee who is having a id of7698and having
+CLARKis an employee who is having a id of7782and having
+SCOTTis an employee who is having a id of7788and having
+KINGis an employee who is having a id of7839and having
+TURNERis an employee who is having a id of7844and having0
+ADAMSis an employee who is having a id of7876and having
+JAMESis an employee who is having a id of7900and having
+FORDis an employee who is having a id of7902and having
+MILLERis an employee who is having a id of7934and having
+
+14 rows selected.
+
+SQL> select ename ||'is an employee who is having a id of'||empno||'and having commission'||comm whe
+
+  2  
+SQL> select ename ||'is an employee who is having a id of'||empno||'and havingcommission'||comm
+  2  FROM EMP WHERE JOB='SALESMAN';
+
+ENAME||'ISANEMPLOYEEWHOISHAVINGAIDOF'||EMPNO||'ANDHAVINGCOMMISSION'||COMM
+----------------------------------------------------------------------------------------------------
+ALLENis an employee who is having a id of7499and havingcommission300
+WARDis an employee who is having a id of7521and havingcommission500
+MARTINis an employee who is having a id of7654and havingcommission1400
+TURNERis an employee who is having a id of7844and havingcommission0
+
+SQL> SELECT * FROM EMP WHERE SAL>1477;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+8 rows selected.
+
+SQL> SELECT * FROM EMP WHERE SAL>1477 AND SAL<>1600;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+7 rows selected.
+
+SQL> SELECT ENAME FROM EMP WHERE ENAME='SMITH' OR ENAME='ALLEN';
+
+ENAME
+----------
+SMITH
+ALLEN
+
+SQL> SELECT * FROM EMP WHERE ENAME='SMITH' OR ENAME='ALLEN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+
+SQL> SELECT * FROM EMP WHERE ENAME='SMITH' OR ENAME='ALLENSS';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE NOT SAL=5000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+13 rows selected.
+
+SQL> SELECT * FROM EMP WHERE NOT JOB='ANALYST'
+  2  ;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+12 rows selected.
+
+SQL> 
+SQL> SELECT * FROM EMP WHERE ENAME LIKE 'S%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+
+SQL> SELECT * FROM EMP WHERE ENAME LIKE '%A%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+
+7 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ENAME LIKE '%_A%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+
+6 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ENAME LIKE '_A%;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT * FROM EMP WHERE ENAME LIKE '_A%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+
+SQL> SELECT * FROM EMP WHERE ENAME LIKE '_A%
+  2  
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SELECT * FROM EMP ;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ENAME LIKE '%N';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+
+SQL> SELECT * FROM EMP  WHERE ENAME LIKE '%R';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+SQL> SELECT * FROM EMP WHERE SAL LIKE ___;
+SELECT * FROM EMP WHERE SAL LIKE ___
+                                 *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> SELECT * FROM EMP WHERE SAL LIKE '___';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+
+SQL> https://music.youtube.com/watch?v=HOMyx_730qg&list=RDAO_vp4a5oZpsTfJnb4OrxXjg
+SP2-0734: unknown command beginning "https://mu..." - rest of line ignored.
+SQL> SELECT * FROM EMP WHERE HIREDATE LIKE '20%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE HIREDATE LIKE '3%';
+
+no rows selected
+
+SQL> SELECT * FROM EMP WHERE HIREDATE LIKE '03%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+SQL> SELECT * FROM EMP WHERE SAL BETWEEN 100 AND 5000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ENAME BETWEEN A AND T;
+SELECT * FROM EMP WHERE ENAME BETWEEN A AND T
+                                            *
+ERROR at line 1:
+ORA-00904: "T": invalid identifier
+
+
+SQL>  SELECT * FROM EMP WHERE ENAME BETWEEN 'A' AND 'T';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+12 rows selected.
+
+SQL>  SELECT * FROM EMP WHERE COMM IS NULL;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+10 rows selected.
+
+SQL>  SELECT * FROM EMP WHERE COMM IS NOT NULL;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+
+SQL>  SELECT * FROM EMP WHERE ENAME BETWEEN 
+  2  
+SQL> SELECT * FROM EMP WHERE COMM IS NULL AND COMM=0;
+
+no rows selected
+
+SQL> SELECT * FROM EMP WHERE COMM IS NULL OR COMM=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP WHERE COMM IS NULL OR COMM>=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE COMM IS NULL OR COMM<=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ENAME IN('SMITH','ALLEN,'WARD');
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT * FROM EMP WHERE ENAME IN('SMITH','ALLEN','WARD');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+
+SQL> SELECT ENAME,SAL*2,COMM/2 FROM EMP WHERE DNO IN(10,20);
+SELECT ENAME,SAL*2,COMM/2 FROM EMP WHERE DNO IN(10,20)
+                                         *
+ERROR at line 1:
+ORA-00904: "DNO": invalid identifier
+
+
+SQL> SELECT ENAME,SAL*2,COMM/2 FROM EMP WHERE DEPTNO IN(10,20);
+
+ENAME           SAL*2     COMM/2
+---------- ---------- ----------
+SMITH            1600
+JONES            5950
+CLARK            4900
+SCOTT            6000
+KING            10000
+ADAMS            2200
+FORD             6000
+MILLER           2600
+
+8 rows selected.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+COURSE                         TABLE
+STUDENT                        TABLE
+DOCTOR                         TABLE
+PATIENT                        TABLE
+PEOPLE                         TABLE
+VACCINE                        TABLE
+CUSTOMER                       TABLE
+CRICKET                        TABLE
+PLAYER                         TABLE
+AMIN                           TABLE
+LOGIN                          TABLE
+JHON                           TABLE
+PRODUCT                        TABLE
+
+17 rows selected.
+
+SQL> DROP TABLE JHON;
+
+Table dropped.
+
+SQL> DROP TABLE AMIN;
+
+Table dropped.
+
+SQL> DROP TABLE PEOPLE;
+DROP TABLE PEOPLE
+           *
+ERROR at line 1:
+ORA-02449: unique/primary keys in table referenced by foreign keys
+
+
+SQL> DROP TABLE VACCINE;
+
+Table dropped.
+
+SQL> DROP TABLE PEOPLE;
+
+Table dropped.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+BIN$Xkfzvy0wQ2eVn0POCY/5jQ==$0 TABLE
+COURSE                         TABLE
+STUDENT                        TABLE
+DOCTOR                         TABLE
+PATIENT                        TABLE
+CUSTOMER                       TABLE
+CRICKET                        TABLE
+PLAYER                         TABLE
+LOGIN                          TABLE
+PRODUCT                        TABLE
+BIN$KCWUSYfLRayDBsZwTyLSYw==$0 TABLE
+BIN$hXtdkDFTR4+19mOh09miVA==$0 TABLE
+BIN$N5U3YpNwRCSuBKJU68BASQ==$0 TABLE
+
+17 rows selected.
+
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME
+---------------- ------------------------------ ------------ -------------------
+AMIN             BIN$hXtdkDFTR4+19mOh09miVA==$0 TABLE        2024-04-11:14:58:35
+JHON             BIN$KCWUSYfLRayDBsZwTyLSYw==$0 TABLE        2024-04-11:14:58:12
+PEOPLE           BIN$Xkfzvy0wQ2eVn0POCY/5jQ==$0 TABLE        2024-04-11:14:58:59
+VACCINE          BIN$N5U3YpNwRCSuBKJU68BASQ==$0 TABLE        2024-04-11:14:58:50
+SQL> PURGE RECYCLEBIN;
+
+Recyclebin purged.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+COURSE                         TABLE
+STUDENT                        TABLE
+DOCTOR                         TABLE
+PATIENT                        TABLE
+CUSTOMER                       TABLE
+CRICKET                        TABLE
+PLAYER                         TABLE
+LOGIN                          TABLE
+PRODUCT                        TABLE
+
+13 rows selected.
+
+SQL> DROP TABLE DOCTOR;
+DROP TABLE DOCTOR
+           *
+ERROR at line 1:
+ORA-02449: unique/primary keys in table referenced by foreign keys
+
+
+SQL> DROP TABLE PATIENT;
+
+Table dropped.
+
+SQL> DROP TABLE DOCTOR;
+
+Table dropped.
+
+SQL> DROP TABLE CRICKET;
+DROP TABLE CRICKET
+           *
+ERROR at line 1:
+ORA-02449: unique/primary keys in table referenced by foreign keys
+
+
+SQL> DROP TABLE PLAYER;
+
+Table dropped.
+
+SQL> DROP TABLE JHON
+  2  
+SQL> 
+SQL> DROP TABLE CRICKET;
+
+Table dropped.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+COURSE                         TABLE
+STUDENT                        TABLE
+CUSTOMER                       TABLE
+LOGIN                          TABLE
+PRODUCT                        TABLE
+BIN$jAvMTGwxTIGohZInvl9Z+Q==$0 TABLE
+BIN$X0g1wr0sR6q9KOVaoxweGg==$0 TABLE
+BIN$9IvHeOvTSi+2Ad21kDuNZA==$0 TABLE
+BIN$NbE1r7PPRHadOF+npVBjbQ==$0 TABLE
+
+13 rows selected.
+
+SQL> PURGE RECYLEBIN;
+PURGE RECYLEBIN
+      *
+ERROR at line 1:
+ORA-38302: invalid PURGE option
+
+
+SQL> PURGE RECYCLEBIN;
+
+Recyclebin purged.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+COURSE                         TABLE
+STUDENT                        TABLE
+CUSTOMER                       TABLE
+LOGIN                          TABLE
+PRODUCT                        TABLE
+
+9 rows selected.
+
+SQL> create table doctor(
+  2  id number(10) primary key,
+  3  name varchar(16) not null,
+  4  age number(100) check (age>24),
+  5  spec varchar(10));
+age number(100) check (age>24),
+           *
+ERROR at line 4:
+ORA-01727: numeric precision specifier is out of range (1 to 38)
+
+
+SQL> create table doctor(
+  2  id number(10) primary key,
+  3  name varchar(16) not null,
+  4  age number(3)check (age>24),
+  5  spec varchar(10));
+
+Table created.
+
+SQL> 
+SQL> create table patient(
+  2  pid number(10) primary key,
+  3  name varchar(10) not null,
+  4  fees number(10) default(500),
+  5  did references doctor(id));
+
+Table created.
+
+SQL> insert into doctor values(&id,'&name',&age,'&spec');
+Enter value for id: 1
+Enter value for name: AAA
+Enter value for age: 24
+Enter value for spec: Bones
+old   1: insert into doctor values(&id,'&name',&age,'&spec')
+new   1: insert into doctor values(1,'AAA',24,'Bones')
+insert into doctor values(1,'AAA',24,'Bones')
+*
+ERROR at line 1:
+ORA-02290: check constraint (SCOTT.SYS_C005475) violated
+
+
+SQL> /
+Enter value for id: 1
+Enter value for name: AAA
+Enter value for age: 25
+Enter value for spec: Bones
+old   1: insert into doctor values(&id,'&name',&age,'&spec')
+new   1: insert into doctor values(1,'AAA',25,'Bones')
+
+1 row created.
+
+SQL> /
+Enter value for id: 2
+Enter value for name: BBB
+Enter value for age: 26
+Enter value for spec: NREVES
+old   1: insert into doctor values(&id,'&name',&age,'&spec')
+new   1: insert into doctor values(2,'BBB',26,'NREVES')
+
+1 row created.
+
+SQL> /
+Enter value for id: 3
+Enter value for name: CCC
+Enter value for age: 27
+Enter value for spec: HAIR
+old   1: insert into doctor values(&id,'&name',&age,'&spec')
+new   1: insert into doctor values(3,'CCC',27,'HAIR')
+
+1 row created.
+
+SQL> /4
+Enter value for id: 
+Enter value for name: 
+Enter value for age: 
+Enter value for spec: 
+old   1: insert into doctor values(&id,'&name',&age,'&spec')
+new   1: insert into doctor values(,'',,'')
+insert into doctor values(,'',,'')
+                          *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> 
+SQL> /
+Enter value for id: 4
+Enter value for name: DDD
+Enter value for age: 34
+Enter value for spec: NURO
+old   1: insert into doctor values(&id,'&name',&age,'&spec')
+new   1: insert into doctor values(4,'DDD',34,'NURO')
+
+1 row created.
+
+SQL> SELECT * FROM DOCTOR;
+
+        ID NAME                    AGE SPEC
+---------- ---------------- ---------- ----------
+         1 AAA                      25 Bones
+         2 BBB                      26 NREVES
+         3 CCC                      27 HAIR
+         4 DDD                      34 NURO
+
+SQL> DESC PATIENT;
+ Name                                                                          Null?    Type
+ ----------------------------------------------------------------------------- -------- ------------
+ PID                                                                           NOT NULL NUMBER(10)
+ NAME                                                                          NOT NULL VARCHAR2(10)
+ FEES                                                                                   NUMBER(10)
+ DID                                                                                    NUMBER(10)
+
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID);
+Enter value for pid: 1
+Enter value for name: AMIN
+Enter value for fees: 
+Enter value for did: 1
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(1,'AMIN',,1)
+INSERT INTO PATIENT VALUES(1,'AMIN',,1)
+                                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> SELECT * FROM PATIENT;
+
+no rows selected
+
+SQL> /
+
+no rows selected
+
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID);
+Enter value for pid: 1
+Enter value for name: AMIN
+Enter value for fees: 600
+Enter value for did: 1
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(1,'AMIN',600,1)
+
+1 row created.
+
+SQL> /
+Enter value for pid: 2
+Enter value for name: JHON
+Enter value for fees: 
+Enter value for did: 2
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(2,'JHON',,2)
+INSERT INTO PATIENT VALUES(2,'JHON',,2)
+                                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL>  INSERT INTO PATIENT VALUES(&PID,'&NAME',&DID);
+Enter value for pid: 2
+Enter value for name: JHON
+Enter value for did: 2
+old   1:  INSERT INTO PATIENT VALUES(&PID,'&NAME',&DID)
+new   1:  INSERT INTO PATIENT VALUES(2,'JHON',2)
+ INSERT INTO PATIENT VALUES(2,'JHON',2)
+             *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> DROP TABLE PATIENT;
+
+Table dropped.
+
+SQL>  create table patient(
+  2   pid number(10) primary key,
+  3   name varchar(10) not null,
+  4   fees number(10) default(500),
+  5  
+SQL> 
+SQL> create table patient(
+  2  pid number(10) primary key,
+  3  name varchar(10) not null,
+  4  fees number(10) default 500,
+  5   did references doctor(id));
+
+Table created.
+
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID);
+Enter value for pid: 1
+Enter value for name: AMIN
+Enter value for fees: 600
+Enter value for did: 1
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(1,'AMIN',600,1)
+
+1 row created.
+
+SQL> /
+Enter value for pid: 2
+Enter value for name: JHON
+Enter value for fees: 
+Enter value for did: 2
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(2,'JHON',,2)
+INSERT INTO PATIENT VALUES(2,'JHON',,2)
+                                    *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&DID);
+Enter value for pid: 2
+Enter value for name: JHON
+Enter value for did: 2
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&DID)
+new   1: INSERT INTO PATIENT VALUES(2,'JHON',2)
+INSERT INTO PATIENT VALUES(2,'JHON',2)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+  2  2
+  3  
+SQL> 
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID);
+Enter value for pid: 2
+Enter value for name: JHON
+Enter value for fees:  
+Enter value for did: 2
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(2,'JHON', ,2)
+INSERT INTO PATIENT VALUES(2,'JHON', ,2)
+                                     *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for pid: 2
+Enter value for name: JHON
+Enter value for fees: NULL
+Enter value for did: 2
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(2,'JHON',NULL,2)
+
+1 row created.
+
+SQL> /
+Enter value for pid: 3
+Enter value for name: JARVIS
+Enter value for fees: 7899
+Enter value for did: 4
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(3,'JARVIS',7899,4)
+
+1 row created.
+
+SQL> SELECT * FROM PATIENT
+  2  ;
+
+       PID NAME             FEES        DID
+---------- ---------- ---------- ----------
+         1 AMIN              600          1
+         2 JHON                           2
+         3 JARVIS           7899          4
+
+SQL> INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID);
+Enter value for pid: 4
+Enter value for name: LILY
+Enter value for fees: DEFAULT
+Enter value for did: 3
+old   1: INSERT INTO PATIENT VALUES(&PID,'&NAME',&FEES,&DID)
+new   1: INSERT INTO PATIENT VALUES(4,'LILY',DEFAULT,3)
+
+1 row created.
+
+SQL> SELECT * FROM PATIENT;
+
+       PID NAME             FEES        DID
+---------- ---------- ---------- ----------
+         1 AMIN              600          1
+         2 JHON                           2
+         3 JARVIS           7899          4
+         4 LILY              500          3
+
+SQL> 

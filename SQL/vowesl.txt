@@ -1,0 +1,16 @@
+select ename from emp 
+WHERE 
+regexp_like(ename,'[aeiou]') OR
+regexp_like(ename,'[AEIOU]');
+
+select dname from dept 
+WHERE 
+regexp_like(dname,'^[aeiou]','i');
+
+
+
+select ename from emp 
+WHERE 
+regexp_like(ename,'^[aeiou]','i') ;
+
+
