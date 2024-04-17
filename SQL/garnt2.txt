@@ -1,0 +1,10 @@
+SQL> show user;
+USER is "SCOTT"
+SQL> grant all on emp to hr;
+
+Grant succeeded.
+
+SQL> conn hr
+Enter password: *****
+Connected.
+SQL> select * from scott.emp;

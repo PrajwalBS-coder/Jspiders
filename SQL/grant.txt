@@ -1,0 +1,698 @@
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                       
+
+14 rows selected.
+
+SQL> show user;
+USER is "HR"
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+REGIONS                        TABLE                                                                                                        
+COUNTRIES                      TABLE                                                                                                        
+LOCATIONS                      TABLE                                                                                                        
+DEPARTMENTS                    TABLE                                                                                                        
+JOBS                           TABLE                                                                                                        
+EMPLOYEES                      TABLE                                                                                                        
+JOB_HISTORY                    TABLE                                                                                                        
+EMP_DETAILS_VIEW               VIEW                                                                                                         
+
+8 rows selected.
+
+SQL> grant select on jobs to scott;
+
+Grant succeeded.
+
+SQL> conn scott
+Connected.
+SQL> select * from hr.jobs;
+
+JOB_ID     JOB_TITLE                           MIN_SALARY MAX_SALARY                                                                        
+---------- ----------------------------------- ---------- ----------                                                                        
+AD_PRES    President                                20000      40000                                                                        
+AD_VP      Administration Vice President            15000      30000                                                                        
+AD_ASST    Administration Assistant                  3000       6000                                                                        
+FI_MGR     Finance Manager                           8200      16000                                                                        
+FI_ACCOUNT Accountant                                4200       9000                                                                        
+AC_MGR     Accounting Manager                        8200      16000                                                                        
+AC_ACCOUNT Public Accountant                         4200       9000                                                                        
+SA_MAN     Sales Manager                            10000      20000                                                                        
+SA_REP     Sales Representative                      6000      12000                                                                        
+PU_MAN     Purchasing Manager                        8000      15000                                                                        
+PU_CLERK   Purchasing Clerk                          2500       5500                                                                        
+ST_MAN     Stock Manager                             5500       8500                                                                        
+ST_CLERK   Stock Clerk                               2000       5000                                                                        
+SH_CLERK   Shipping Clerk                            2500       5500                                                                        
+IT_PROG    Programmer                                4000      10000                                                                        
+MK_MAN     Marketing Manager                         9000      15000                                                                        
+MK_REP     Marketing Representative                  4000       9000                                                                        
+HR_REP     Human Resources Representative            4000       9000                                                                        
+PR_REP     Public Relations Representative           4500      10500                                                                        
+
+19 rows selected.
+
+SQL> update hr.jobs set min_salary=100;
+update hr.jobs set min_salary=100
+          *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> revoke all on emp from hr;
+
+Revoke succeeded.
+
+SQL> conn hr
+Connected.
+SQL> select * from scott.emp;
+select * from scott.emp
+                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> revoke all on jobs from scott;
+
+Revoke succeeded.
+
+SQL> conn scott
+Connected.
+SQL> select * from hr.jobs;
+select * from hr.jobs
+                 *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> conn syatem
+ERROR:
+ORA-01017: invalid username/password; logon denied 
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> conn system
+Connected.
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+SYSCATALOG                     SYNONYM                                                                                                      
+CATALOG                        SYNONYM                                                                                                      
+TAB                            SYNONYM                                                                                                      
+COL                            SYNONYM                                                                                                      
+TABQUOTAS                      SYNONYM                                                                                                      
+SYSFILES                       SYNONYM                                                                                                      
+PUBLICSYN                      SYNONYM                                                                                                      
+MVIEW$_ADV_WORKLOAD            TABLE                                                                                                        
+MVIEW$_ADV_BASETABLE           TABLE                                                                                                        
+MVIEW$_ADV_SQLDEPEND           TABLE                                                                                                        
+MVIEW$_ADV_PRETTY              TABLE                                                                                                        
+MVIEW$_ADV_TEMP                TABLE                                                                                                        
+MVIEW$_ADV_FILTER              TABLE                                                                                                        
+MVIEW$_ADV_LOG                 TABLE                                                                                                        
+MVIEW$_ADV_FILTERINSTANCE      TABLE                                                                                                        
+MVIEW$_ADV_LEVEL               TABLE                                                                                                        
+MVIEW$_ADV_ROLLUP              TABLE                                                                                                        
+MVIEW$_ADV_AJG                 TABLE                                                                                                        
+MVIEW$_ADV_FJG                 TABLE                                                                                                        
+MVIEW$_ADV_GC                  TABLE                                                                                                        
+MVIEW$_ADV_CLIQUE              TABLE                                                                                                        
+MVIEW$_ADV_ELIGIBLE            TABLE                                                                                                        
+MVIEW$_ADV_OUTPUT              TABLE                                                                                                        
+MVIEW$_ADV_EXCEPTIONS          TABLE                                                                                                        
+MVIEW$_ADV_PARAMETERS          TABLE                                                                                                        
+MVIEW$_ADV_INFO                TABLE                                                                                                        
+MVIEW$_ADV_JOURNAL             TABLE                                                                                                        
+MVIEW$_ADV_PLAN                TABLE                                                                                                        
+MVIEW_WORKLOAD                 VIEW                                                                                                         
+MVIEW_FILTER                   VIEW                                                                                                         
+MVIEW_LOG                      VIEW                                                                                                         
+MVIEW_FILTERINSTANCE           VIEW                                                                                                         
+MVIEW_RECOMMENDATIONS          VIEW                                                                                                         
+MVIEW_EVALUATIONS              VIEW                                                                                                         
+MVIEW_EXCEPTIONS               VIEW                                                                                                         
+AQ$_QUEUE_TABLES               TABLE                                                                                                        
+AQ$_QUEUES                     TABLE                                                                                                        
+AQ$_SCHEDULES                  TABLE                                                                                                        
+AQ$_INTERNET_AGENTS            TABLE                                                                                                        
+AQ$_INTERNET_AGENT_PRIVS       TABLE                                                                                                        
+DEF$_AQCALL                    TABLE                                                                                                        
+DEF$_AQERROR                   TABLE                                                                                                        
+AQ$_DEF$_AQCALL_F              VIEW                                                                                                         
+AQ$DEF$_AQCALL                 VIEW                                                                                                         
+DEF$_ERROR                     TABLE                                                                                                        
+AQ$_DEF$_AQERROR_F             VIEW                                                                                                         
+AQ$DEF$_AQERROR                VIEW                                                                                                         
+DEF$_DESTINATION               TABLE                                                                                                        
+DEF$_CALLDEST                  TABLE                                                                                                        
+DEF$_DEFAULTDEST               TABLE                                                                                                        
+DEF$_LOB                       TABLE                                                                                                        
+DEF$_TEMP$LOB                  TABLE                                                                                                        
+DEF$_PROPAGATOR                TABLE                                                                                                        
+DEF$_ORIGIN                    TABLE                                                                                                        
+DEF$_PUSHED_TRANSACTIONS       TABLE                                                                                                        
+OL$                            TABLE                                                                                                        
+OL$HINTS                       TABLE                                                                                                        
+OL$NODES                       TABLE                                                                                                        
+LOGMNR_SESSION_EVOLVE$         TABLE                                                                                                        
+LOGMNR_HEADER1$                TABLE                                                                                                        
+LOGMNR_HEADER2$                TABLE                                                                                                        
+LOGMNR_UID$                    TABLE                                                                                                        
+LOGMNRC_DBNAME_UID_MAP         TABLE                                                                                                        
+LOGMNR_DICTSTATE$              TABLE                                                                                                        
+LOGMNR_DICTIONARY$             TABLE                                                                                                        
+LOGMNR_OBJ$                    TABLE                                                                                                        
+LOGMNR_USER$                   TABLE                                                                                                        
+LOGMNRC_GTLO                   TABLE                                                                                                        
+LOGMNRC_GTCS                   TABLE                                                                                                        
+LOGMNRC_GSII                   TABLE                                                                                                        
+LOGMNR_TAB$                    TABLE                                                                                                        
+LOGMNR_COL$                    TABLE                                                                                                        
+LOGMNR_ATTRCOL$                TABLE                                                                                                        
+LOGMNR_TS$                     TABLE                                                                                                        
+LOGMNR_IND$                    TABLE                                                                                                        
+LOGMNR_TABPART$                TABLE                                                                                                        
+LOGMNR_TABSUBPART$             TABLE                                                                                                        
+LOGMNR_TABCOMPART$             TABLE                                                                                                        
+LOGMNR_TYPE$                   TABLE                                                                                                        
+LOGMNR_COLTYPE$                TABLE                                                                                                        
+LOGMNR_ATTRIBUTE$              TABLE                                                                                                        
+LOGMNR_LOB$                    TABLE                                                                                                        
+LOGMNR_CDEF$                   TABLE                                                                                                        
+LOGMNR_CCOL$                   TABLE                                                                                                        
+LOGMNR_ICOL$                   TABLE                                                                                                        
+LOGMNR_LOBFRAG$                TABLE                                                                                                        
+LOGMNR_INDPART$                TABLE                                                                                                        
+LOGMNR_INDSUBPART$             TABLE                                                                                                        
+LOGMNR_INDCOMPART$             TABLE                                                                                                        
+LOGMNRP_CTAS_PART_MAP          TABLE                                                                                                        
+LOGMNRT_MDDL$                  TABLE                                                                                                        
+LOGMNR_LOG$                    TABLE                                                                                                        
+LOGMNR_PROCESSED_LOG$          TABLE                                                                                                        
+LOGMNR_SPILL$                  TABLE                                                                                                        
+LOGMNR_AGE_SPILL$              TABLE                                                                                                        
+LOGMNR_RESTART_CKPT_TXINFO$    TABLE                                                                                                        
+LOGMNR_ERROR$                  TABLE                                                                                                        
+LOGMNR_RESTART_CKPT$           TABLE                                                                                                        
+LOGMNR_FILTER$                 TABLE                                                                                                        
+LOGMNR_PARAMETER$              TABLE                                                                                                        
+LOGMNR_SESSION$                TABLE                                                                                                        
+LOGSTDBY$PARAMETERS            TABLE                                                                                                        
+LOGSTDBY$EVENTS                TABLE                                                                                                        
+LOGSTDBY$APPLY_PROGRESS        TABLE                                                                                                        
+LOGSTDBY$APPLY_MILESTONE       TABLE                                                                                                        
+LOGSTDBY$SCN                   TABLE                                                                                                        
+LOGSTDBY$PLSQL                 TABLE                                                                                                        
+LOGSTDBY$SKIP_TRANSACTION      TABLE                                                                                                        
+LOGSTDBY$SKIP                  TABLE                                                                                                        
+LOGSTDBY$SKIP_SUPPORT          TABLE                                                                                                        
+LOGSTDBY$HISTORY               TABLE                                                                                                        
+REPCAT$_REPCAT                 TABLE                                                                                                        
+REPCAT$_FLAVORS                TABLE                                                                                                        
+REPCAT$_REPSCHEMA              TABLE                                                                                                        
+REPCAT$_SNAPGROUP              TABLE                                                                                                        
+REPCAT$_REPOBJECT              TABLE                                                                                                        
+REPCAT$_REPCOLUMN              TABLE                                                                                                        
+REPCAT$_KEY_COLUMNS            TABLE                                                                                                        
+REPCAT$_GENERATED              TABLE                                                                                                        
+REPCAT$_REPPROP                TABLE                                                                                                        
+REPCAT$_REPCATLOG              TABLE                                                                                                        
+REPCAT$_DDL                    TABLE                                                                                                        
+REPCAT$_REPGROUP_PRIVS         TABLE                                                                                                        
+REPCAT$_PRIORITY_GROUP         TABLE                                                                                                        
+REPCAT$_PRIORITY               TABLE                                                                                                        
+REPCAT$_COLUMN_GROUP           TABLE                                                                                                        
+REPCAT$_GROUPED_COLUMN         TABLE                                                                                                        
+REPCAT$_CONFLICT               TABLE                                                                                                        
+REPCAT$_RESOLUTION_METHOD      TABLE                                                                                                        
+REPCAT$_RESOLUTION             TABLE                                                                                                        
+REPCAT$_RESOLUTION_STATISTICS  TABLE                                                                                                        
+REPCAT$_RESOL_STATS_CONTROL    TABLE                                                                                                        
+REPCAT$_PARAMETER_COLUMN       TABLE                                                                                                        
+REPCAT$_AUDIT_ATTRIBUTE        TABLE                                                                                                        
+REPCAT$_AUDIT_COLUMN           TABLE                                                                                                        
+REPCAT$_FLAVOR_OBJECTS         TABLE                                                                                                        
+REPCAT$_TEMPLATE_STATUS        TABLE                                                                                                        
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+REPCAT$_TEMPLATE_TYPES         TABLE                                                                                                        
+REPCAT$_REFRESH_TEMPLATES      TABLE                                                                                                        
+REPCAT$_USER_AUTHORIZATIONS    TABLE                                                                                                        
+REPCAT$_OBJECT_TYPES           TABLE                                                                                                        
+REPCAT$_TEMPLATE_REFGROUPS     TABLE                                                                                                        
+REPCAT$_TEMPLATE_OBJECTS       TABLE                                                                                                        
+REPCAT$_TEMPLATE_PARMS         TABLE                                                                                                        
+REPCAT$_OBJECT_PARMS           TABLE                                                                                                        
+REPCAT$_USER_PARM_VALUES       TABLE                                                                                                        
+REPCAT$_TEMPLATE_SITES         TABLE                                                                                                        
+REPCAT$_SITE_OBJECTS           TABLE                                                                                                        
+REPCAT$_RUNTIME_PARMS          TABLE                                                                                                        
+REPCAT$_TEMPLATE_TARGETS       TABLE                                                                                                        
+REPCAT$_EXCEPTIONS             TABLE                                                                                                        
+REPCAT$_INSTANTIATION_DDL      TABLE                                                                                                        
+REPCAT$_EXTENSION              TABLE                                                                                                        
+REPCAT$_SITES_NEW              TABLE                                                                                                        
+SQLPLUS_PRODUCT_PROFILE        TABLE                                                                                                        
+PRODUCT_PRIVS                  VIEW                                                                                                         
+PRODUCT_USER_PROFILE           SYNONYM                                                                                                      
+HELP                           TABLE                                                                                                        
+MVIEW$_ADV_INDEX               TABLE                                                                                                        
+MVIEW$_ADV_PARTITION           TABLE                                                                                                        
+MVIEW$_ADV_OWB                 TABLE                                                                                                        
+
+161 rows selected.
+
+SQL> create user jhon identified bsdk;
+create user jhon identified bsdk
+                            *
+ERROR at line 1:
+ORA-00924: missing BY keyword 
+
+
+SQL> create user jhon identified as bsdk;
+create user jhon identified as bsdk
+                            *
+ERROR at line 1:
+ORA-00924: missing BY keyword 
+
+
+SQL> create user jhon identified by bsdk;
+
+User created.
+
+SQL> conn jhon
+ERROR:
+ORA-01045: user JHON lacks CREATE SESSION privilege; logon denied 
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> conn system
+Connected.
+SQL> grant connect jhon;
+grant connect jhon
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+SQL> grant connect to jhon;
+
+Grant succeeded.
+
+SQL> conn jhon
+Connected.
+SQL> select * from tab;
+
+no rows selected
+
+SQL> create t1(eno numnber(10));
+create t1(eno numnber(10))
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> create table t1(eno numnber(10));
+create table t1(eno numnber(10))
+                           *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create table t1(eno number(10));
+create table t1(eno number(10))
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> conn system
+Connected.
+SQL> grant all privilages to jhon;
+grant all privilages to jhon
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+SQL> grant all privilages to jhon;
+grant all privilages to jhon
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+SQL> grant all privilage to jhon;
+grant all privilage to jhon
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+SQL> grant all privileges to jhon;
+
+Grant succeeded.
+
+SQL> conn jhon
+Connected.
+SQL> create table t1(eno number(10));
+
+Table created.
+
+SQL> conn system
+Connected.
+SQL> revoke all privileges from jhon;
+
+Revoke succeeded.
+
+SQL> conn jhon
+Connected.
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+T1                             TABLE                                                                                                        
+
+SQL> desc t1;
+ Name                                                                          Null?    Type
+ ----------------------------------------------------------------------------- -------- ----------------------------------------------------
+ ENO                                                                                    NUMBER(10)
+
+SQL> insert into t1 values(10);
+
+1 row created.
+
+SQL> create table t2(eno number(10));
+create table t2(eno number(10))
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> update table t1 set eno=100;
+update table t1 set eno=100
+       *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> update t1 set eno=100;
+
+1 row updated.
+
+SQL> conn system
+Connected.
+SQL> alter user jhon identified by 1234;
+alter user jhon identified by 1234
+                              *
+ERROR at line 1:
+ORA-00988: missing or invalid password(s) 
+
+
+SQL> alter user jhon identified by qty;
+
+User altered.
+
+SQL> conn jhon
+Connected.
+SQL> conn system
+Connected.
+SQL> drop user jhon cascade;
+
+User dropped.
+
+SQL> conn jhon
+ERROR:
+ORA-01017: invalid username/password; logon denied 
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> desc emp;
+SP2-0640: Not connected
+SP2-0641: "DESCRIBE" requires connection to server
+SQL> conn scott
+Connected.
+SQL> select * from atb;
+select * from atb
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                           
+------------------------------ ------- ----------                                                                                           
+DEPT                           TABLE                                                                                                        
+EMP                            TABLE                                                                                                        
+BONUS                          TABLE                                                                                                        
+SALGRADE                       TABLE                                                                                                        
+COURSE                         TABLE                                                                                                        
+STUDENT                        TABLE                                                                                                        
+CUSTOMER                       TABLE                                                                                                        
+PRODUCT                        TABLE                                                                                                        
+DOCTOR                         TABLE                                                                                                        
+PATIENT                        TABLE                                                                                                        
+
+10 rows selected.
+
+SQL> select * from student;
+
+    STU_ID SNAM        CID      MARKS                                                                                                       
+---------- ---- ---------- ----------                                                                                                       
+         2 Jhon          1         78                                                                                                       
+         3 Kate          3         89                                                                                                       
+
+SQL> select * from course;
+
+       CID CNAME            FEES TNAME                                                                                                      
+---------- ---------- ---------- ----------                                                                                                 
+         1 sql               100 aa                                                                                                         
+         2 python            200 bb                                                                                                         
+         3 html              300 cc                                                                                                         
+        50 Java             2000 jhon                                                                                                       
+
+SQL> select s.*,c.cname from student s left join course c
+  2  on s.cid=c.cid;
+
+    STU_ID SNAM        CID      MARKS CNAME                                                                                                 
+---------- ---- ---------- ---------- ----------                                                                                            
+         2 Jhon          1         78 sql                                                                                                   
+         3 Kate          3         89 html                                                                                                  
+
+SQL> select s.*,c.cname from student s rightjoin course c
+  2  on s.cid=c.cid;
+select s.*,c.cname from student s rightjoin course c
+                                  *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select s.*,c.cname from student s right join course c
+  2   on s.cid=c.cid;
+
+    STU_ID SNAM        CID      MARKS CNAME                                                                                                 
+---------- ---- ---------- ---------- ----------                                                                                            
+         2 Jhon          1         78 sql                                                                                                   
+                                      python                                                                                                
+         3 Kate          3         89 html                                                                                                  
+                                      Java                                                                                                  
+
+SQL> select s.*,c.*from student s full outer join course c
+  2  on s.cid=c.cid;
+
+    STU_ID SNAM        CID      MARKS        CID CNAME            FEES TNAME                                                                
+---------- ---- ---------- ---------- ---------- ---------- ---------- ----------                                                           
+         2 Jhon          1         78          1 sql               100 aa                                                                   
+         3 Kate          3         89          3 html              300 cc                                                                   
+                                               2 python            200 bb                                                                   
+                                              50 Java             2000 jhon                                                                 
+
+SQL> select max(sal) from emp where sal !=(select max(sal) from emp);
+
+  MAX(SAL)                                                                                                                                  
+----------                                                                                                                                  
+      3000                                                                                                                                  
+
+SQL> select max(sal) from emp where sal<(select Max(sal) from emp);
+
+  MAX(SAL)                                                                                                                                  
+----------                                                                                                                                  
+      3000                                                                                                                                  
+
+SQL> select * from emp where rownum <=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+
+SQL> select * from emp where rownum >=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                       
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                       
+
+14 rows selected.
+
+SQL> select * from emp where rownum =1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+
+SQL> select * from emp where rownum =2;
+
+no rows selected
+
+SQL> select * from emp where rownum =3;
+
+no rows selected
+
+SQL> select * from emp where rownum <=2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+
+SQL> select * from emp where rownum <=3;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                       
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                       
+
+SQL> select * from emp where rownum =2;
+
+no rows selected
+
+SQL> select * from emp where rownum =1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+
+SQL> select sal From(select sal from(select distinct sal order by sal desc) where rownum>=3 order by sal asc) where rownum=1;
+select sal From(select sal from(select distinct sal order by sal desc) where rownum>=3 order by sal asc) where rownum=1
+                                                    *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select sal From(select sal from(select distinct from emp order by sal desc) where rownum>=3 order by sal asc) where rownum=1;
+select sal From(select sal from(select distinct from emp order by sal desc) where rownum>=3 order by sal asc) where rownum=1
+                                                *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select sal From(select sal from(select distinct sal from emp order by sal desc) where rownum>=3 order by sal asc) where rownum=1;
+
+no rows selected
+
+SQL> select sal From(select sal from(select distinct sal from emp order by sal desc) where rownum<=3order by sal asc) where rownum=1;
+
+       SAL                                                                                                                                  
+----------                                                                                                                                  
+      2975                                                                                                                                  
+
+SQL> select sal From(select sal from(select distinct sal from emp order by sal desc) where rownum>=4 order by sal asc) where rownum=1;
+
+no rows selected
+
+SQL> select sal From(select sal from(select distinct sal from emp order by sal desc) where rownum<=4order by sal asc) where rownum=1;
+
+       SAL                                                                                                                                  
+----------                                                                                                                                  
+      2850                                                                                                                                  
+
+SQL> select * fromj emp where sal =(select sal from (select sal from(select distinct sal from emp
+  2  order by sal desc) where rownum<=3 order by sal) where rownum=1);
+select * fromj emp where sal =(select sal from (select sal from(select distinct sal from emp
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from emp where sal =(select sal from (select sal from(select distinct sal from emp
+  2  order by sal desc) where rownum<=3 order by sal) where rownum=1);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+
+SQL> select * from emp where sal =(select sal from (select sal from(select distinct sal from emp
+  2  order by sal desc) where rownum<=4 order by sal) where rownum=1);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                       
+
+SQL> select * from emp where deptno =(select deptno from dept where loc =(select loc from dept where deptno in (select deptno from emp where mgr in(select empno from emp where ename='ADAMS'))));
+
+no rows selected
+
+SQL> select * from emp where deptno =(select deptno from dept where loc =(select loc from dept wheredeptno in (select deptno from emp where EMPNO IN(select MGR from emp where ename='ADAMS'))));
+select * from emp where deptno =(select deptno from dept where loc =(select loc from dept wheredeptno in (select deptno from emp where EMPNO IN(select MGR from emp where ename='ADAMS'))))
+                                                                                                      *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp where deptno =(select deptno from dept where loc =(select loc from dept wheredeptno in (select deptno from emp where empno in(select mgr from emp where ename='ADAMA'))));
+select * from emp where deptno =(select deptno from dept where loc =(select loc from dept wheredeptno in (select deptno from emp where empno in(select mgr from emp where ename='ADAMA'))))
+                                                                                                      *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp where deptno =(select deptno from dept where loc =(select loc from dept wheredeptno in (select deptno from emp where empno in(select mgr from emp where ename='ADAMS'))));
+select * from emp where deptno =(select deptno from dept where loc =(select loc from dept wheredeptno in (select deptno from emp where empno in(select mgr from emp where ename='ADAMS'))))
+                                                                                                      *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp where deptno =(select deptno from dept where loc =(select loc from dept where deptno in (select deptno from emp where empno in(select mgr from emp where ename='ADAMS'))));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                       
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                       
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                       
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                       
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                       
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                       
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                       
+
+SQL> SPOOL OFF

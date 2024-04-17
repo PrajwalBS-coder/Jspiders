@@ -1,0 +1,995 @@
+SQL> SELECT * FROM EMP WHERE ROWNUM >=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ROWNUM <=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+
+SQL> SELECT * FROM EMP WHERE ROWNUM <=2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+
+SQL> SET LINES 140 PAGES 140
+SQL> /
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+
+SQL> SELECT * FROM EMP WHERE EMPNO IN(SELECT MGR FROM EMP WHERE EMPNO IN(SELECT MGR FROM EMP WHERE E
+NAME ='SCOTT'));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+
+SQL> SELECT * FROM EMP WHERE ROWNUM <=2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+
+SQL> SELECT * FROM EMP WHERE ROWNUM >=2;
+
+no rows selected
+
+SQL> SELECT * FROM EMP WHERE ROWNUM >=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE ROWNUM <=1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+
+SQL> SELECT * FROM EMP WHERE ROWNUM <=3;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+
+SQL> SELECT * FROM EMP WHERE ROWNUM =3;
+
+no rows selected
+
+SQL> SELECT ROWNUM FROM EMP;
+
+    ROWNUM
+----------
+         1
+         2
+         3
+         4
+         5
+         6
+         7
+         8
+         9
+        10
+        11
+        12
+        13
+        14
+
+14 rows selected.
+
+SQL> SELECT ROWID FROM EMP;
+
+ROWID
+------------------
+AAAMfPAAEAAAAAgAAA
+AAAMfPAAEAAAAAgAAB
+AAAMfPAAEAAAAAgAAC
+AAAMfPAAEAAAAAgAAD
+AAAMfPAAEAAAAAgAAE
+AAAMfPAAEAAAAAgAAF
+AAAMfPAAEAAAAAgAAG
+AAAMfPAAEAAAAAgAAH
+AAAMfPAAEAAAAAgAAI
+AAAMfPAAEAAAAAgAAJ
+AAAMfPAAEAAAAAgAAK
+AAAMfPAAEAAAAAgAAL
+AAAMfPAAEAAAAAgAAM
+AAAMfPAAEAAAAAgAAN
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL FROM EMP ORDER BY SAL,ENAME DESC;
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+JAMES             950
+ADAMS            1100
+WARD             1250
+MARTIN           1250
+MILLER           1300
+TURNER           1500
+ALLEN            1600
+CLARK            2450
+BLAKE            2850
+JONES            2975
+SCOTT            3000
+FORD             3000
+KING             5000
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL FROM EMP ORDER BY SAL DESC ,ENAME DESC;
+
+ENAME             SAL
+---------- ----------
+KING             5000
+SCOTT            3000
+FORD             3000
+JONES            2975
+BLAKE            2850
+CLARK            2450
+ALLEN            1600
+TURNER           1500
+MILLER           1300
+WARD             1250
+MARTIN           1250
+ADAMS            1100
+JAMES             950
+SMITH             800
+
+14 rows selected.
+
+SQL>  SELECT ENAME,SAL FROM EMP ORDER BY SAL DESC ,ENAME;
+
+ENAME             SAL
+---------- ----------
+KING             5000
+FORD             3000
+SCOTT            3000
+JONES            2975
+BLAKE            2850
+CLARK            2450
+ALLEN            1600
+TURNER           1500
+MILLER           1300
+MARTIN           1250
+WARD             1250
+ADAMS            1100
+JAMES             950
+SMITH             800
+
+14 rows selected.
+
+SQL> SELECT DISTINCT SAL FROM EMP;
+
+       SAL
+----------
+      2450
+      5000
+      1300
+      1250
+      2850
+      2975
+      1100
+      3000
+       800
+      1600
+      1500
+       950
+
+12 rows selected.
+
+SQL> SELECT DISTINCT SAL,JOB FROM EMP;
+
+       SAL JOB
+---------- ---------
+       800 CLERK
+      2850 MANAGER
+      1500 SALESMAN
+      2975 MANAGER
+      2450 MANAGER
+      1300 CLERK
+      1250 SALESMAN
+      1100 CLERK
+      3000 ANALYST
+       950 CLERK
+      1600 SALESMAN
+      5000 PRESIDENT
+
+12 rows selected.
+
+SQL> SELECT DISTINCT SAL,JOB,DNO FROM EMP;
+SELECT DISTINCT SAL,JOB,DNO FROM EMP
+                        *
+ERROR at line 1:
+ORA-00904: "DNO": invalid identifier
+
+
+SQL> SELECT DISTINCT SAL,JOB,DEPTNO FROM EMP;
+
+       SAL JOB           DEPTNO
+---------- --------- ----------
+       950 CLERK             30
+       800 CLERK             20
+      2850 MANAGER           30
+      1100 CLERK             20
+      2975 MANAGER           20
+      2450 MANAGER           10
+      1600 SALESMAN          30
+      1250 SALESMAN          30
+      5000 PRESIDENT         10
+      1500 SALESMAN          30
+      3000 ANALYST           20
+      1300 CLERK             10
+
+12 rows selected.
+
+SQL> SELECT LENGHT(ENAME) FROM EMP;
+SELECT LENGHT(ENAME) FROM EMP
+       *
+ERROR at line 1:
+ORA-00904: "LENGHT": invalid identifier
+
+
+SQL> SELECT LENGTH(ENAME) FROM EMP;
+
+LENGTH(ENAME)
+-------------
+            5
+            5
+            4
+            5
+            6
+            5
+            5
+            5
+            4
+            6
+            5
+            5
+            4
+            6
+
+14 rows selected.
+
+SQL> SELECT UPPER('AMIN') FROM DUAL;
+
+UPPE
+----
+AMIN
+
+SQL> SELECT UPPER('amin') FROM DUAL;
+
+UPPE
+----
+AMIN
+
+SQL> SELECT LOWER('AMIN') FROM DUAL;
+
+LOWE
+----
+amin
+
+SQL> SELECT TRIM('A',ENAME) FROM EMP;
+SELECT TRIM('A',ENAME) FROM EMP
+               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> SELECT TRIM('A' FROM ENAME) FROM EMP;
+
+TRIM('A'FR
+----------
+SMITH
+LLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+DAMS
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> SELECT REPLACE(ENAME,'A','K') FROM EMP;
+
+REPLACE(EN
+----------
+SMITH
+KLLEN
+WKRD
+JONES
+MKRTIN
+BLKKE
+CLKRK
+SCOTT
+KING
+TURNER
+KDKMS
+JKMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> SELECT REPLACE(ENAME,'A') FROM EMP;
+
+REPLACE(EN
+----------
+SMITH
+LLEN
+WRD
+JONES
+MRTIN
+BLKE
+CLRK
+SCOTT
+KING
+TURNER
+DMS
+JMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> SELECT TO_DATE('11-11-87','MM-DD-YY') FROM DUAL;
+
+TO_DATE('
+---------
+11-NOV-87
+
+SQL> SELECT TO_DATE('11-11-87','MM-YY-MM') FROM DUAL;
+SELECT TO_DATE('11-11-87','MM-YY-MM') FROM DUAL
+                          *
+ERROR at line 1:
+ORA-01810: format code appears twice
+
+
+SQL> SELECT TO_DATE('11-11-87','MM-YY-DD') FROM DUAL;
+SELECT TO_DATE('11-11-87','MM-YY-DD') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01847: day of month must be between 1 and last day of month
+
+
+SQL> SELECT TO_CHAR('11-11-78','MONTH') FROM DUAL;
+SELECT TO_CHAR('11-11-78','MONTH') FROM DUAL
+               *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL>  SELECT TO_CHAR('11/11/78','MONTH') FROM DUAL;
+ SELECT TO_CHAR('11/11/78','MONTH') FROM DUAL
+                *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL> SELECT TO_CHAR(HIREDATE,'MONTH') FROM EMP;
+
+TO_CHAR(H
+---------
+DECEMBER
+FEBRUARY
+FEBRUARY
+APRIL
+SEPTEMBER
+MAY
+JUNE
+APRIL
+NOVEMBER
+SEPTEMBER
+MAY
+DECEMBER
+DECEMBER
+JANUARY
+
+14 rows selected.
+
+SQL> SELECT CURREN_DATE FROM DUAL;
+SELECT CURREN_DATE FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "CURREN_DATE": invalid identifier
+
+
+SQL> SELECT CURRENT_DATE FROM DUAL;
+
+CURRENT_D
+---------
+14-APR-24
+
+SQL> SELECT SESSIONTIMEZONE FROM DUAL;
+
+SESSIONTIMEZONE
+---------------------------------------------------------------------------
++05:30
+
+SQL> SELECT MONTS_BETWEEN(HIREDATE,SYSDATE) FROM EMP;
+SELECT MONTS_BETWEEN(HIREDATE,SYSDATE) FROM EMP
+       *
+ERROR at line 1:
+ORA-00904: "MONTS_BETWEEN": invalid identifier
+
+
+SQL> SELECT MONTHS_BETWEEN(HIREDATE,SYSDATE) FROM EMP;
+
+MONTHS_BETWEEN(HIREDATE,SYSDATE)
+--------------------------------
+                      -519.92485
+                      -517.82807
+                      -517.76356
+                      -516.40872
+                      -510.57001
+                      -515.44098
+                      -514.18291
+                      -443.86033
+                      -508.92485
+                      -511.21517
+                       -442.7313
+                      -508.37646
+                      -508.37646
+                       -506.7313
+
+14 rows selected.
+
+SQL> SELECT INSTR('GOOD AFTERNONE','O') FROM DUAL;
+
+INSTR('GOODAFTERNONE','O')
+--------------------------
+                         2
+
+SQL> SELECT INSTR('GOOD AFTERNONE','O',3) FROM DUAL;
+
+INSTR('GOODAFTERNONE','O',3)
+----------------------------
+                           3
+
+SQL> SELECT INSTR('GOOD AFTERNONE','O',4) FROM DUAL;
+
+INSTR('GOODAFTERNONE','O',4)
+----------------------------
+                          12
+
+SQL> SELECT INSTR('GOOD AFTERNONE','O',2,3)FROM DUAL;
+
+INSTR('GOODAFTERNONE','O',2,3)
+------------------------------
+                            12
+
+SQL> SELECT SUBSTR(ENAME,5) FROM EMP;
+
+SUBSTR
+------
+H
+N
+
+S
+IN
+E
+K
+T
+
+ER
+S
+S
+
+ER
+
+14 rows selected.
+
+SQL> SELECT SUBSTR('GOOD AFTERNONE',5) FROM DUAL;
+
+SUBSTR('GO
+----------
+ AFTERNONE
+
+SQL> SELECT SUBSTR('GOOD AFTERNONE',6,5) FROM DUAL;
+
+SUBST
+-----
+AFTER
+
+SQL> SELECT MOD(10,3) FROM DUAL;
+
+ MOD(10,3)
+----------
+         1
+
+SQL> SELECT POWER(2,3) FROM DUAL;
+
+POWER(2,3)
+----------
+         8
+
+SQL> SELECT SQRT(100) FROM DUAL;
+
+ SQRT(100)
+----------
+        10
+
+SQL> SELECT ABS(-199) FROM DUAL;
+
+ ABS(-199)
+----------
+       199
+
+SQL> SELECT FLOOR(SQRT(SAL)) FROM EMP;
+
+FLOOR(SQRT(SAL))
+----------------
+              28
+              40
+              35
+              54
+              35
+              53
+              49
+              54
+              70
+              38
+              33
+              30
+              54
+              36
+
+14 rows selected.
+
+SQL> SELECT CEIL(SQRT(SAL)) FROM EMP;
+
+CEIL(SQRT(SAL))
+---------------
+             29
+             40
+             36
+             55
+             36
+             54
+             50
+             55
+             71
+             39
+             34
+             31
+             55
+             37
+
+14 rows selected.
+
+SQL> SELECT ROUND(SQRT(SAL)) FROM EMP;
+
+ROUND(SQRT(SAL))
+----------------
+              28
+              40
+              35
+              55
+              35
+              53
+              49
+              55
+              71
+              39
+              33
+              31
+              55
+              36
+
+14 rows selected.
+
+SQL> CREATE TABLE KL (
+  2  EN NUMBER(10)
+  3  );
+
+Table created.
+
+SQL> INSERT INTO KL VALUES(1);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO KL VALUES(2);
+
+1 row created.
+
+SQL> SAVEPINT A;
+SP2-0042: unknown command "SAVEPINT A" - rest of line ignored.
+SQL> SAVEPOINT A;
+
+Savepoint created.
+
+SQL> INSERT INTO KL VALUES(3);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(4);
+
+1 row created.
+
+SQL> SAVEPOINT B;
+
+Savepoint created.
+
+SQL> INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(6);
+
+1 row created.
+
+SQL> ROLLBACK
+  2  
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+         2
+         3
+         4
+         5
+         6
+
+6 rows selected.
+
+SQL> ROLLBACK B;
+ROLLBACK B
+         *
+ERROR at line 1:
+ORA-02181: invalid option to ROLLBACK WORK
+
+
+SQL> ROLLBACK B;
+ROLLBACK B
+         *
+ERROR at line 1:
+ORA-02181: invalid option to ROLLBACK WORK
+
+
+SQL> ROLLBACK A;
+ROLLBACK A
+         *
+ERROR at line 1:
+ORA-02181: invalid option to ROLLBACK WORK
+
+
+SQL> ROLL BACK A;
+Rollback complete.
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+
+SQL> SAVEPOINT B;
+
+Savepoint created.
+
+SQL> INSERT INTO KL VALUES(2);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(3);
+
+1 row created.
+
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+         2
+         3
+
+SQL> SAVEPOINT C;
+
+Savepoint created.
+
+SQL> INSERT INTO KL VALUES(4);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+         2
+         3
+         4
+         5
+
+SQL> ROLL BACK C;
+Rollback complete.
+SQL> SELET * FROM KL;
+SP2-0734: unknown command beginning "SELET * FR..." - rest of line ignored.
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+
+SQL> INSERT INTO KL VALUES(4);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL> SAVEPOINT C;
+
+Savepoint created.
+
+SQL> INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL>  ROLL BACK C;
+Rollback complete.
+SQL> SELET * FROM KL;
+SP2-0734: unknown command beginning "SELET * FR..." - rest of line ignored.
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> SAVEPOINT C;
+
+Savepoint created.
+
+SQL>  INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL>  INSERT INTO KL VALUES(5);
+
+1 row created.
+
+SQL> SAVEPOINT D;
+
+Savepoint created.
+
+SQL>  INSERT INTO KL VALUES(6);
+
+1 row created.
+
+SQL>  INSERT INTO KL VALUES(7_);
+ INSERT INTO KL VALUES(7_)
+                        *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL>  INSERT INTO KL VALUES(7);
+
+1 row created.
+
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+         5
+         5
+         6
+         7
+
+SQL> ROLL BACK D;
+Rollback complete.
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         1
+
+SQL> TRUNCATE FROM KL;
+TRUNCATE FROM KL
+              *
+ERROR at line 1:
+ORA-03290: Invalid truncate command - missing CLUSTER or TABLE keyword
+
+
+SQL> TRUNCATE TABLE KL;
+
+Table truncated.
+
+SQL> SELECT * FROM KL;
+
+no rows selected
+
+SQL> 
+SQL> INSERT INTO KL VALUES(7);INSERT INTO KL VALUES(7);
+INSERT INTO KL VALUES(7);INSERT INTO KL VALUES(7)
+                        *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> INSERT INTO KL VALUES(7);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(7);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(7);INSERT INTO KL VALUES(7);
+INSERT INTO KL VALUES(7);INSERT INTO KL VALUES(7)
+                        *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> INSERT INTO KL VALUES(7);
+
+1 row created.
+
+SQL> INSERT INTO KL VALUES(7);
+
+1 row created.
+
+SQL> SELECT * FROM KL;
+
+        EN
+----------
+         7
+         7
+         7
+         7
+
+SQL> DELETE FROM KL;
+
+4 rows deleted.
+
+SQL> SELECT * FROM KL;
+
+no rows selected
+
+SQL> ROLL BACK;
+Rollback complete.
+SQL> SELECT * FROM KL;
+
+no rows selected
+
+SQL> 
+SQL> SELECT * FROM KL;
+
+no rows selected
+
+SQL> 

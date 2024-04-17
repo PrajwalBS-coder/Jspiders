@@ -1,0 +1,43 @@
+SQL>  select sal from(
+  2  select distinct sal from emp order by sal)where rownum<=5;
+
+       SAL
+----------
+       800
+       950
+      1100
+      1250
+      1300
+
+SQL> select sal from(
+   select sal from(
+    select distinct sal from emp order by sal)where rownum<=5) order by sal desc;
+
+       SAL
+----------
+      1300
+      1250
+      1100
+       950
+       800
+
+SQL> select * from emp where sal=(select sal from( select sal from(select sal from(select distinct s
+al from emp order by sal)where rownum<=5) order by sal desc)where rownum=1);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+SQL> select sal from (
+  2  select sal from(
+  3     select sal from(
+  4      select distinct sal from emp order by sal)where rownum<=5) order by sal desc) where rownum=
+1;
+
+       SAL
+----------
+      1300
