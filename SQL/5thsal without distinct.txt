@@ -1,0 +1,50 @@
+SELECT DISTINCT SUBSTR(
+(SELECT DISTINCT sal
+FROM emp
+ORDER BY sal
+LIMIT 4, 1)
+, 1, LENGTH(sal)) AS fifth_minimum_sal
+FROM emp;
+
+
+SELECT sal
+FROM emp
+ORDER BY sal
+OFFSET 4 ROWS
+FETCH FIRST 1 ROW ONLY;
+
+
+SELECT DISTINCT e1.sal
+FROM emp e1, emp e2
+WHERE e1.sal > e2.sal
+GROUP BY e1.sal
+HAVING COUNT(DISTINCT e2.sal) = 4;
+
+
+SELECT e1.sal
+FROM emp e1
+WHERE 4 = (
+SELECT COUNT(*)
+FROM emp e2
+WHERE e2.sal <= e1.sal
+GROUP BY e2.sal
+)
+
+
+select sal from(
+select e2.sal,count(*)
+FROM emp e2,emp e1
+WHERE e2.sal <= e1.sal
+GROUP BY e2.sal 
+order by e2.sal) where rownum<=5 order by sal desc;
+
+select * from emp where sal =(
+ select sal from
+ (select sal from(
+ select e2.sal,count(*)
+ FROM emp e2,emp e1
+ WHERE e2.sal <= e1.sal
+ GROUP BY e2.sal 
+ order by e2.sal) where rownum<=2 order by sal desc) where rownum=1);
+
+

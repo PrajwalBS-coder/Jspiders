@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function main() {
+            let bill = 0;
+            units = Number(prompt("Enter  the number of units:"));
+            if(units<=200)
+            {
+                console.log("Free")
+            }
+            
+
+            else if (units > 200 && units <= 250) {
+                units = units - 200
+                bill += units * 3;
+                console.log(bill);
+                //console.log("1st")
+            }
+            else if (units > 251 && units <= 300) {
+                units = units - 200
+                bill += 50*3+(units-50)*5;
+                console.log(bill);
+                //console.log("2nd")
+            }
+            else {
+                units = units - 200
+                bill += 50*3+50*5+(units-100)*7;
+                console.log(bill);
+                //console.log("3rd")
+            }
+
+            
+        } main();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
