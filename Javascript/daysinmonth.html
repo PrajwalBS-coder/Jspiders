@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function main() {
+            year = Number(prompt("ENter a Year"))
+            month = Number(prompt("ENter a Month"))
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    console.log("This is a month with 31 days")
+                    break;
+                case 2:
+                    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                        console.log("This Month has 29 days")
+
+                    }
+                    else {
+                        console.log("This Month has 28 days")
+                    }
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                    console.log("This is a month with 30 days")
+                    break;
+                default:
+                    console.log("Invalid month number");
+
+
+            }
+        }
+
+main()
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
