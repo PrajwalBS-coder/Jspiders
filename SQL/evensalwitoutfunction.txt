@@ -1,0 +1,14 @@
+SELECT e1.*
+FROM emp e1, emp e2
+WHERE e1.sal = e2.sal* 
+2;
+
+
+SELECT *
+FROM emp
+WHERE sal & 1 = 0;
+
+
+SELECT *
+FROM emp
+WHERE SUBSTR(TO_CHAR(sal), -1) IN ('0', '2', '4', '6', '8');

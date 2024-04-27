@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        c = console.log
+        main()
+        function main() {
+            x=Number(prompt("ENTER A No"))
+            y=Number(prompt("ENTER the second No"))
+           fun=prompt("ENTER The Operation")
+            //c(fun)
+            //c(cal(x, y, add))//working fine
+
+            c(cal(x, y, fun))
+        }
+
+
+        function cal(a, b, fun) {
+           /// if (fun == "add") return add(a, b);//workin fine
+           let res = fun(a, b);
+            return res
+        }
+        function add(n, m) {
+
+            return n + m
+        }
+        function sub(n, m) {
+            return n - m
+        }
+        function add(n, m) {
+            return n + m
+        }
+        function mul(n, m) {
+            return n + m
+        }
+        function div(n, m) {
+            return n + m
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

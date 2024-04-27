@@ -19,7 +19,7 @@ else:
 # In[7]:
 
 
-n=24
+n=15
 sq=0
 while(sq**2<=n+1):
     if sq**2==n+1:
