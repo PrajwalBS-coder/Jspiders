@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        c = console.log
+        let student = {
+            sid: "101",
+            sname: "John",
+            age: 25,
+            gender: "Male"
+        }
+
+        /*console.log(student) //print the object to console
+        c(student.age, student.sname, student.gender)//accessing individual properties of an object using . Notation
+
+        c(student["age"], student["sname"], student["gender"])//accessing properties using [] Notation
+
+
+        c(student.add)//returns undefined
+
+        c(student["address"])//returns undefined*/
+
+        let info = prompt("Enter Properties to Search")
+        if (student.info) {
+            c(student.info)
+            c("using . Notation")
+        }
+        else
+        {
+            c("ERROR")
+        }
+
+
+      
+        if (student[info]) {
+            c(student[info])
+            c("using [] Notation")
+        }
+        else
+        {
+            c("ERROR")
+        }
+
+
+
+
+
+    </script>
+</head>
+
+
+
+
+
+
+<body>
+
+</body>
+
+</html>
