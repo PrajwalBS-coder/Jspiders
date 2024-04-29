@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        c=console.log
+        let na="Jhon"//global declaration
+        function print()
+        {
+            c(`Hola ${na}`);//here it'll print na cause it is declared as global variale
+            det(na,25,"Python")//local decalration
+            function det(na,age,course)
+            {
+                c(`Name is ${na} who is at the age of ${age} taking ${course}`)
+                   
+            }
+
+        }print()
+        det(na,25,"Python")//it'll throws an error cause its declaerd as local variable
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
