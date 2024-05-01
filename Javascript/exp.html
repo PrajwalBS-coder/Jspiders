@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        c = console.log
+        function join() {
+
+
+            function innjoin(a, d) {
+                return a+d;
+                //c(a)
+
+            }
+            return innjoin;
+
+
+        }
+        //c("J")
+       let j= join.call(10,40)
+
+
+        c(j)//prints the description of function
+        c(j(10,40))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

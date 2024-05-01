@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        ///f=function;
+        c = console.log;
+        function outer() {
+            var l = 10;
+            let g = 21
+            function inner() {
+                //c(l)
+                let k = 10
+                c(g)
+                c(k)
+
+
+            } return inner
+
+
+        }
+        var k = outer()
+        c(k)//it'll return function defination
+        k()//it'll print the output
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        ///f=function;
+        c = console.log;
+        function outer() {
+            var l = 10;
+            let g = 21
+            function inner() {
+                //c(l)
+                let k = 10
+                c(g)
+                c(k)
+
+
+            } return inner
+
+
+        }
+
+        let p = outer()
+        c(p)//it'll print outer defination
+        p()//it'll return the output
+        c("_*_*_*_*_*_*__**__")
+        outer().call()//by using function.call method we can call the inner method of main function 
+
+
+
+
+
+
+        function join() {
+
+
+            function innjoin(a, d) {
+                return a+d;
+               // c(a)
+
+            }
+            return innjoin;
+
+
+        }
+        c("J")
+        let y=join.call()
+
+     
+        c(y)//prints the description of function
+        c(y(10,20))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

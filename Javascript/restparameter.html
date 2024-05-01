@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCRIPT>
+        c=console.log
+        function main()
+        {
+           // add(1,2,3);
+            c(add(9,9,9))
+           
+
+        }
+        function add(...n)
+        {
+            c("im in")
+            let sum=0
+            let i=0
+            l=n.length;
+            while(i<l){
+                sum+=n[i];
+                i+=1;
+                //c(sum)
+            }
+            c(sum)
+        }
+        main()
+
+    </SCRIPT>
+</head>
+<body>
+    
+</body>
+</html>
