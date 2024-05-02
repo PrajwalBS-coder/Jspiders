@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        c=console.log
+        let travels = {
+            tname: "Ambari",
+            busid: "AM1",
+            bookings: [],
+            book: function (na, sno) {
+                let passenger = {
+                    passenger: `${na} has booked ticket on ${this.tname} and the seat no is ${sno}`
+
+                };
+                this.bookings.push(passenger);
+            }
+        }
+
+        let travels2 = {
+            tname: "Intercity",
+            busid: "IN1",
+            bookings: []
+        }
+
+       // c(travels.bookings) // []
+        travels.book("Jhon",78);
+        c(travels.bookings) 
+       // c("*_*_*_*_*_*")
+       // this.book(“Tom”, 95); // Error as there is no method called book in the window object
+        //c(window.bookings)// undefined
+       //let j= travels.book.call(travels2,"Jarvis",85);
+        ///c(travels2.bookings) 
+        //c(this)
+        let fun= travels.book
+        let h=["BS",34]
+      let r= fun.apply(travels2,h)
+      
+    fun.call(travels2, "Hemant", 67)
+    c(travels2.bookings) 
+
+   let p= fun.bind(travels,);
+   p("Amin",23)
+   p("GOVINDA",07)   </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
