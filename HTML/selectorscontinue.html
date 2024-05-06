@@ -4,28 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAB</title>
+    <title>Document</title>
     <style>
         /*asdfdf*/
-        #aa {
-            /*id selector*/
+        #aa::selection {
+            /*psuedo element selector*/
             background-color: aqua;
             color: brown;
         }
 
-        .Jhon {
-            /*class selector*/
+        .Jhon:hover {
+            /*psuedo class selector*/
             background-color: rgb(44, 255, 255);
             color: rgb(126, 100, 187);
         }
 
-        p {
+        p::first-letter {
             /*tag selector*/
             background-color: rgb(194, 207, 207);
             color: rgb(126, 100, 187);
         }
     </style>
-
 </head>
 
 <body>
