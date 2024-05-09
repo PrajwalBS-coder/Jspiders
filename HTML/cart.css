@@ -1,0 +1,54 @@
+body{
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.d0UfjAWDG1B-owpfLGRRagHaFj%26pid%3DApi&f=1&ipt=057c18183ec3607b118dd1f40bb72a167f60279f3415eadb5043278b07c1c567&ipo=images");
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px 10px;
+    background-attachment:scroll;
+}
+div{
+    position:relative;
+    top: 150px;
+   background: linear-gradient(45deg,rgb(240, 197, 58),rgb(240, 129, 25),rgb(243, 86, 86));
+   text-align: center;
+    width: 400px;
+    margin-left: 450px;
+    padding: 5px;
+    color: aliceblue;
+    border: #4dc3e0;
+}
+form{
+   outline: none;
+    text-align: center;
+    margin: auto;
+    border: 2.5px solid #000;
+
+    
+
+}
+textarea{
+    
+    vertical-align: middle;
+    margin-bottom: 10px;
+   
+}
+input{
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: none;
+    display: inline;
+    
+
+
+}
+label{
+    text-align: center;
+    display:inline-block;
+    width: 150px;
+    text-shadow:2px 2px 3px #09acd4;
+}
+img{
+    width:100px;
+    border-radius: 14px;
+    
+}
