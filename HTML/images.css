@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    border: 12px solid black;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: start;
+
+
+}
+
+img {
+    height: 190px;
+    padding: 8px;
+    width: 190px;
+}
+
+#luffy {
+    height: 490px;
+
+}
+
+.secondline {
+    align-items: start;
+    margin-top: -320px;
+    margin-left: 0px;
+    position: relative;
+    /* has to be position relative for left to work, or you could just do margin-left: -50px; too */
+    left: -150px;
+}
+.column {
+    float: left;
+    width: 50%;
+    padding: 30px 20px;
+  }
+  #spectluffy{
+width: 500px;
+  }
+  #zorro{
+    width: 190px;
+    margin-left: 59px;
+  }
