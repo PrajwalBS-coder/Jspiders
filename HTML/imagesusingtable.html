@@ -4,13 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        img{
+            width: 280px;
+            padding: 20px 20px;
+            height: 200px;
+        }
+        .container {
+    display: flex;
+    border: 12px solid black;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: linear-gradient(50deg,red,orange,yellow);
+               
+   
+
+
+}
+
+#luffy {
+    height: 490px;
+
+}
+#zorro,#solo{
+    width:600px;
+}
+    </style>
 </head>
 <body>
-    <table>
-        <tbody>
-           <tr><td><img src="IMG_-m5bd7h.jpg" alt=""></td></tr> 
-        </tbody>
-    </table>
+    <div class="container">
+        <table>
+            <tbody>
+               <tr>
+                <td><img src="IMG_-m5bd7h.jpg" alt=""></td>
+                <td><img src="IMG_20190911_092442.jpg" alt=""></td>
+                <td><img src="IMG_20190911_092354.jpg" alt=""></td>
+                <th rowspan="2"><img   id="luffy" src="LUFFY2.webp" alt=""></th>
+            
+            </tr> 
+            <tr row-span="2">
+
+                <th colspan="2"><img id="zorro" src="ZORRO.webp" alt=""></th>
+                <td><img src="ZORRO2.webp" alt=""></td>
+
+            </tr>
+            <tr>
+                <td><img src="LUFFY1.webp" alt=""></td>
+                <td><img src="Screenshot_2022-07-02-01-16-33-861_com.mxtech.videoplayer.ad.jpg" alt=""></td>
+                <th colspan="2"> <img id="solo" src="solo3.webp" alt=""></th>
+            </tr>
+            <tr>
+                <td><img src="solo.webp" alt=""></td>
+                <td><img src="solo2.webp" alt=""></td>
+                <td><img src="solo4.webp" alt=""></td>
+                <td><img src="solo5.webp" alt=""></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
     
 </body>
 </html>
