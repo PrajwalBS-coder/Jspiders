@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        c=console.log
+        var a = [1,2,3,4];
+        var b=[4,5,6,];
+        var d=[];
+        c("Using for loop and push method");
+        for(let val of a){
+            d.push(val);
+        }
+        for(let val of b){
+            d.push(val);
+        }
+        c(d)
+
+        c("Using spreda operator(...)");
+        d=[...a,...b];
+        c(d)
+
+
+    </script>
+</body>
+</html>

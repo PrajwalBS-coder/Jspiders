@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        c=console.log
+        let n=[1,2,3,4,5];//shallow copy
+        let cp=n;
+        c(cp,n)
+        cp[4]=100;
+        c(cp,n)//because it's shallow copy it'll share same address so any cahnge made in copied arry will affect original.
+        
+        //  one cause they access the  same memory location.
+
+        c("-=-=-==-=-=-=-=-=-=-");
+        c(">*>*>*>* DEEP COPY *<*<*<*<")
+        let cp2=[...n]//deep copy(here we used spread operator(...) for coping)
+        c(cp2,n)
+        cp[2]=90;
+        c(cp2,n)//here it won't affect the original one cause the memory shared by are different and while coping a new memory will be created
+        c(eval(cp2),eval(n))
+    </script>
+</body>
+</html>
