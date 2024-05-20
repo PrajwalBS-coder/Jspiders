@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        c = console.log
+        let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 78, 64];
+        let even = []
+
+        for (val in a) {
+            //c(val)
+            if (a[val] % 2 == 0) {
+                even.push(a[val])
+            }
+        }
+        c(even)
+       let even2= a.filter((element, index, sourceArray) => {
+
+            if (element % 2 === 0) {
+
+                return true
+            }
+        });
+
+c(even2)
+
+let even3=a.filter(ele=>ele%2===0);//without any function
+c(even3)
+
+    </script>
+</body>
+
+</html>
