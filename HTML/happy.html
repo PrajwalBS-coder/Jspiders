@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isHappy(n) {
+            let sum = 0;
+            while (n > 0) {
+                let e = n % 10;
+                n = Math.floor(n / 10);
+                sum += e * e;
+            }
+            if (sum === 1) {
+                return true;
+            } else if (sum > 1 && sum <= 4) {
+                return false;
+            }
+            return isHappy(sum);
+        }
+        console.log(isHappy(19))
+
+
+        let n = 20
+        while (n > 9) {
+            let s = 0
+            while (n != 0) {
+                e = n % 10
+                s += e * e
+                n = Math.floor(n / 10)
+
+            }console.log(n,s)
+
+            n = s
+
+        }
+
+        if (n == 1 | n == 7) {
+            console.log('happy')
+        }
+        else {
+
+            console.log("Not happy")
+
+        }
+
+
+    </script>
+</body>
+
+</html>l
