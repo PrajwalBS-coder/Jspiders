@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #h{
+            color: limegreen;
+        }
+        #b{
+            color: firebrick;
+        }
+        .imp{
+            background-color: rgb(65, 175, 175);
+            
+        }.p-3{
+            padding: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="display" >
+        <h1 id ="h" class="imp">
+            Hello
+        </h1>
+        <h1 id="b">
+            Bye
+        </h1>
+    </div>
+    <script>
+        var h = document.getElementById("h");
+        let i=document.getElementById("b");
+        //h.setAttribute('class','p-3')
+        console.log(h.getAttribute('class'))
+        h.classList.add('p-3')
+
+    </script>
+</body>
+</html>

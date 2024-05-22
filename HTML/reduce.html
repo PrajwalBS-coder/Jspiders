@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=[1,2,3,4,5];
+        let b=a.find((e)=>//find method retruns first matched condtion value it won't check the rest of the values.
+    {
+        return e%2==0;
+    });
+    console.log(b)
+
+    //filter function
+    let c=a.filter((e)=>//filter method creates a new array and add the condition satified values to that list it'll check for all the array elements .
+    {
+        return e%2==0;
+    });
+    console.log(c)
+
+    //reduce
+    let d=a.reduce((a,ele,i,arr)=>
+    {
+        return a+ele
+    },0);
+    console.log(d)
+    </script>
+</body>
+</html>
