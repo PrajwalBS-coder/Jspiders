@@ -13,27 +13,51 @@
     </style>
 </head>
 
-<body>
+<body onload="">
     <nav class="navbar navbar-dark bg-dark">
 
         <div class="container-fluid">
             <a href="#" class="navbar-brand"> Jspiders </a>
             <div>
                 <button id="login">Login</button>
-                <button id="signup"  data-bs-target="#exampleModal" data-bs-toggle="modal" >Sign in</button>
+                <button id="signup" data-bs-toggle="modal" >Sign in</button>
 
             </div>
         </div>
     </nav>
     <div id="show">
         <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Please Fillout For Registration</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input type="text" class="form-control" placeholder="ENter Your name"><br>
+                            <input type="text" class="form-control" placeholder="ENter Your EmailID"><br>
+                            <input type="text" class="form-control" placeholder="ENter Your Age"><br>
+                            <input type="text" class="form-control" placeholder="ENter Course"><br>
+                            <input type="text" class="form-control" placeholder="ENter Year Of Pass"><br>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         let tg = ``;
         let signup = document.getElementById('signup')
         let showdata = document.getElementById('show')
-        console.log(showdata.textContent);
+        //console.log(showdata.textContent);
+        load();
         tg += `<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -60,10 +84,9 @@
         </div>`;
 
         signup.addEventListener('click', function () {
-            //signup.setAttribute('data-bs-target', '#exampleModal');
-           // signup.setAttribute('data-bs-toggle', 'modal')
 
-            console.log("clicked")
+
+            // console.log("clicked")
             if (showdata.innerHTML = tg) {
                 console.log("showdata")
             }
@@ -74,6 +97,10 @@
 
 
         });
+        function load() {
+            signup.setAttribute('data-bs-target', '#exampleModal');
+            //signup.setAttribute('data-bs-toggle', 'modal')
+        }
 
 
     </script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>sort</h1>
+    <script>
+        var arr = [100, 20, 3, 4, 1, 475, 6, 7, 887, 9];
+        console.log(arr.sort((a, b) => {
+            return a - b;//for ascending
+        })
+        );
+        console.log(arr.sort((a, b) => {
+            return b - a;//for descending
+        })
+        );
+        str = ['A', 'c', 'e', 't', 'E']
+        console.log(str.sort());
+        console.log(str.reverse());
+    </script>
+
+</body>
+
+</html>
