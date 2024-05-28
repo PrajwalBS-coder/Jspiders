@@ -1,4 +1,4 @@
-s="ababa"
+s="sms"
 for sv in range(0,len(s)):
     
     for ev in range(sv+1,len(s)+1):
@@ -7,3 +7,4 @@ for sv in range(0,len(s)):
             word+=s[ind]
             
         print(word)
+ 

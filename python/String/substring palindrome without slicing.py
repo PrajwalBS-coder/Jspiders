@@ -5,13 +5,11 @@ for sv in range(0,len(s)):
         word=''
         for ind in range(sv,ev):
             word+=s[ind]    
-        for i in range(len(word)):
-          rev=""
-       # print(word)
+        rev=""
         for ind in range(len(word)-1,-1,-1):
-           rev+=s[ind]
+           rev+=word[ind]
            #print(rev,end=" ")
-        #print(word,rev)
+        #print(rev)
         if(word==rev):
-            print(word)
+            print(word)#Completed
             
