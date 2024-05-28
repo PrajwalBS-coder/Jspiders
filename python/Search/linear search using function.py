@@ -9,5 +9,5 @@ def linear(l,searchitem):
 
 
 l=[3,6,22,5,8,9,0,34,54]
-serachite=int(input())
+serachite=int(input("Enter Search "))
 print(linear(l,serachite))

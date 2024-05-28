@@ -3,7 +3,7 @@ for inn in range(1,var+1):
     for sp in range(var-inn):
         print(" ",end=" ")
     for val in range(inn):
-        if inn==5 or val==inn-1 or val==0:
+        if inn==var or val==inn-1 or val==0:
             print("*",end=" ")
         else:
             print(" ",end=" ")

@@ -111,7 +111,7 @@ eventtag.addEventListener('click', function (e) {
                         
                         <input type="text" class="form-control input-group mb-2 "
                             aria-label="Text input with checkbox" id="uadd">
-                        <input type="submit" name="" id="add" class="btn btn btn-dark m-auto" >
+                        <input type="submit" name="" id="add" class="btn btn btn-dark m-auto" data-bs-dismiss="modal" >
                     </form>
                         
                     </div>

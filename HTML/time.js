@@ -33,7 +33,7 @@ function time() {
     //settting values
     min.textContent = con(tmin)
     sec.textContent = con(tsec)
-    msec.textContent = con(tmsec)
+    msec.textContent = con(Math.trunc(tmsec/100))
 
 
 }
