@@ -1,0 +1,6 @@
+#print("\n".join(list(map(lambda a: "* "*a,range(6)))))
+#print("\n".join(list(map(lambda a: "* "*a,range(6,0,-1)))))
+#print()
+#print()
+#print('\n'.join(list(map(lambda a,b:" "*a+"*"*b,range(3,-1,-1),range(1,5)))))
+print('\n'.join(list(map(lambda a,b:" "*a+"*"*b,range(4),range(5,0,-1)))))
