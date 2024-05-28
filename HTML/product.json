@@ -2,14 +2,14 @@
     "products": [
         {
             "id": 1,
-            "img": "images/luffy1.webp",
+            "img": "images/luffy2.webp",
             "name": "Shirt",
             "cost": 1999,
            " quantity": 0
         },
         {
             "id": 2,
-           " img": "images/solo.webp",
+           "img": "images/solo2.webp",
             "name": "Shirt",
             "cost": 1999,
            " quantity": 0
