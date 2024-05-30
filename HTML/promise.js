@@ -1,31 +1,29 @@
-getbutton = document.getElementById("data")
-//console.log(getbutton.innerText)
-display = document.getElementById("display")
-display.addEventListener("click", getdata);
-
-function getdata() {
+let p = new Promise(function (resloved, rejected) {
     let xhr = new XMLHttpRequest()
-
-    xhr.open('GET', 'product.json', true)
+    console.log("loaded")
+    xhr.open('GET', "producot.json", true)
     xhr.send()
+    xhr.onload =()=>
+    {
+        if (xhr.statusText === "OK") {
+            console.log(xhr.responseText)
+            resloved(xhr.responseText)
+        }
+        else {
+            rejected("WRONG LINK")
+        }
+    }
+});
 
-    xhr.onprogress = setTimeout(function () {
-        let load = document.getElementById("load");
-        load.innerText = "DATA loading"
-    });
+p.then((data) => {
+    load.innerText = ""
+    let produc = JSON.parse(data);
+    let { products } = produc
+    //console.log(produc)
 
-
-    xhr.onload =setTimeout( function () {
-
-        let load = document.getElementById("load");
-        load.innerText = ""
-        let produc = JSON.parse(xhr.responseText);
-        let { products } = produc
-        //console.log(produc)
-
-        let product = ``;
-        for (let item of products) {
-            product += ` <div class="col-md-3">
+    let product = ``;
+    for (let item of products) {
+        product += ` <div class="col-md-3">
                 <div class="card" >
                     <div class="cardheader">
                         <img src=${item.img} alt="not found" class="">
@@ -43,10 +41,10 @@ function getdata() {
                     </div>
                 </div>
             </div>`;
-        }
-        let output = document.getElementById("output");
-        output.innerHTML = product;
-    },2000)
+    }
+    let output = document.getElementById("output");
+    output.innerHTML = product;
 
-}
-
+}).catch((err) => {
+    console.log(err)
+})
