@@ -1,12 +1,9 @@
-let n1 = 0
-let n2 = 1
+var Person = function(pName){
+  var name = pName;
 
-for (let i = 0; i < 5; i++) {
-
-    let nele = n1 + n2
-    console.log(n1)
-    n1 = n2
-    n2 = nele
-    //console.log(nele)
-L
+  this.getName = function(){
+    return name;
+  }
 }
+var person = new Person("Neelesh");
+console.log(person.getName());

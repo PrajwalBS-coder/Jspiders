@@ -1,4 +1,7 @@
 def prime(n,c=0):
+    """
+    this is function
+    """
     for val in range(1,n+1):
         if(n%val==0):
             c+=1
@@ -7,3 +10,4 @@ def prime(n,c=0):
     return "Not Prime"
 
 print(list(map(prime,range(10,51))))
+print( __doc__)
