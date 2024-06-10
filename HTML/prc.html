@@ -6,7 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
     <script src="prc.js"></script>
 </body>
-</html>
+</html>let p = [1, 2, 3, 4, 5]
+p.reduce((acc, item, i) => {
+    
+    console.log(`acc${acc} and item ${item}`)
+    return acc+item;
+
+}, 0)
+
+
+let s=[1,2,3,4,5]
+
+let t=s.reduce((l,item,ele)=>{
+    console.log(`${l}  and ${item}`)
+    return l+ele;
+},0 )
+console.log(t)
