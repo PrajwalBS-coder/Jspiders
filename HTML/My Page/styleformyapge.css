@@ -1,0 +1,18 @@
+img {
+    height: 180px !important;
+    width: 35% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*position: relative;*/
+
+}
+
+#main {
+    border: 2px solid black;
+    border-color: aquamarine !important;
+    width:650px; /* Set the width of the div */
+    height: 550px;
+    margin: 0,auto !important;
+    background-color: antiquewhite;
+}
