@@ -1,3 +1,26 @@
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+}
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.login-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.login-container button {
+    padding: 10px;
+    font-size: 16px;
+}
 img {
     height: 180px !important;
     width: 35% !important;
