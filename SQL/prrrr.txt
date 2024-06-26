@@ -1,0 +1,2 @@
+select * from(select * from(select * from (select * from emp order by sal desc) where rownum<=5)order by sal asc) where rownum=1
+/
