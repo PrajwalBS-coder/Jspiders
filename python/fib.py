@@ -8,3 +8,5 @@ for i in range(6):
     n1=n2
     n2=re
     #print("n2",n2)
+_=30
+print(_)
