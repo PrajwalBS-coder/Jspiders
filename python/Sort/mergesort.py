@@ -28,4 +28,3 @@ def d(l):#d stand for division
 l=[3,5,1,77,12,904,12,11,0]
 d(l)
 print(l)
-

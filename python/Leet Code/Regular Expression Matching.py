@@ -1,6 +1,6 @@
 import re
 s = "aa"
-p = "a"
+p = "a*"
 if("*" in p):
     p=p.replace("*","")
     p=p*len(s)
