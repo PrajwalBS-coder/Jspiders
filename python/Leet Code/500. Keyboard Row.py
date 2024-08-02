@@ -2,7 +2,13 @@ fst="qwertyuiop"
 sec="asdfghjkl"
 thr="zxcvbnm"
 words = ["Hello","Alaska","Dad","Peace"]
-l=[]
+p=[]
 for word in words:
     for l in word:
-        if 
+        if  l in fst or l in sec or l in thr:
+            pass
+        else:
+            break
+    p.append(word)
+
+print(p)
