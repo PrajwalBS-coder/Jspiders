@@ -1,4 +1,4 @@
-strs = [""]
+strs = [""]#time limit exceed
 l=[]
 # for i in range(len(strs)):
 #     p=[]
