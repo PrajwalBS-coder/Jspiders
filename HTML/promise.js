@@ -1,7 +1,7 @@
 let p = new Promise(function (resloved, rejected) {
     let xhr = new XMLHttpRequest()
     console.log("loaded")
-    xhr.open('GET', "producot.json", true)
+    xhr.open('GET', "product.json", true)
     xhr.send()
     xhr.onload =()=>
     {
