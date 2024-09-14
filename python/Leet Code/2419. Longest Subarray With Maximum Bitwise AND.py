@@ -9,7 +9,7 @@ print(c-nums.count(n))
 # c=0
 # n=max(nums)
 # i=nums.index(n)
-# for i in range(i,len(nums)):
+# for i in range(i,len(nums)): 
 #     if nums[i]!=n:
 #         break
 #     c+=1
