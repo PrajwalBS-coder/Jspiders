@@ -1,0 +1,2 @@
+s = "eleetminicoworoep"
+v='aeiou'
