@@ -119,25 +119,25 @@ eventtag.addEventListener('click', function (e) {
                 </div>
             </div>
             </div>`;
-            
-//////////Updating array and local storage            
-       
+
+        //////////Updating array and local storage            
+
         let formid = document.getElementById('form');
-        let additem=document.getElementById('add')
+        let additem = document.getElementById('add')
         var task = document.getElementById('uadd');
-        let data=document.getElementById('exist')
-            data.value=tasklist[ind];
-            console.log(data.value);
-           
-            console.log(ind)
+        let data = document.getElementById('exist')
+        data.value = tasklist[ind];
+        console.log(data.value);
+
+        console.log(ind)
         console.log(task.value)
-        console.log('Near Update',ind)
-        pos=ind;
+        console.log('Near Update', ind)
+        pos = ind;
         additem.addEventListener('click', function (e) {
 
             e.preventDefault();
-           console.log("addd")
-           // var task = document.getElementById('task');
+            console.log("addd")
+            // var task = document.getElementById('task');
             console.log(task.value)
             //
             console.log(pos)
@@ -145,19 +145,19 @@ eventtag.addEventListener('click', function (e) {
             // console.log(tasklist)
             if (task.value != '') {
                 if (ind !== -1) {
-                    console.log(ind,task.value)
+                    console.log(ind, task.value)
                     tasklist[pos] = task.value;
                 }
                 localStorage.setItem('todolist', JSON.stringify(tasklist));
-                task.value="";
+                task.value = "";
                 //ind=-1;
                 otput()
-                
+
 
             }
-           
-    }); 
-    show.innerHTML = tg;
+
+        });
+        show.innerHTML = tg;
         //console.log(val.value)
 
     }
