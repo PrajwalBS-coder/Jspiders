@@ -1,6 +1,7 @@
 s = "cbef"
 i = 0
 l=[]
+
 for i in s:
     if i.isalpha():
         l.append(i)
