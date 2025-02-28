@@ -6,4 +6,3 @@ us=int(input("Enter The Size"))
 for i in range(us):
     op.append(a[i])
 print(op)
-
